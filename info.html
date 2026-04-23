@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>진료안내 | 삼성365의원</title>
+
+    <meta name="description" content="삼성365의원의 진료 시간과 위치 정보를 확인하세요. 평일, 토요일 진료 및 점심 시간 안내를 담았습니다.">
+    <meta name="keywords" content="삼성365의원, 진료시간, 병원위치, 은평구정형외과진료시간, 삼성365안내">
+    <meta property="og:title" content="진료안내 | 삼성365의원">
+    <meta property="og:description" content="평일, 토요일, 일요일 진료시간 및 오시는 길 안내">
+    <meta property="og:type" content="website">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontSize: {
+                        '4xl': ['2.25rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
+                        '5xl': ['3rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
+                        '6xl': ['3.75rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
+                        '7xl': ['4.5rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#111111',
+                            light: '#F8F9FA',
+                            accent: '#0C4A9E',
+                            gray: '#E9ECEF'
+                        }
+                    },
+                    spacing: {
+                        '30': '7.5rem',
+                        '40': '10rem',
+                        '50': '12.5rem',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #F8F9FA;
+            color: #111111;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .hover-underline-animation {
+            display: inline-block;
+            position: relative;
+        }
+
+        .hover-underline-animation::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #0C4A9E;
+            transform-origin: bottom right;
+            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+
+        .hover-underline-animation:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-brand-accent selection:text-white break-keep">
+
+    <!-- HEADER (Navigation) -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-500" id="header"
+        style="background-color: rgba(255,255,255,0.95); backdrop-filter: blur(12px);">
+        <div class="max-w-[1600px] mx-auto px-6 md:px-12 xl:px-20 flex justify-between items-center h-24">
+
+            <a href="index.html" class="text-2xl md:text-3xl font-extrabold text-brand-dark">
+                삼성365의원
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden lg:flex space-x-8 xl:space-x-12 items-center h-full">
+
+                <div class="relative group h-full flex items-center">
+                    <a href="staff.html"
+                        class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">병원소개</a>
+                    <div
+                        class="absolute top-20 left-1/2 -translate-x-1/2 w-48 bg-white/95 backdrop-blur-md shadow-lg rounded-b-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 py-3 z-[60]">
+                        <a href="staff.html"
+                            class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">의료진소개</a>
+                        <a href="info.html"
+                            class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">병원진료시간</a>
+                    </div>
+                </div>
+
+                <div class="relative group h-full flex items-center">
+                    <a href="spine-neck.html"
+                        class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">척추질환</a>
+                    <div
+                        class="absolute top-20 left-1/2 -translate-x-1/2 w-48 bg-white/95 backdrop-blur-md shadow-lg rounded-b-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 py-3 z-[60]">
+                        <a href="spine-neck.html"
+                            class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">목통증</a>
+                        <a href="spine-back.html"
+                            class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">등통증</a>
+                        <a href="spine-waist.html"
+                            class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">허리통증</a>
+                    </div>
+                </div>
+
+                <div class="relative group h-full flex items-center">
+                    <a href="shoulder-pain.html"
+                        class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">관절질환</a>
+                    <div
+                        class="absolute top-20 left-1/2 -translate-x-1/2 w-48 bg-white/95 backdrop-blur-md shadow-lg rounded-b-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 py-3 z-[60]">
+                        <a href="shoulder-pain.html"
+                            class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">어깨통증</a>
+                        <a href="knee-pain.html"
+                            class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">무릎통증</a>
+                        <a href="elbow-pain.html"
+                            class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">팔꿈치통증</a>
+                        <a href="wrist-ankle-pain.html"
+                            class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">손목/발목통증</a>
+                        <a href="hip-joint-pain.html"
+                            class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">엉덩이
+                            관절</a>
+                    </div>
+                </div>
+
+                <div class="relative group h-full flex items-center">
+                    <a href="tmj-pain.html"
+                        class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">난치성질환</a>
+                    <div
+                        class="absolute top-20 left-1/2 -translate-x-1/2 w-48 bg-white/95 backdrop-blur-md shadow-lg rounded-b-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 py-3 z-[60]">
+                        <a href="tmj-pain.html"
+                            class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">턱관절통증</a>
+                        <a href="headache-pain.html"
+                            class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">두통</a>
+                        <a href="tinnitus-pain.html"
+                            class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">이명</a>
+                    </div>
+                </div>
+
+                <a href="#" class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">주사치료</a>
+                <a href="community.html" id="nav-community-link"
+                    class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">커뮤니티</a>
+
+                <a href="login.html" id="nav-auth-btn"
+                    class="px-6 py-2.5 bg-brand-dark text-white text-[14px] font-semibold hover:bg-brand-accent transition-colors duration-300 ml-4">
+                    로그인
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle"
+                class="lg:hidden text-lg font-bold uppercase tracking-[0.2em] text-brand-dark transition-colors hover:text-brand-accent">
+                MENU
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="hidden absolute top-24 left-0 w-full min-h-[calc(100vh-6rem)] bg-white flex flex-col py-8 px-6 space-y-6 z-40 overflow-y-auto">
+
+            <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
+                <summary
+                    class="flex justify-between items-center text-3xl font-bold text-gray-900 cursor-pointer list-none">
+                    병원소개 <span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
+                    <a href="staff.html" class="text-xl text-gray-600 block">의료진소개</a>
+                    <a href="info.html" class="text-xl text-gray-600 block">병원진료시간</a>
+                </div>
+            </details>
+
+            <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
+                <summary
+                    class="flex justify-between items-center text-3xl font-bold text-gray-900 cursor-pointer list-none">
+                    척추질환 <span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
+                    <a href="spine-neck.html" class="text-xl text-gray-600 block">목통증</a>
+                    <a href="spine-back.html" class="text-xl text-gray-600 block">등통증</a>
+                    <a href="spine-waist.html" class="text-xl text-gray-600 block">허리통증</a>
+                </div>
+            </details>
+
+            <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
+                <summary
+                    class="flex justify-between items-center text-3xl font-bold text-gray-900 cursor-pointer list-none">
+                    관절질환<span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
+                    <a href="shoulder-pain.html" class="text-xl text-gray-600 block">어깨통증</a>
+                    <a href="knee-pain.html" class="text-xl text-gray-600 block">무릎통증</a>
+                    <a href="elbow-pain.html" class="text-xl text-gray-600 block">팔꿈치통증</a>
+                    <a href="wrist-ankle-pain.html" class="text-xl text-gray-600 block">손목/발목통증</a>
+                    <a href="hip-joint-pain.html" class="text-xl text-gray-600 block">엉덩이 관절</a>
+                </div>
+            </details>
+
+            <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
+                <summary
+                    class="flex justify-between items-center text-3xl font-bold text-gray-900 cursor-pointer list-none">
+                    난치성질환<span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
+                    <a href="tmj-pain.html" class="text-xl text-gray-600 block">턱관절통증</a>
+                    <a href="headache-pain.html" class="text-xl text-gray-600 block">두통</a>
+                    <a href="tinnitus-pain.html" class="text-xl text-gray-600 block">이명</a>
+                </div>
+            </details>
+
+            <div class="pb-4">
+                <a href="#" class="text-3xl font-bold text-gray-900 block">주사치료</a>
+            </div>
+
+            <div class="pb-4">
+                <a href="community.html" id="mobile-community-link"
+                    class="text-3xl font-bold text-gray-900 block">커뮤니티</a>
+            </div>
+
+            <div class="pt-8 mt-auto mb-10 w-full">
+                <a href="login.html" id="mobile-auth-btn"
+                    class="w-full py-4 bg-brand-dark text-white text-center text-xl font-bold uppercase tracking-wide block">
+                    로그인 / 회원가입
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24 bg-gray-50/50 relative overflow-hidden">
+
+        <!-- Ambient Glow Backgrounds -->
+        <div
+            class="absolute top-[40%] left-[-10%] w-[600px] h-[600px] bg-brand-accent/5 rounded-full blur-[120px] pointer-events-none z-0">
+        </div>
+        <div
+            class="absolute bottom-[5%] right-[-10%] w-[800px] h-[800px] bg-blue-300/10 rounded-full blur-[150px] pointer-events-none z-0">
+        </div>
+
+        <!-- 1. HERO SECTION -->
+        <section class="relative h-[40vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="hospital_hero.webp" alt="병원 외관 전경"
+                    class="w-full h-full object-cover object-center filter brightness-[0.65]">
+                <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/80 to-transparent"></div>
+            </div>
+
+            <div class="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 xl:px-20 text-left" data-aos="fade-up"
+                data-aos-duration="1000">
+                <p class="text-brand-accent font-bold tracking-[0.3em] uppercase mb-4 text-sm text-blue-200">Clinic Info
+                </p>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
+                    진료시간 및 위치안내
+                </h1>
+            </div>
+        </section>
+
+        <!-- 2. CLINIC HOURS SECTION -->
+        <section class="py-24 md:py-32 px-6 md:px-12 xl:px-20 relative z-10">
+            <div class="max-w-[1200px] mx-auto">
+
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">진료시간 안내</h2>
+                    <p class="text-lg text-gray-500">환자분의 편의를 위해 토요일에도 진료를 시행합니다.</p>
+                </div>
+
+                <!-- Single Panel Wide Card -->
+                <div class="bg-white rounded-[2.5rem] shadow-[0_20px_60px_rgb(0,0,0,0.05)] border border-gray-100 overflow-hidden mb-16 relative transition-transform duration-500 hover:-translate-y-1"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <!-- Subtle Watermark Background -->
+                    <div class="absolute -right-10 -top-10 opacity-[0.02] pointer-events-none">
+                        <svg class="w-96 h-96 text-brand-dark" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM12 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10zm1-15h-2v7l5 3 1-1.5-4.25-2.5V7z" />
+                        </svg>
+                    </div>
+
+                    <div class="flex flex-col lg:flex-row">
+                        <!-- Left Side: Weekdays -->
+                        <div class="lg:w-[58%] p-10 md:p-14 lg:p-16 relative z-10">
+                            <div class="flex items-center gap-4 mb-10">
+                                <div
+                                    class="w-14 h-14 rounded-2xl bg-brand-light flex items-center justify-center text-brand-accent shadow-sm">
+                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-2xl font-bold text-brand-dark">평일 진료 안내</h3>
+                            </div>
+
+                            <div class="space-y-8">
+                                <div
+                                    class="border-b border-gray-100 pb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                                    <span class="text-xl md:text-2xl font-bold text-gray-400">월 &nbsp;화 &nbsp;수 &nbsp;목
+                                        &nbsp;금</span>
+                                    <span class="text-5xl md:text-6xl font-black text-brand-accent">09:00 - 18:30</span>
+                                </div>
+
+                                <div
+                                    class="flex flex-col sm:flex-row items-center sm:items-start bg-gray-50/50 rounded-2xl p-6 sm:p-8 gap-6 sm:gap-12 w-full lg:w-max border border-gray-50">
+                                    <div class="flex items-start gap-4">
+                                        <div class="mt-1.5 w-2 h-2 rounded-full bg-gray-400 shrink-0"></div>
+                                        <div>
+                                            <p class="text-sm font-bold text-gray-400 mb-1 tracking-wide uppercase">점심시간
+                                            </p>
+                                            <p class="text-2xl font-black text-brand-dark">12:30 - 14:00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Side: Weekends / Vertical Divider -->
+                        <div
+                            class="lg:w-[42%] bg-gray-50/80 border-t lg:border-t-0 lg:border-l border-gray-100 p-10 md:p-14 lg:p-16 relative z-10 flex flex-col justify-center">
+                            <div class="flex items-center gap-4 mb-10">
+                                <div
+                                    class="w-14 h-14 rounded-2xl bg-white border border-gray-200 flex items-center justify-center text-gray-700 shadow-sm">
+                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-2xl font-bold text-brand-dark">주말 및 공휴일</h3>
+                            </div>
+
+                            <div class="space-y-6">
+                                <div
+                                    class="flex flex-wrap lg:flex-nowrap justify-between items-end border-b border-gray-200 pb-5">
+                                    <span
+                                        class="text-xl font-bold text-gray-600 w-full sm:w-auto mb-2 sm:mb-0">토요일</span>
+                                    <span class="text-3xl md:text-4xl font-black text-brand-dark">09:00 - 14:00</span>
+                                </div>
+                                <div
+                                    class="flex flex-wrap lg:flex-nowrap justify-between items-end border-b border-gray-200 pb-5">
+                                    <span
+                                        class="text-xl font-bold text-red-500 w-full sm:w-auto mb-2 sm:mb-0">일요일</span>
+                                    <span class="text-3xl md:text-4xl font-black text-brand-dark">09:00 - 13:00</span>
+                                </div>
+                            </div>
+
+                            <!-- Highlight Box -->
+                            <div
+                                class="mt-8 bg-white border border-brand-accent/20 rounded-2xl p-6 shadow-sm flex items-start gap-3">
+                                <svg class="w-6 h-6 text-brand-accent shrink-0 mt-0.5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <p class="text-base font-medium text-gray-700 leading-snug">토요일, 일요일은 점심시간 없이<br><strong
+                                        class="text-brand-accent font-extrabold text-lg">정상 진료</strong>합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Integrated Callout: Cutoff Notice -->
+                    <div
+                        class="bg-red-50/80 border-t border-red-100 p-5 sm:px-10 lg:px-16 flex items-center justify-center lg:justify-start gap-4 transition-colors hover:bg-red-100 relative z-10 group">
+                        <div
+                            class="w-8 h-8 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <p class="font-bold text-red-600 text-[15px] sm:text-[17px] tracking-wide">[접수 마감 안내] 진료 마감 30분
+                            전까지 접수를 도와드립니다.</p>
+                    </div>
+                </div>
+
+                <!-- Call to Action Banner -->
+                <div class="bg-brand-light border border-brand-accent/20 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 mt-10"
+                    data-aos="zoom-in-up" data-aos-delay="200">
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-extrabold text-brand-dark mb-2">네이버 예약으로 빠른 진료를 받으십시오</h3>
+                        <p class="text-gray-500 font-medium">네이버 예약을 통해 대기 시간 없이 편하게 진료받으실 수 있습니다.</p>
+                    </div>
+                    <a href="#" target="_blank"
+                        class="shrink-0 w-full md:w-auto px-10 py-5 bg-[#03C75A] hover:bg-[#02b350] text-white rounded-xl text-xl font-bold shadow-lg shadow-[#03C75A]/30 transition-all duration-300 text-center flex items-center justify-center gap-2">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727v12.845z"></path>
+                        </svg>
+                        네이버 예약하기
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. LOCATION & MAP SECTION -->
+        <section class="py-24 md:py-32 px-6 md:px-12 xl:px-20 bg-white border-t border-gray-100" id="location-section">
+            <div class="max-w-[1200px] mx-auto relative z-10">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">위치 안내</h2>
+                    <p class="text-lg text-gray-500">편하게 찾아오실 수 있도록 자세한 위치를 안내해드립니다.</p>
+                </div>
+
+                <!-- Map Box -->
+                <div class="relative group" data-aos="zoom-in" data-aos-delay="100">
+                    <div id="naver-map"
+                        class="w-full aspect-video lg:aspect-[2.5/1] bg-gray-100 rounded-3xl overflow-hidden mb-12 shadow-inner border border-gray-200 relative z-10">
+                        <!-- Map will be rendered here -->
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-gray-400">
+                            <svg class="w-16 h-16 mb-4 text-brand-accent/40 animate-pulse" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <p class="font-bold text-lg">지도를 불러오는 중입니다...</p>
+                            <p class="text-xs mt-2">NCP Client ID가 설정되면 지도가 활성화됩니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location Details Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-b border-gray-100 py-10">
+
+                    <div class="flex items-start gap-5" data-aos="fade-right" data-aos-delay="200">
+                        <div class="w-12 h-12 rounded-full bg-brand-light flex items-center justify-center shrink-0">
+                            <svg class="w-6 h-6 text-brand-accent" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-brand-dark mb-2">병원 위치</h4>
+                            <p class="text-gray-600 text-lg leading-relaxed mb-4">서울 은평구 진관2로 57-7<br>우물골두산위브아파트상가 253동
+                                B106호, B107호</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-5" data-aos="fade-left" data-aos-delay="300">
+                        <div class="w-12 h-12 rounded-full bg-brand-light flex items-center justify-center shrink-0">
+                            <svg class="w-6 h-6 text-brand-accent" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-brand-dark mb-2">주차 안내</h4>
+                            <p class="text-gray-600 text-lg leading-relaxed mb-4">병원 건물 내 <strong>253동 주차장</strong>을 이용
+                                가능합니다.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-50 pt-20 pb-10 border-t border-gray-100">
+        <div class="max-w-[1600px] mx-auto px-6 md:px-12 xl:px-20 text-gray-500 text-sm md:text-base leading-relaxed">
+            <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-6">삼성365의원</h2>
+            <div
+                class="flex flex-col md:flex-row justify-between gap-8 md:gap-4 border-b border-gray-200 pb-10 mb-8 w-full">
+                <div class="w-full md:w-auto">
+                    <p class="mb-2"><strong>대표원장 :</strong> 삼성365의원 대표원장</p>
+                    <p class="mb-2"><strong>주소 :</strong> 서울 은평구 진관2로 57-7 우물골두산위브아파트상가 253동 B106호, B107호</p>
+                    <p class="mb-2"><strong>사업자등록번호 :</strong> 000-00-00000</p>
+                </div>
+                <div class="w-full md:w-auto md:text-right">
+                    <p class="mb-2"><strong class="text-brand-accent text-lg">상담 및 예약 : 02-123-3650</strong></p>
+                    <p class="mb-2"><strong>진료시간 :</strong> 평일 09:00-18:30 | 토요일 09:00-14:00 | 일요일 09:00-13:00</p>
+                    <p>점심시간 12:30 - 14:00</p>
+                </div>
+            </div>
+            <div class="text-center md:text-left text-gray-400">
+                &copy; 2026 SAMSUNG 365 CLINIC. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const header = document.getElementById('header');
+
+            let isMenuOpen = false;
+
+            menuBtn.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('hidden');
+                    menuBtn.textContent = 'CLOSE';
+                    header.style.backgroundColor = 'rgba(255, 255, 255, 1)';
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    menuBtn.textContent = 'MENU';
+                    header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            window.addEventListener('scroll', () => {
+                if (!isMenuOpen) {
+                    if (window.scrollY > 50) {
+                        header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                        header.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.05)';
+                    } else {
+                        header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                        header.style.boxShadow = 'none';
+                    }
+                }
+            });
+        });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Naver Maps API -->
+    <script type="text/javascript"
+        src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Naver Map Initialization
+            if (typeof naver !== 'undefined') {
+                const mapOptions = {
+                    center: new naver.maps.LatLng(37.632599, 126.920556),
+                    zoom: 16,
+                    zoomControl: true,
+                    zoomControlOptions: {
+                        position: naver.maps.Position.TOP_RIGHT
+                    }
+                };
+
+                const map = new naver.maps.Map('naver-map', mapOptions);
+
+                const marker = new naver.maps.Marker({
+                    position: new naver.maps.LatLng(37.632599, 126.920556),
+                    map: map,
+                    icon: {
+                        content: `
+                            <div class="relative flex flex-col items-center">
+                                <div class="bg-brand-accent text-white px-4 py-2 rounded-xl shadow-xl font-bold text-sm whitespace-nowrap mb-2 border-2 border-white">
+                                    삼성365의원
+                                </div>
+                                <div class="w-4 h-4 bg-brand-accent rotate-45 border-r-2 border-b-2 border-white -mt-4"></div>
+                            </div>
+                        `,
+                        anchor: new naver.maps.Point(40, 45)
+                    }
+                });
+
+                const contentString = [
+                    '<div class="p-4 min-w-[200px]">',
+                    '   <h4 class="font-bold text-brand-dark mb-1 text-base">삼성365의원</h4>',
+                    '   <p class="text-xs text-gray-500 mb-2 leading-relaxed">서울 은평구 진관2로 57-7<br>우물골두산위브아파트상가 253동</p>',
+                    '   <a href="https://map.naver.com/v5/search/%EC%82%BC%EC%84%B1365%EC%9D%98%EC%9B%90" target="_blank" class="text-xs text-brand-accent font-bold hover:underline">길찾기 바로가기 &rarr;</a>',
+                    '</div>'
+                ].join('');
+
+                const infowindow = new naver.maps.InfoWindow({
+                    content: contentString,
+                    backgroundColor: "#ffffff",
+                    borderColor: "#0C4A9E",
+                    borderWidth: 2,
+                    anchorSize: new naver.maps.Size(10, 10),
+                    anchorSkew: true,
+                    anchorColor: "#ffffff",
+                    pixelOffset: new naver.maps.Point(0, -10)
+                });
+
+                naver.maps.Event.addListener(marker, "click", (e) => {
+                    if (infowindow.getMap()) {
+                        infowindow.close();
+                    } else {
+                        infowindow.open(map, marker);
+                    }
+                });
+
+                // Open infowindow by default
+                infowindow.open(map, marker);
+            }
+
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out-cubic',
+                once: true,
+                offset: 50
+            });
+        });
+    </script>
+</body>
+
+</html>
