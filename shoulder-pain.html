@@ -238,8 +238,8 @@
         <!-- ====================================================
              SECTION 2. SHOULDER PAIN MAP — 공간적 공감
         ===================================================== -->
-        <section class="py-24 md:py-36 px-6 md:px-12 xl:px-20 bg-white">
-            <div class="max-w-[1400px] mx-auto">
+        <section class="py-24 md:py-36 px-6 md:px-12 xl:px-20 bg-brand-light">
+            <div class="max-w-[1300px] mx-auto">
                 <div class="text-center mb-16 md:mb-24" data-aos="fade-up">
                     <p class="text-brand-accent font-bold tracking-[0.3em] uppercase mb-4 text-sm">Shoulder Pain Map</p>
                     <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-brand-dark mb-4">
@@ -248,79 +248,138 @@
                     <p class="text-lg text-gray-500 max-w-2xl mx-auto">위치와 양상이 다른 만큼, 원인도 각각 다릅니다. 정확한 진단이 치료의 시작입니다.</p>
                 </div>
 
-                <!-- Infographic layout: Image center + cards on sides -->
-                <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-0">
+                <!-- Grid layout: Cards -->
+                <div class="grid grid-cols-1 gap-10">
 
-                    <!-- Left cards -->
-                    <div class="w-full lg:w-[32%] flex flex-col gap-6">
-                        <!-- Card: 오십견 -->
-                        <div class="bg-[#F7FAFF] border border-blue-100 rounded-3xl p-8 relative" data-aos="fade-right" data-aos-delay="100">
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 rounded-full bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center shrink-0 mt-0.5">
-                                    <span class="text-brand-accent font-black text-sm">01</span>
+                    <!-- 01 오십견 -->
+                    <div class="relative bg-white rounded-[2.5rem] p-10 md:p-16 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] overflow-hidden" data-aos="fade-up">
+                        <!-- Watermark Number -->
+                        <div class="absolute -top-6 -right-4 text-[12rem] font-black text-brand-accent/5 select-none leading-none pointer-events-none">01</div>
+                        
+                        <!-- Top Accent Line -->
+                        <div class="absolute top-0 left-0 w-full h-px bg-brand-accent/30"></div>
+
+                        <div class="flex flex-col lg:flex-row items-start gap-12 relative z-10">
+                            <!-- Left Info -->
+                            <div class="shrink-0 lg:w-48">
+                                <div class="inline-block px-4 py-1.5 bg-brand-accent/10 rounded-full mb-6">
+                                    <p class="text-[11px] font-extrabold text-brand-accent tracking-widest uppercase">주요증상</p>
                                 </div>
-                                <div>
-                                    <h3 class="text-lg font-bold text-brand-dark mb-2">오십견<span class="text-gray-400 font-medium text-sm ml-2">(유착성 관절낭염)</span></h3>
-                                    <p class="text-gray-600 text-[15px] leading-relaxed">관절 주머니의 염증과 유착으로 전 방향 가동범위가 제한되는 질환</p>
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                                        <p class="text-lg font-bold text-gray-800">가동범위 제한</p>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                                        <p class="text-lg font-bold text-gray-800">관절 뻣뻣함</p>
+                                    </div>
                                 </div>
                             </div>
-                            <!-- Connector dot -->
-                            <div class="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-brand-accent/20 border-2 border-brand-accent/50"></div>
-                        </div>
 
-                        <!-- Card: 석회성 건염 -->
-                        <div class="bg-[#F7FAFF] border border-blue-100 rounded-3xl p-8 relative" data-aos="fade-right" data-aos-delay="200">
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 rounded-full bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center shrink-0 mt-0.5">
-                                    <span class="text-brand-accent font-black text-sm">03</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-lg font-bold text-brand-dark mb-2">석회성 건염</h3>
-                                    <p class="text-gray-600 text-[15px] leading-relaxed">힘줄 속 석회 침착으로 인한 급성 통증과 야간통 유발</p>
-                                </div>
+                            <!-- Right Info -->
+                            <div class="flex-1 lg:border-l lg:border-gray-100 lg:pl-16">
+                                <p class="text-brand-accent font-bold text-xs tracking-[0.2em] uppercase mb-3">Frozen Shoulder</p>
+                                <h3 class="text-3xl font-extrabold text-brand-dark mb-6">오십견 <span class="text-xl font-medium text-gray-400 ml-2">(유착성 관절낭염)</span></h3>
+                                <p class="text-gray-500 leading-[1.8] text-lg md:text-xl font-light break-keep">
+                                    관절 주머니에 염증이 생기고 유착이 발생하여 어깨가 굳어지는 질환입니다. 스스로 팔을 들어 올리기 힘들 뿐만 아니라, <span class="text-brand-dark font-semibold border-b border-brand-accent/30">다른 사람이 도와줘도 팔이 잘 올라가지 않는 전 방향 가동범위 제한</span>이 가장 큰 특징입니다.
+                                </p>
                             </div>
-                            <div class="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-brand-accent/20 border-2 border-brand-accent/50"></div>
                         </div>
                     </div>
 
-                    <!-- Center: Shoulder anatomy image placeholder -->
-                    <div class="w-full lg:w-[36%] flex justify-center px-4 lg:px-8" data-aos="zoom-in">
-                        <div class="w-full max-w-[340px] aspect-square rounded-full img-placeholder shadow-2xl border-4 border-white ring-4 ring-blue-100">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                                <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-                            </svg>
-                            <span>SHOULDER ANATOMY</span>
-                            <span class="text-xs mt-1 opacity-60">어깨 해부도 이미지</span>
+                    <!-- 02 회전근개 파열 -->
+                    <div class="relative bg-white rounded-[2.5rem] p-10 md:p-16 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                        <div class="absolute -top-6 -right-4 text-[12rem] font-black text-brand-accent/5 select-none leading-none pointer-events-none">02</div>
+                        <div class="absolute top-0 left-0 w-full h-px bg-brand-accent/30"></div>
+
+                        <div class="flex flex-col lg:flex-row items-start gap-12 relative z-10">
+                            <div class="shrink-0 lg:w-48">
+                                <div class="inline-block px-4 py-1.5 bg-brand-accent/10 rounded-full mb-6">
+                                    <p class="text-[11px] font-extrabold text-brand-accent tracking-widest uppercase">주요증상</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                                        <p class="text-lg font-bold text-gray-800">특정 각도 통증</p>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                                        <p class="text-lg font-bold text-gray-800">근력 약화</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex-1 lg:border-l lg:border-gray-100 lg:pl-16">
+                                <p class="text-brand-accent font-bold text-xs tracking-[0.2em] uppercase mb-3">Rotator Cuff Tear</p>
+                                <h3 class="text-3xl font-extrabold text-brand-dark mb-6">회전근개 파열</h3>
+                                <p class="text-gray-500 leading-[1.8] text-lg md:text-xl font-light break-keep">
+                                    어깨를 움직이는 핵심 힘줄인 회전근개가 손상되거나 파열된 상태입니다. 오십견과 달리 <span class="text-brand-dark font-semibold border-b border-brand-accent/30">팔을 올릴 때 특정 각도에서 유독 심한 통증</span>이 발생하며, 팔을 완전히 들어올린 후에는 오히려 통증이 감소하기도 합니다.
+                                </p>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Right cards -->
-                    <div class="w-full lg:w-[32%] flex flex-col gap-6">
-                        <!-- Card: 회전근개 파열 -->
-                        <div class="bg-[#F7FAFF] border border-blue-100 rounded-3xl p-8 relative" data-aos="fade-left" data-aos-delay="100">
-                            <div class="hidden lg:block absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-brand-accent/20 border-2 border-brand-accent/50"></div>
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 rounded-full bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center shrink-0 mt-0.5">
-                                    <span class="text-brand-accent font-black text-sm">02</span>
+                    <!-- 03 석회성 건염 -->
+                    <div class="relative bg-white rounded-[2.5rem] p-10 md:p-16 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                        <div class="absolute -top-6 -right-4 text-[12rem] font-black text-brand-accent/5 select-none leading-none pointer-events-none">03</div>
+                        <div class="absolute top-0 left-0 w-full h-px bg-brand-accent/30"></div>
+
+                        <div class="flex flex-col lg:flex-row items-start gap-12 relative z-10">
+                            <div class="shrink-0 lg:w-48">
+                                <div class="inline-block px-4 py-1.5 bg-brand-accent/10 rounded-full mb-6">
+                                    <p class="text-[11px] font-extrabold text-brand-accent tracking-widest uppercase">주요증상</p>
                                 </div>
-                                <div>
-                                    <h3 class="text-lg font-bold text-brand-dark mb-2">회전근개 파열</h3>
-                                    <p class="text-gray-600 text-[15px] leading-relaxed">어깨를 움직이는 핵심 힘줄의 손상으로 팔을 특정 각도로 들 때 통증 발생</p>
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                                        <p class="text-lg font-bold text-gray-800">급성 극심한 통증</p>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                                        <p class="text-lg font-bold text-gray-800">심한 야간통</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Card: 충돌증후군 -->
-                        <div class="bg-[#F7FAFF] border border-blue-100 rounded-3xl p-8 relative" data-aos="fade-left" data-aos-delay="200">
-                            <div class="hidden lg:block absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-brand-accent/20 border-2 border-brand-accent/50"></div>
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 rounded-full bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center shrink-0 mt-0.5">
-                                    <span class="text-brand-accent font-black text-sm">04</span>
+                            <div class="flex-1 lg:border-l lg:border-gray-100 lg:pl-16">
+                                <p class="text-brand-accent font-bold text-xs tracking-[0.2em] uppercase mb-3">Calcific Tendinitis</p>
+                                <h3 class="text-3xl font-extrabold text-brand-dark mb-6">석회성 건염</h3>
+                                <p class="text-gray-500 leading-[1.8] text-lg md:text-xl font-light break-keep">
+                                    어깨 힘줄 속에 칼슘이 침착되어 돌(석회)이 생기는 질환입니다. 석회가 흡수되는 과정에서 염증이 심하게 발생하여 <span class="text-brand-dark font-semibold border-b border-brand-accent/30">응급실을 찾을 정도의 매우 극심한 급성 통증</span>이 나타나고 특히 밤에 잠을 이루기 힘듭니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 04 어깨 충돌증후군 -->
+                    <div class="relative bg-white rounded-[2.5rem] p-10 md:p-16 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                        <div class="absolute -top-6 -right-4 text-[12rem] font-black text-brand-accent/5 select-none leading-none pointer-events-none">04</div>
+                        <div class="absolute top-0 left-0 w-full h-px bg-brand-accent/30"></div>
+
+                        <div class="flex flex-col lg:flex-row items-start gap-12 relative z-10">
+                            <div class="shrink-0 lg:w-48">
+                                <div class="inline-block px-4 py-1.5 bg-brand-accent/10 rounded-full mb-6">
+                                    <p class="text-[11px] font-extrabold text-brand-accent tracking-widest uppercase">주요증상</p>
                                 </div>
-                                <div>
-                                    <h3 class="text-lg font-bold text-brand-dark mb-2">어깨 충돌증후군</h3>
-                                    <p class="text-gray-600 text-[15px] leading-relaxed">어깨 뼈와 힘줄의 반복적 마찰로 움직일 때마다 마찰음과 통증 동반</p>
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                                        <p class="text-lg font-bold text-gray-800">어깨 마찰음</p>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                                        <p class="text-lg font-bold text-gray-800">특정 동작 통증</p>
+                                    </div>
                                 </div>
+                            </div>
+
+                            <div class="flex-1 lg:border-l lg:border-gray-100 lg:pl-16">
+                                <p class="text-brand-accent font-bold text-xs tracking-[0.2em] uppercase mb-3">Shoulder Impingement</p>
+                                <h3 class="text-3xl font-extrabold text-brand-dark mb-6">어깨 충돌증후군</h3>
+                                <p class="text-gray-500 leading-[1.8] text-lg md:text-xl font-light break-keep">
+                                    팔을 들어 올릴 때 어깨 뼈(견봉)와 힘줄이 반복적으로 마찰되며 염증이 생기는 질환입니다. 팔을 머리 위로 올리거나 등 뒤로 젖힐 때 주로 <span class="text-brand-dark font-semibold border-b border-brand-accent/30">'뚝' 하는 마찰음과 함께 통증이 동반</span>되는 것이 특징입니다.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -331,123 +390,155 @@
         <!-- ====================================================
              SECTION 3. MEDICAL INSIGHT — 엑스레이 데이터
         ===================================================== -->
-        <section class="py-24 md:py-40 px-6 md:px-12 xl:px-20" style="background-color: #EDF2F7;">
-            <div class="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-
-                <!-- Left: X-ray image pair placeholder -->
-                <div class="w-full lg:w-1/2" data-aos="fade-right">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="aspect-[3/4] rounded-2xl img-placeholder shadow-lg overflow-hidden">
-                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                                <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-                            </svg>
-                            <span>정상 어깨</span>
-                            <span class="text-xs mt-1 opacity-60">X-ray 이미지</span>
-                        </div>
-                        <div class="aspect-[3/4] rounded-2xl img-placeholder shadow-lg overflow-hidden border-2 border-brand-accent/30">
-                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                                <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-                            </svg>
-                            <span>환자 어깨</span>
-                            <span class="text-xs mt-1 opacity-60">X-ray 이미지</span>
-                        </div>
-                    </div>
-                    <p class="text-center text-sm text-gray-400 mt-4 tracking-wide">좌: 정상 관절간격 &nbsp;|&nbsp; 우: 석회 침착 및 간격 협소</p>
+        <section class="py-24 md:py-32 px-6 md:px-12 xl:px-20 bg-white">
+            <div class="max-w-[1400px] mx-auto">
+                
+                <!-- Top Centered Title -->
+                <div class="text-center mb-16 md:mb-20" data-aos="fade-up">
+                    <p class="text-brand-accent font-bold tracking-[0.3em] uppercase mb-4 text-sm">Medical Insight</p>
+                    <div class="w-12 h-[2px] bg-brand-accent mx-auto rounded-full"></div>
                 </div>
 
-                <!-- Right: Text -->
-                <div class="w-full lg:w-1/2" data-aos="fade-left">
-                    <p class="text-brand-accent font-bold tracking-[0.3em] uppercase mb-4 text-sm">Medical Insight : 어깨 관절 불균형의 이해</p>
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-brand-dark mb-8 leading-[1.2]">
-                        눈에 보이지 않는 곳에서<br>통증은 이미 시작됩니다.
-                    </h2>
-                    <p class="text-lg md:text-xl text-gray-600 leading-relaxed font-medium mb-12">
-                        단순 진통제는 일시적일 뿐입니다. 굳어버린 관절 주머니를 부드럽게 이완하고, 손상된 힘줄의 자생력을 높여야 어깨 본연의 유연함을 회복할 수 있습니다.
-                    </p>
-                    <div class="bg-white border-l-4 border-brand-accent p-6 md:p-8 rounded-r-2xl shadow-sm">
-                        <h4 class="text-xl font-bold text-gray-800 mb-3">핵심 타겟 : 유착 해소와 힘줄 자생력 강화</h4>
-                        <p class="text-gray-600 leading-relaxed">
-                            어깨 관절낭의 유착을 정밀하게 해소하고, 회전근개를 포함한 주변 힘줄의 고유 재생 능력을 극대화하는 것이 재발 없는 회복의 핵심입니다.
-                        </p>
+                <div class="flex flex-col lg:flex-row border border-gray-100 shadow-sm bg-white">
+                    
+                    <!-- Left: Image Area -->
+                    <div class="w-full lg:w-1/2 relative p-10 md:p-16 flex items-center justify-center bg-gray-50" data-aos="fade-right">
+                        <div class="relative w-full max-w-md">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="aspect-[3/4] rounded-2xl img-placeholder shadow-lg overflow-hidden bg-white">
+                                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                        <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                                    </svg>
+                                    <span>정상 어깨</span>
+                                    <span class="text-xs mt-1 opacity-60">X-ray 이미지</span>
+                                </div>
+                                <div class="aspect-[3/4] rounded-2xl img-placeholder shadow-lg overflow-hidden bg-white border-2 border-brand-accent/30">
+                                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                        <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                                    </svg>
+                                    <span>환자 어깨</span>
+                                    <span class="text-xs mt-1 opacity-60">X-ray 이미지</span>
+                                </div>
+                            </div>
+                            <p class="text-center text-sm text-gray-400 mt-6 tracking-wide">좌: 정상 관절간격 &nbsp;|&nbsp; 우: 석회 침착 및 간격 협소</p>
+                        </div>
+                    </div>
+
+                    <!-- Right: Table List Area -->
+                    <div class="w-full lg:w-1/2 flex flex-col bg-[#FAFAFA]" data-aos="fade-left">
+                        
+                        <!-- Item 1 -->
+                        <div class="p-10 md:p-14 border-b border-gray-200 flex-1 flex flex-col justify-center">
+                            <h3 class="text-[22px] md:text-2xl font-semibold text-gray-800 mb-4 leading-snug">
+                                눈에 보이지 않는 곳에서<br>통증은 이미 시작됩니다.
+                            </h3>
+                            <p class="text-[16px] text-gray-500 leading-relaxed font-medium">
+                                단순 진통제는 일시적일 뿐입니다. 굳어버린 관절 주머니를 부드럽게 이완하고, 손상된 힘줄의 자생력을 높여야 어깨 본연의 유연함을 회복할 수 있습니다.
+                            </p>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="p-10 md:p-14 flex-1 flex flex-col justify-center">
+                            <h3 class="text-[22px] md:text-2xl font-semibold text-gray-800 mb-4 leading-snug">
+                                핵심 타겟 : 유착 해소와 힘줄 자생력 강화
+                            </h3>
+                            <p class="text-[16px] text-gray-500 leading-relaxed font-medium">
+                                어깨 관절낭의 유착을 정밀하게 해소하고, 회전근개를 포함한 주변 힘줄의 고유 재생 능력을 극대화하는 것이 재발 없는 회복의 핵심입니다.
+                            </p>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ====================================================
-             SECTION 4. TIMELINE — 사선(Diagonal) 방치 단계
+             SECTION 4. SHOULDER PAIN TIMELINE — 방치 시 단계
         ===================================================== -->
         <section class="py-24 md:py-36 px-6 md:px-12 xl:px-20 bg-[#0D1B2E] text-white overflow-hidden">
             <div class="max-w-[1200px] mx-auto">
                 <div class="text-center mb-20" data-aos="fade-up">
+                    <p class="text-blue-400 font-bold tracking-[0.3em] uppercase mb-4 text-sm">Shoulder Pain Timeline</p>
                     <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">방치할수록 회복은 멀어집니다</h2>
                     <p class="text-lg text-gray-400">어깨 통증의 진행 단계를 확인하여 지금 치료를 시작하세요.</p>
                 </div>
 
-                <!-- Diagonal step cards -->
-                <div class="flex flex-col gap-0 relative">
+                <!-- Vertical timeline -->
+                <div class="relative pl-8 md:pl-0" data-aos="fade-up">
 
-                    <!-- Step 01 -->
-                    <div class="flex flex-col md:flex-row items-stretch" data-aos="fade-up" data-aos-delay="0">
-                        <div class="w-full md:w-1/3 md:mr-8">
-                            <div class="bg-white/5 border border-white/10 rounded-3xl p-10 h-full relative overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-                                <div class="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-gray-600/20 blur-xl"></div>
-                                <p class="text-[4.5rem] font-black text-white/10 leading-none select-none mb-4">01</p>
+                    <!-- Vertical line -->
+                    <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-gray-500/30 via-orange-400/30 to-red-500/40"></div>
+
+                    <div class="flex flex-col gap-12">
+
+                        <!-- Stage 1 -->
+                        <div class="flex flex-col md:flex-row items-start md:items-center gap-8">
+                            <div class="md:w-1/2 md:text-right md:pr-16">
+                                <div class="inline-flex items-center gap-3 mb-3">
+                                    <span class="text-gray-400 font-black text-5xl opacity-20 select-none">01</span>
+                                    <div class="w-3 h-3 rounded-full bg-gray-400 md:hidden"></div>
+                                </div>
                                 <h3 class="text-2xl font-bold text-white mb-3">염증기</h3>
                                 <p class="text-gray-400 leading-relaxed">움직일 때마다 찌르는 듯한 미세 통증의 시작. 쉬면 괜찮아지는 것 같아 방치하기 쉬운 단계입니다.</p>
-                                <div class="mt-6 h-1 w-12 bg-gray-600 rounded-full group-hover:bg-brand-accent transition-colors duration-300"></div>
+                            </div>
+                            <!-- Center dot (desktop) -->
+                            <div class="hidden md:flex w-8 items-center justify-center shrink-0">
+                                <div class="w-5 h-5 rounded-full bg-gray-400 border-[3px] border-[#0D1B2E] shadow-[0_0_0_2px_#94A3B8]"></div>
+                            </div>
+                            <div class="md:w-1/2 md:pl-16">
+                                <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+                                    <p class="text-sm font-bold text-gray-400 tracking-wider uppercase mb-2">주요 증상</p>
+                                    <ul class="text-gray-400 space-y-1 text-[15px]">
+                                        <li>• 특정 각도에서 찌릿한 통증</li>
+                                        <li>• 야간에 어깨 주변의 묵직한 불편함</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                        <!-- diagonal connector -->
-                        <div class="hidden md:flex items-end justify-start w-8 self-stretch pb-0">
-                            <div class="w-px h-1/2 bg-gradient-to-b from-transparent to-brand-accent/30 ml-3"></div>
-                        </div>
-                        <div class="hidden md:block w-2/3"></div>
-                    </div>
 
-                    <!-- Diagonal bridge -->
-                    <div class="hidden md:flex justify-center items-center h-16 relative" data-aos="fade-up" data-aos-delay="50">
-                        <div class="w-2/3 h-px bg-gradient-to-r from-brand-accent/30 to-transparent ml-auto mr-[33.3%]"></div>
-                    </div>
-
-                    <!-- Step 02 -->
-                    <div class="flex flex-col md:flex-row items-stretch" data-aos="fade-up" data-aos-delay="100">
-                        <div class="hidden md:block w-1/6"></div>
-                        <div class="w-full md:w-1/3 md:mx-8">
-                            <div class="bg-white/5 border border-brand-accent/40 rounded-3xl p-10 h-full relative overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-                                <div class="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-brand-accent/20 blur-xl"></div>
-                                <div class="absolute -top-4 left-8 bg-brand-accent text-white text-xs font-bold px-4 py-1.5 rounded-full tracking-wider">내원 환자가 가장 많은 단계</div>
-                                <p class="text-[4.5rem] font-black text-brand-accent/15 leading-none select-none mb-4 mt-4">02</p>
+                        <!-- Stage 2 -->
+                        <div class="flex flex-col md:flex-row items-start md:items-center gap-8">
+                            <div class="md:w-1/2 md:text-right md:pr-16 md:order-1">
+                                <div class="bg-white/5 border border-orange-400/30 rounded-2xl p-6">
+                                    <p class="text-sm font-bold text-orange-400 tracking-wider uppercase mb-2">주요 증상 <span class="text-orange-400">⚠</span></p>
+                                    <ul class="text-gray-400 space-y-1 text-[15px]">
+                                        <li>• 세수, 머리 감기 등 일상 동작 제한</li>
+                                        <li>• 어깨를 뒤로 돌릴 때 날카로운 통증</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="hidden md:flex w-8 items-center justify-center shrink-0 md:order-2">
+                                <div class="w-5 h-5 rounded-full bg-orange-400 border-[3px] border-[#0D1B2E] shadow-[0_0_0_2px_#FB923C]"></div>
+                            </div>
+                            <div class="md:w-1/2 md:pl-16 md:order-3">
+                                <span class="inline-block bg-orange-400 text-white text-xs font-bold px-3 py-1 rounded-full mb-3 tracking-wider">내원 환자가 가장 많은 단계</span>
                                 <h3 class="text-2xl font-bold text-white mb-3">유착기</h3>
-                                <p class="text-gray-400 leading-relaxed">관절낭이 굳어 팔을 위나 뒤로 보내는 동작이 현저히 제한됨. 세수, 머리 감기 등 일상이 불편해지기 시작합니다.</p>
-                                <div class="mt-6 h-1 w-12 bg-brand-accent/50 rounded-full group-hover:bg-brand-accent transition-colors duration-300"></div>
+                                <p class="text-gray-400 leading-relaxed">관절낭이 굳어 팔을 위나 뒤로 보내는 동작이 현저히 제한됨. 본격적으로 일상이 불편해지는 시기입니다.</p>
                             </div>
                         </div>
-                        <div class="hidden md:block w-1/2"></div>
-                    </div>
 
-                    <!-- Diagonal bridge -->
-                    <div class="hidden md:flex justify-center items-center h-16 relative" data-aos="fade-up" data-aos-delay="150">
-                        <div class="w-1/2 h-px bg-gradient-to-r from-transparent via-red-500/30 to-red-500/50 ml-[16.666%]"></div>
-                    </div>
-
-                    <!-- Step 03 -->
-                    <div class="flex flex-col md:flex-row items-stretch" data-aos="fade-up" data-aos-delay="200">
-                        <div class="hidden md:block w-1/3"></div>
-                        <div class="hidden md:flex items-end justify-start w-8 self-stretch pb-0">
-                            <div class="w-px h-1/2 bg-gradient-to-b from-red-500/30 to-transparent ml-3"></div>
-                        </div>
-                        <div class="w-full md:w-1/3 md:mr-8">
-                            <div class="bg-white/5 border border-red-500/30 rounded-3xl p-10 h-full relative overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-                                <div class="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-red-900/30 blur-xl"></div>
-                                <p class="text-[4.5rem] font-black text-red-500/10 leading-none select-none mb-4">03</p>
+                        <!-- Stage 3 -->
+                        <div class="flex flex-col md:flex-row items-start md:items-center gap-8">
+                            <div class="md:w-1/2 md:text-right md:pr-16">
+                                <span class="inline-block bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3 tracking-wider">위험 단계</span>
                                 <h3 class="text-2xl font-bold text-white mb-3">퇴행기</h3>
-                                <p class="text-gray-400 leading-relaxed">지속적인 마찰로 인한 힘줄 파열 및 만성적인 기능 저하 고착. 수술적 치료가 필요해지는 최악의 단계입니다.</p>
-                                <div class="mt-6 h-1 w-12 bg-red-500/50 rounded-full group-hover:bg-red-500 transition-colors duration-300"></div>
+                                <p class="text-gray-400 leading-relaxed">지속적인 마찰로 인한 힘줄 파열 및 만성적인 기능 저하 고착. 수술적 치료를 고려해야 할 수도 있는 단계입니다.</p>
+                            </div>
+                            <div class="hidden md:flex w-8 items-center justify-center shrink-0">
+                                <div class="w-5 h-5 rounded-full bg-red-500 border-[3px] border-[#0D1B2E] shadow-[0_0_0_2px_#EF4444]"></div>
+                            </div>
+                            <div class="md:w-1/2 md:pl-16">
+                                <div class="bg-white/5 border border-red-500/30 rounded-2xl p-6">
+                                    <p class="text-sm font-bold text-red-400 tracking-wider uppercase mb-2">주요 증상 ⛔</p>
+                                    <ul class="text-gray-400 space-y-1 text-[15px]">
+                                        <li>• 스스로 팔을 들어 올리기 힘듦</li>
+                                        <li>• 어깨 근육 위축 및 지속적인 통증</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
         </section>
@@ -455,61 +546,45 @@
         <!-- ====================================================
              SECTION 5. 3R THERAPY — Targeted Solution
         ===================================================== -->
-        <section class="py-24 md:py-40 px-6 md:px-12 xl:px-20 bg-white relative overflow-hidden">
-            <!-- Decorative arc (background) -->
-            <div class="absolute -right-32 top-1/2 -translate-y-1/2 w-[500px] h-[500px] pointer-events-none opacity-5">
-                <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="200" cy="200" r="180" stroke="#0C4A9E" stroke-width="2"/>
-                    <circle cx="200" cy="200" r="130" stroke="#0C4A9E" stroke-width="1.5" stroke-dasharray="30 20"/>
-                    <circle cx="200" cy="200" r="80" stroke="#0C4A9E" stroke-width="1"/>
-                </svg>
+        <section class="py-24 md:py-32 px-6 md:px-12 xl:px-20 bg-brand-light">
+            <div class="max-w-[1400px] mx-auto text-center mb-16 md:mb-20" data-aos="fade-up">
+                <p class="text-brand-accent font-bold tracking-[0.3em] uppercase mb-4 text-sm">Targeted Solution</p>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-brand-dark mb-6">삼성365의원 어깨통증 특화 3R Therapy</h2>
+                <p class="text-lg md:text-xl text-gray-500">유착을 해소하고, 힘줄을 강화하고, 관절 밸런스를 정상화합니다.</p>
             </div>
-
-            <div class="max-w-[1200px] mx-auto relative">
-                <div class="text-center mb-20" data-aos="fade-up">
-                    <p class="text-brand-accent font-bold tracking-[0.3em] uppercase mb-4 text-sm">Targeted Solution</p>
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-brand-dark mb-6">삼성365의원 어깨통증 특화<br>3R Therapy</h2>
-                    <p class="text-xl text-gray-500">유착을 해소하고, 힘줄을 강화하고, 관절 밸런스를 정상화합니다.</p>
+            
+            <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Release -->
+                <div class="relative rounded-xl overflow-hidden shadow-xl group h-[450px] lg:h-[550px]" data-aos="fade-up" data-aos-delay="0">
+                    <img src="01.webp" alt="이완 치료" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/70 to-[#111111]/20"></div>
+                    <div class="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
+                        <h3 class="text-[4rem] lg:text-[5rem] font-black text-white/20 leading-none mb-2">01</h3>
+                        <h4 class="text-2xl lg:text-3xl font-bold text-white mb-3">Release <span class="text-blue-300 ml-2 text-lg lg:text-xl font-medium tracking-wide">이완</span></h4>
+                        <p class="text-gray-300 leading-relaxed text-[16px] lg:text-[17px] break-keep">유착된 관절낭과 경직된 심부 근육을 미세바늘로 정밀 이완하여 가동 범위를 즉각적으로 넓힙니다.</p>
+                    </div>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-
-                    <!-- 01 Release -->
-                    <div class="flex flex-col" data-aos="fade-up" data-aos-delay="0">
-                        <div class="flex items-center gap-5 mb-8">
-                            <div class="circle-index">01</div>
-                            <div class="h-px flex-1 bg-gradient-to-r from-brand-accent/30 to-transparent"></div>
-                        </div>
-                        <h3 class="text-2xl font-bold text-brand-dark mb-2">Release <span class="text-gray-400 font-medium text-lg ml-1">이완</span></h3>
-                        <p class="text-gray-600 leading-relaxed text-lg">
-                            유착된 관절낭과 경직된 심부 근육을 미세바늘로 정밀 이완하여 가동 범위를 즉각적으로 넓힙니다.
-                        </p>
+                
+                <!-- Reinforcement -->
+                <div class="relative rounded-xl overflow-hidden shadow-xl group h-[450px] lg:h-[550px]" data-aos="fade-up" data-aos-delay="100">
+                    <img src="02.webp" alt="강화 치료" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/70 to-[#111111]/20"></div>
+                    <div class="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
+                        <h3 class="text-[4rem] lg:text-[5rem] font-black text-white/20 leading-none mb-2">02</h3>
+                        <h4 class="text-2xl lg:text-3xl font-bold text-white mb-3">Reinforcement <span class="text-blue-300 ml-2 text-lg lg:text-xl font-medium tracking-wide">강화</span></h4>
+                        <p class="text-gray-300 leading-relaxed text-[16px] lg:text-[17px] break-keep">손상된 회전근개 힘줄과 인대의 재생을 유도하여 관절의 지지력을 견고하게 다집니다.</p>
                     </div>
-
-                    <!-- 02 Reinforcement -->
-                    <div class="flex flex-col" data-aos="fade-up" data-aos-delay="100">
-                        <div class="flex items-center gap-5 mb-8">
-                            <div class="circle-index" style="background:rgba(12,74,158,0.12); border-color: rgba(12,74,158,0.4);">02</div>
-                            <div class="h-px flex-1 bg-gradient-to-r from-brand-accent/30 to-transparent"></div>
-                        </div>
-                        <h3 class="text-2xl font-bold text-brand-dark mb-2">Reinforcement <span class="text-gray-400 font-medium text-lg ml-1">강화</span></h3>
-                        <p class="text-gray-600 leading-relaxed text-lg">
-                            손상된 회전근개 힘줄과 인대의 재생을 유도하여 관절의 지지력을 견고하게 다집니다.
-                        </p>
+                </div>
+                
+                <!-- Recovery -->
+                <div class="relative rounded-xl overflow-hidden shadow-xl group h-[450px] lg:h-[550px]" data-aos="fade-up" data-aos-delay="200">
+                    <img src="03.webp" alt="정상화 치료" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/70 to-[#111111]/20"></div>
+                    <div class="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
+                        <h3 class="text-[4rem] lg:text-[5rem] font-black text-white/20 leading-none mb-2">03</h3>
+                        <h4 class="text-2xl lg:text-3xl font-bold text-white mb-3">Recovery <span class="text-blue-300 ml-2 text-lg lg:text-xl font-medium tracking-wide">정상화</span></h4>
+                        <p class="text-gray-300 leading-relaxed text-[16px] lg:text-[17px] break-keep">비정상적인 회전 궤적을 바로잡고 전체적인 관절 밸런스를 정상화하여 재발을 방지합니다.</p>
                     </div>
-
-                    <!-- 03 Recovery -->
-                    <div class="flex flex-col" data-aos="fade-up" data-aos-delay="200">
-                        <div class="flex items-center gap-5 mb-8">
-                            <div class="circle-index" style="background:rgba(12,74,158,0.16); border-color: rgba(12,74,158,0.5); color:#0C4A9E;">03</div>
-                            <div class="h-px flex-1 bg-gradient-to-r from-brand-accent/30 to-transparent"></div>
-                        </div>
-                        <h3 class="text-2xl font-bold text-brand-dark mb-2">Recovery <span class="text-gray-400 font-medium text-lg ml-1">정상화</span></h3>
-                        <p class="text-gray-600 leading-relaxed text-lg">
-                            비정상적인 회전 궤적을 바로잡고 전체적인 관절 밸런스를 정상화하여 재발을 방지합니다.
-                        </p>
-                    </div>
-
                 </div>
             </div>
         </section>
@@ -520,30 +595,38 @@
         <section class="py-24 px-6 md:px-12 xl:px-20 bg-[#F7FAFF] border-y border-blue-100">
             <div class="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
 
-                <!-- Left: Doctor photo + Quote -->
-                <div class="w-full lg:w-[44%] flex flex-col" data-aos="fade-right">
-                    <!-- Doctor image placeholder -->
-                    <div class="w-full aspect-[4/5] max-w-[420px] rounded-[3rem] img-placeholder shadow-2xl overflow-hidden mb-10">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                            <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-                        </svg>
-                        <span>원장님 진료 사진</span>
-                        <span class="text-xs mt-1 opacity-60">staff_main.webp 교체 예정</span>
-                    </div>
-
-                    <!-- Quote -->
-                    <div class="relative pl-6">
-                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-brand-accent rounded-full"></div>
-                        <svg class="w-10 h-10 text-brand-accent/20 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/></svg>
-                        <p class="text-xl md:text-2xl font-bold text-gray-800 leading-[1.7] mb-6 break-keep">
-                            "어깨 통증은 자연 치유를 기다리다 시기를 놓치는 경우가 많습니다. 원인에 맞는 정밀 치료가 선행된다면 충분히 부드러운 일상을 되찾을 수 있습니다."
-                        </p>
-                        <p class="text-xl font-extrabold text-brand-dark">삼성365의원 대표원장</p>
+                <!-- Left: Doctor photo with Integrated Quote -->
+                <div class="w-full lg:w-[48%] flex flex-col" data-aos="fade-right">
+                    <div class="relative w-full aspect-square rounded-[3rem] overflow-hidden shadow-2xl group">
+                        <!-- Doctor Image -->
+                        <img src="staff_hero.webp" alt="삼성365의원 대표원장" class="absolute inset-0 w-full h-full object-cover object-bottom transition-transform duration-700 group-hover:scale-105">
+                        
+                        <!-- Gradient Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0A1628]/90 via-[#0A1628]/40 to-transparent"></div>
+                        
+                        <!-- Integrated Quote -->
+                        <div class="absolute inset-0 p-10 md:p-14 flex flex-col justify-end">
+                            <div class="relative">
+                                <!-- Quote Icon -->
+                                <svg class="w-10 h-10 text-brand-accent/40 mb-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                                </svg>
+                                
+                                <p class="text-xl md:text-2xl font-bold text-white leading-[1.6] mb-6 break-keep drop-shadow-md">
+                                    "어깨 통증은 자연 치유를 기다리다 시기를 놓치기 쉽습니다. 원인에 맞는 정밀 치료로 부드러운 일상을 되찾아 드립니다."
+                                </p>
+                                
+                                <div class="flex items-center gap-4">
+                                    <div class="w-8 h-[2px] bg-brand-accent"></div>
+                                    <p class="text-lg md:text-xl font-extrabold text-white tracking-wide">삼성365의원 대표원장</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Right: FAQ -->
-                <div class="w-full lg:w-[56%]" data-aos="fade-left">
+                <div class="w-full lg:w-[52%]" data-aos="fade-left">
                     <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-12">자주 묻는 질문</h2>
 
                     <div class="flex flex-col divide-y divide-gray-200">

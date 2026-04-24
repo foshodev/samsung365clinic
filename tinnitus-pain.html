@@ -203,41 +203,51 @@
             </div>
         </section>
 
-        <!-- SECTION 2. 환자 공감 -->
-        <section class="py-24 md:py-36 px-6 md:px-12 xl:px-20 bg-white">
+        <!-- SECTION 2. Diagnostic Context (Ultra-Minimalist) -->
+        <section class="py-24 md:py-32 px-6 md:px-12 xl:px-20 bg-white">
             <div class="max-w-[1300px] mx-auto">
-                <div class="text-center mb-16 md:mb-24" data-aos="fade-up">
-                    <p class="text-brand-accent font-bold tracking-[0.3em] uppercase mb-4 text-sm">Empathy — Resonance</p>
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-brand-dark mb-4">나를 괴롭히는 소리의 형태</h2>
-                    <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">이명은 단순한 소음이 아닌, 신경계가 보내는 비정상적인 공명 신호입니다.</p>
+                <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8" data-aos="fade-up">
+                    <div class="max-w-2xl">
+                        <p class="text-brand-accent font-bold tracking-[0.4em] uppercase mb-6 text-xs opacity-60">Classification</p>
+                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-dark tracking-tight leading-[1.1]">나를 괴롭히는<br>소리의 형태</h2>
+                    </div>
+                    <div class="max-w-md pb-2">
+                        <p class="text-lg text-gray-500 leading-relaxed font-light break-keep">이명은 단순한 소음이 아닌, 신경계가 보내는 비정상적인 공명 신호입니다. 원인에 따른 정확한 분류가 치료의 시작입니다.</p>
+                    </div>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-8">
+                <div class="grid md:grid-cols-3 border-t border-gray-100">
                     <!-- Type 01 -->
-                    <div class="p-10 rounded-[2.5rem] bg-[#F8FAFF] border border-gray-100 transition-all hover:translate-y-[-8px] hover:shadow-xl" data-aos="fade-up">
-                        <div class="w-14 h-14 rounded-2xl bg-brand-accent/10 flex items-center justify-center mb-8">
-                            <svg class="w-7 h-7 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <div class="group pt-10 pb-10 md:pr-12 border-b md:border-b-0 md:border-r border-gray-100 transition-all hover:bg-brand-light/30" data-aos="fade-up">
+                        <div class="mb-12">
+                            <span class="text-5xl font-black text-brand-accent/10 group-hover:text-brand-accent/20 transition-colors">01.</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 text-brand-dark">체성 이명</h3>
-                        <p class="text-gray-500 leading-[1.8] break-keep">목이나 턱을 움직일 때 소리의 크기가 변하거나, 특정 자세에서 이명이 심해지는 경우입니다. 물리적 구조의 불균형이 주원인입니다.</p>
+                        <h3 class="text-2xl font-bold mb-6 text-brand-dark group-hover:text-brand-accent transition-colors">체성(Somatosensory) 이명</h3>
+                        <p class="text-gray-500 leading-[2.1] break-keep font-light text-[17px]">
+                            목이나 턱을 움직일 때 소리의 크기가 변하거나, 특정 자세에서 이명이 심해지는 경우입니다. 물리적 구조의 불균형이 주원인입니다.
+                        </p>
                     </div>
 
                     <!-- Type 02 -->
-                    <div class="p-10 rounded-[2.5rem] bg-[#FAFAFA] border border-gray-100 transition-all hover:translate-y-[-8px] hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
-                        <div class="w-14 h-14 rounded-2xl bg-amber-50 flex items-center justify-center mb-8">
-                            <svg class="w-7 h-7 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    <div class="group pt-10 pb-10 md:px-12 border-b md:border-b-0 md:border-r border-gray-100 transition-all hover:bg-brand-light/30" data-aos="fade-up" data-aos-delay="100">
+                        <div class="mb-12">
+                            <span class="text-5xl font-black text-brand-accent/10 group-hover:text-brand-accent/20 transition-colors">02.</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 text-brand-dark">신경과민형 이명</h3>
-                        <p class="text-gray-500 leading-[1.8] break-keep">과도한 스트레스나 만성 피로로 인해 청각 신경이 과하게 예민해져 작은 소리도 크게 증폭되어 들리는 상태입니다.</p>
+                        <h3 class="text-2xl font-bold mb-6 text-brand-dark group-hover:text-brand-accent transition-colors">신경과민(Neural) 이명</h3>
+                        <p class="text-gray-500 leading-[2.1] break-keep font-light text-[17px]">
+                            과도한 스트레스나 만성 피로로 인해 청각 신경이 과하게 예민해져 작은 소리도 크게 증폭되어 들리는 상태입니다.
+                        </p>
                     </div>
 
                     <!-- Type 03 -->
-                    <div class="p-10 rounded-[2.5rem] bg-[#FFF9F9] border border-gray-100 transition-all hover:translate-y-[-8px] hover:shadow-xl" data-aos="fade-up" data-aos-delay="200">
-                        <div class="w-14 h-14 rounded-2xl bg-rose-50 flex items-center justify-center mb-8">
-                            <svg class="w-7 h-7 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                    <div class="group pt-10 pb-10 md:pl-12 border-gray-100 transition-all hover:bg-brand-light/30" data-aos="fade-up" data-aos-delay="200">
+                        <div class="mb-12">
+                            <span class="text-5xl font-black text-brand-accent/10 group-hover:text-brand-accent/20 transition-colors">03.</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 text-brand-dark">심인성 이명</h3>
-                        <p class="text-gray-500 leading-[1.8] break-keep">통증과 불안이 겹쳐 소리에 더욱 집중하게 되고, 이로 인해 다시 소리가 커지는 악순환의 단계입니다.</p>
+                        <h3 class="text-2xl font-bold mb-6 text-brand-dark group-hover:text-brand-accent transition-colors">심인성(Psychosomatic) 이명</h3>
+                        <p class="text-gray-500 leading-[2.1] break-keep font-light text-[17px]">
+                            통증과 불안이 겹쳐 소리에 더욱 집중하게 되고, 이로 인해 다시 소리가 커지는 악순환의 단계입니다.
+                        </p>
                     </div>
                 </div>
             </div>
