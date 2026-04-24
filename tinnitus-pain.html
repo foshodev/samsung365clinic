@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -121,12 +121,52 @@
                         <a href="tinnitus-pain.html" class="block px-6 py-2.5 text-[15px] font-medium text-brand-accent bg-brand-light transition-colors">이명</a>
                     </div>
                 </div>
-                <a href="#" class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">주사치료</a>
+                <a href="injection-therapy.html" class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">주사치료</a>
                 <a href="community.html" class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">커뮤니티</a>
                 <a href="info.html" class="px-6 py-2.5 bg-brand-accent text-white text-[14px] font-semibold hover:bg-brand-dark transition-colors duration-300 ml-4 rounded-sm">예약하기</a>
             </nav>
 
-            <button id="mobile-menu-toggle" class="lg:hidden text-lg font-bold uppercase tracking-[0.2em] text-brand-dark">MENU</button>
+            <button id="mobile-menu-toggle" class="lg:hidden text-lg font-bold uppercase tracking-[0.2em] text-brand-dark transition-colors hover:text-brand-accent">MENU</button>
+
+        <div id="mobile-menu" class="hidden absolute top-24 left-0 w-full min-h-[calc(100vh-6rem)] bg-white flex flex-col py-8 px-6 space-y-6 z-40 overflow-y-auto">
+            <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
+                <summary class="flex justify-between items-center text-3xl font-bold text-gray-900 cursor-pointer list-none">병원소개 <span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span></summary>
+                <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
+                    <a href="staff.html" class="text-xl text-gray-600 block">의료진소개</a>
+                    <a href="info.html" class="text-xl text-gray-600 block">병원진료시간</a>
+                </div>
+            </details>
+            <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
+                <summary class="flex justify-between items-center text-3xl font-bold text-gray-900 cursor-pointer list-none">척추질환 <span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span></summary>
+                <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
+                    <a href="spine-neck.html" class="text-xl text-gray-600 block">목통증</a>
+                    <a href="spine-back.html" class="text-xl text-gray-600 block">등통증</a>
+                    <a href="spine-waist.html" class="text-xl text-gray-600 block">허리통증</a>
+                </div>
+            </details>
+            <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
+                <summary class="flex justify-between items-center text-3xl font-bold text-gray-900 cursor-pointer list-none">관절질환 <span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span></summary>
+                <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
+                    <a href="shoulder-pain.html" class="text-xl text-gray-600 block">어깨통증</a>
+                    <a href="knee-pain.html" class="text-xl text-gray-600 block">무릎통증</a>
+                    <a href="elbow-pain.html" class="text-xl text-gray-600 block">팔꿈치통증</a>
+                    <a href="wrist-ankle-pain.html" class="text-xl text-gray-600 block">손목/발목통증</a>
+                    <a href="hip-joint-pain.html" class="text-xl text-gray-600 block">엉덩이 관절</a>
+                </div>
+            </details>
+            <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden" open>
+                <summary class="flex justify-between items-center text-3xl font-bold text-brand-accent cursor-pointer list-none">난치성질환 <span class="transform transition-transform group-open:rotate-45">+</span></summary>
+                <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
+                    <a href="tmj-pain.html" class="text-xl text-gray-600 block">턱관절통증</a>
+                    <a href="headache-pain.html" class="text-xl text-gray-600 block">두통</a>
+                    <a href="tinnitus-pain.html" class="text-xl text-brand-accent font-bold block">이명</a>
+                </div>
+            </details>
+            <div class="pb-4"><a href="injection-therapy.html" class="text-3xl font-bold text-gray-900 block">주사치료</a></div>
+            <div class="pb-4"><a href="community.html" class="text-3xl font-bold text-gray-900 block">커뮤니티</a></div>
+            <div class="pt-8 mt-auto mb-10 w-full">
+                <a href="info.html" class="w-full py-4 bg-brand-accent text-white text-center text-xl font-bold tracking-wide block">진료 예약하기</a>
+            </div>
         </div>
     </header>
 
@@ -144,14 +184,14 @@
         </div>
 
         <!-- SECTION 1. HERO -->
-        <section class="relative min-h-[580px] md:min-h-[660px] flex items-center bg-[#070F1D] overflow-hidden">
+        <section class="relative min-h-[600px] md:min-h-[700px] flex items-center bg-[#070F1D] overflow-hidden">
             <div class="absolute inset-0 z-0 pointer-events-none opacity-30">
                 <svg width="100%" height="100%" viewBox="0 0 1000 600" preserveAspectRatio="none">
                     <path class="animate-wave" d="M0,300 C50,250 100,350 150,300 C200,250 250,350 300,300 C350,250 400,350 450,300 L1000,300" fill="none" stroke="#0C4A9E" stroke-width="0.8" />
                     <path class="animate-wave" style="animation-delay: 0.8s;" d="M0,320 C50,280 100,360 150,320 C200,280 250,360 300,320 L1000,320" fill="none" stroke="#3B82F6" stroke-width="0.5" />
                 </svg>
             </div>
-            <div class="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 xl:px-20 py-28">
+            <div class="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 xl:px-20">
                 <div class="w-full md:w-3/5 lg:w-[55%]">
                     <p class="text-blue-300 font-bold tracking-[0.3em] uppercase mb-6 text-sm" data-aos="fade-up">Intractable Clinic — Tinnitus</p>
                     <h1 class="text-4xl md:text-5xl lg:text-[4rem] font-extrabold text-white mb-8 leading-[1.3]" data-aos="fade-up" data-aos-delay="100">
@@ -316,20 +356,42 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-gray-50 pt-20 pb-10 border-t border-gray-100">
-        <div class="max-w-[1600px] mx-auto px-6 md:px-12 xl:px-20 text-gray-500 text-sm leading-relaxed">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6 uppercase tracking-widest">삼성365의원</h2>
-            <div class="flex flex-col md:flex-row justify-between gap-8 border-b border-gray-200 pb-10 mb-8">
-                <div>
-                    <p class="mb-2"><strong>대표원장 :</strong> 삼성365의원 대표원장</p>
-                    <p class="mb-2"><strong>주소 :</strong> 서울 은평구 진관2로 57-7 우물골두산위브아파트상가 253동 B106호, B107호</p>
+    <footer class="bg-brand-dark text-white py-12 px-6 md:px-12 xl:px-20 border-t border-white/5">
+        <div class="max-w-[1600px] mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
+                
+                <div class="space-y-4">
+                    <h2 class="text-xl font-bold tracking-tight">삼성365의원</h2>
+                    <div class="text-gray-400 text-[13px] font-light leading-snug">
+                        <p class="flex flex-wrap gap-x-4 gap-y-1">
+                            <span><strong>대표원장</strong> 삼성365의원 대표원장</span>
+                            <span class="hidden md:inline text-gray-700">|</span>
+                            <span><strong>사업자등록번호</strong> 000-00-00000</span>
+                        </p>
+                        <p class="mt-1"><strong>주소</strong> 서울 은평구 진관2로 57-7 우물골두산위브아파트상가 253동 B106호, B107호</p>
+                    </div>
+                    <div class="flex items-baseline gap-3">
+                        <span class="text-[10px] tracking-[0.2em] text-gray-500 uppercase font-bold">Patient Services</span>
+                        <span class="text-xl font-medium tracking-wider text-brand-light">02-356-1275</span>
+                    </div>
                 </div>
-                <div class="md:text-right">
-                    <p class="mb-2"><strong class="text-brand-accent text-lg">전화 : 02-123-3650</strong></p>
-                    <p>평일 09:00-18:30 | 토요일 09:00-14:00 | 일요일 09:00-13:00</p>
+
+                <div class="flex flex-col items-start md:items-end gap-6">
+                    <div class="flex gap-6">
+                        <a href="#" class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">이용약관</a>
+                        <a href="#" class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">개인정보처리방침</a>
+                        <a href="#" class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">카카오상담</a>
+                    </div>
+                    <div class="text-left md:text-right">
+                        <p class="text-gray-600 text-[12px] leading-tight font-light max-w-md">
+                            의료법 제56조 제1항을 준수하여 작성되었습니다. 시술 시 통증, 부종 등이 발생할 수 있습니다.
+                        </p>
+                        <p class="text-gray-700 font-medium text-[10px] tracking-[0.2em] mt-3">
+                            © 2024 SAMSUNG 365 CLINIC. ALL RIGHTS RESERVED.
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div>&copy; 2026 SAMSUNG 365 CLINIC. ALL RIGHTS RESERVED.</div>
         </div>
     </footer>
 
