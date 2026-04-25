@@ -22,12 +22,6 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontSize: {
-                        '4xl': ['2.25rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
-                        '5xl': ['3rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
-                        '6xl': ['3.75rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
-                        '7xl': ['4.5rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
-                    },
                     fontFamily: { sans: ['Pretendard', 'sans-serif'] },
                     colors: {
                         brand: { 
@@ -37,15 +31,14 @@
                             accent: '#0C4A9E', 
                             gray: '#F0F2F5' 
                         }
-                    },
-                    spacing: { '30': '7.5rem', '40': '10rem', '50': '12.5rem' }
+                    }
                 }
             }
         }
     </script>
 
     <style>
-        body { font-family: 'Pretendard', sans-serif; background-color: #FFFFFF; color: #111111; }
+        body { font-family: 'Pretendard', sans-serif; background-color: #FFFFFF; color: #111111; overflow-x: hidden; }
         html { scroll-behavior: smooth; }
         
         /* Navigation Hover Animation */
@@ -57,38 +50,14 @@
         }
         .hover-underline-animation:hover::after { transform: scaleX(1); transform-origin: bottom left; }
         
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        /* Custom Animations */
-        @keyframes glowPulse {
-            0%, 100% { box-shadow: 0 0 20px rgba(12, 74, 158, 0.2); border-color: rgba(12, 74, 158, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(12, 74, 158, 0.4); border-color: rgba(12, 74, 158, 0.6); }
-        }
-        .samsung-glow { animation: glowPulse 3s infinite ease-in-out; }
-
-        /* Neural Network Animation */
-        @keyframes flowLight {
-            0% { opacity: 0.1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(1.1); }
-            100% { opacity: 0.1; transform: scale(1); }
-        }
-        .neural-node { animation: flowLight 4s infinite ease-in-out; }
-
-        /* Image Placeholder Style */
-        .img-placeholder {
-            background: linear-gradient(135deg, #050D1A 0%, #1A2A40 100%);
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            color: rgba(255, 255, 255, 0.5);
-            font-weight: 600;
-        }
+        .premium-card { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .premium-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06); border-color: #0C4A9E; }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-accent selection:text-white break-keep">
 
     <!-- HEADER -->
-    <header class="fixed w-full top-0 z-50 transition-all duration-500" id="header" style="background-color: rgba(255,255,255,0.95); backdrop-filter: blur(12px);">
+    <header class="fixed w-full top-0 z-50 transition-all duration-500" id="header" style="background-color: rgba(255,255,255,0.9); backdrop-filter: blur(8px);">
         <div class="max-w-[1600px] mx-auto px-6 md:px-12 xl:px-20 flex justify-between items-center h-24">
             <a href="index.html" class="text-2xl md:text-3xl font-extrabold text-brand-dark">삼성365의원</a>
 
@@ -133,98 +102,211 @@
 
             <button id="mobile-menu-toggle" class="lg:hidden text-lg font-bold uppercase tracking-[0.2em] text-brand-dark transition-colors hover:text-brand-accent">MENU</button>
         </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden absolute top-24 left-0 w-full min-h-[calc(100vh-6rem)] bg-white flex flex-col py-8 px-6 space-y-6 z-40 overflow-y-auto">
-            <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
-                <summary class="flex justify-between items-center text-3xl font-bold text-gray-900 cursor-pointer list-none">병원소개 <span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span></summary>
-                <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
-                    <a href="staff.html" class="text-xl text-gray-600 block">의료진소개</a>
-                    <a href="info.html" class="text-xl text-gray-600 block">병원진료시간</a>
-                </div>
-            </details>
-            <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
-                <summary class="flex justify-between items-center text-3xl font-bold text-gray-900 cursor-pointer list-none">척추질환 <span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span></summary>
-                <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
-                    <a href="spine-neck.html" class="text-xl text-gray-600 block">목통증</a>
-                    <a href="spine-back.html" class="text-xl text-gray-600 block">등통증</a>
-                    <a href="spine-waist.html" class="text-xl text-gray-600 block">허리통증</a>
-                </div>
-            </details>
-            <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
-                <summary class="flex justify-between items-center text-3xl font-bold text-gray-900 cursor-pointer list-none">관절질환 <span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span></summary>
-                <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
-                    <a href="shoulder-pain.html" class="text-xl text-gray-600 block">어깨통증</a>
-                    <a href="knee-pain.html" class="text-xl text-gray-600 block">무릎통증</a>
-                    <a href="elbow-pain.html" class="text-xl text-gray-600 block">팔꿈치통증</a>
-                    <a href="wrist-ankle-pain.html" class="text-xl text-gray-600 block">손목/발목통증</a>
-                    <a href="hip-joint-pain.html" class="text-xl text-gray-600 block">엉덩이 관절</a>
-                </div>
-            </details>
-            <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
-                <summary class="flex justify-between items-center text-3xl font-bold text-gray-900 cursor-pointer list-none">난치성질환 <span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span></summary>
-                <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
-                    <a href="tmj-pain.html" class="text-xl text-gray-600 block">턱관절통증</a>
-                    <a href="headache-pain.html" class="text-xl text-gray-600 block">두통</a>
-                    <a href="tinnitus-pain.html" class="text-xl text-gray-600 block">이명</a>
-                </div>
-            </details>
-            <div class="pb-4"><a href="injection-therapy.html" class="text-3xl font-bold text-brand-accent block">주사치료</a></div>
-            <div class="pb-4"><a href="community.html" class="text-3xl font-bold text-gray-900 block">커뮤니티</a></div>
-            <div class="pt-8 mt-auto mb-10 w-full">
-                <a href="https://m.booking.naver.com/booking/13/bizes/1436478/items/7595404" target="_blank" class="w-full py-4 bg-brand-accent text-white text-center text-xl font-bold tracking-wide block">진료 예약하기</a>
-            </div>
-        </div>
     </header>
 
     <main class="pt-24">
 
         <!-- ==========================================
-             SECTION 1. HERO — The Art of Precision
+             SECTION 1. HERO — Standardized
         =========================================== -->
-        <section class="relative min-h-[80vh] flex items-center bg-brand-navy overflow-hidden">
-            <!-- Dynamic Background -->
+        <section class="relative min-h-[85vh] flex items-center bg-brand-navy overflow-hidden">
             <div class="absolute inset-0 z-0">
-                <div class="absolute inset-0 bg-[url('injection_hero.webp')] bg-cover bg-center opacity-40 mix-blend-luminosity scale-105"></div>
+                <div class="absolute inset-0 bg-[url('injection_hero.webp')] bg-cover bg-center opacity-40 mix-blend-luminosity"></div>
                 <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/85 to-transparent"></div>
             </div>
 
-            <div class="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 xl:px-20 w-full pt-20">
-                <div class="w-full lg:w-3/4" data-aos="fade-up">
-                    <div class="flex items-center gap-3 mb-6">
-                        <span class="w-10 h-px bg-blue-400"></span>
-                        <p class="text-blue-300 font-bold tracking-[0.3em] uppercase text-[10px] md:text-xs">Precision Medical Technology</p>
-                    </div>
-                    <h1 class="text-4xl md:text-6xl lg:text-[4.5rem] font-black text-white leading-[1.15] mb-8 tracking-tighter">
+            <div class="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 xl:px-20 w-full">
+                <div class="w-full md:w-3/4 lg:w-[65%]" data-aos="fade-up">
+                    <p class="text-blue-300 font-bold tracking-[0.3em] uppercase mb-6 text-sm">Treatment — Injection Therapy</p>
+                    <h1 class="text-4xl md:text-5xl lg:text-[4rem] font-extrabold text-white mb-8 leading-[1.3] tracking-tight">
                         침습을 넘어선,<br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-100 to-blue-400 italic">정교함의 새로운 기준</span>
+                        <span class="text-blue-200 font-extrabold italic">정교함의 새로운 기준</span>
                     </h1>
-                    <p class="text-base md:text-xl text-gray-300 leading-[1.7] font-light mb-10 max-w-2xl break-keep">
-                        삼성365의원의 <span class="text-white font-bold underline decoration-blue-500 underline-offset-8">미세바늘 주사치료</span>는 단순한 통증 억제를 넘어섭니다. 0.3mm의 정밀함으로 신경 유착을 해소하고 신체 본연의 회복력을 복원하는 과학적 접근입니다.
+                    <p class="text-lg md:text-xl text-gray-300 leading-[1.9] font-light break-keep mb-10">
+                        삼성365의원의 <span class="text-white font-bold">미세바늘 주사치료</span>는 단순한 통증 억제를 넘어섭니다.<br class="hidden md:block">
+                        0.3mm의 정밀 접근으로 신경 유착을 해소하고 신체 본연의 회복력을 복원합니다.
                     </p>
+                    <div class="flex flex-wrap gap-8 items-center">
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-3xl md:text-4xl font-extrabold text-white">0.3<span class="text-blue-400 text-lg ml-1 font-bold">mm</span></span>
+                        </div>
+                        <div class="w-px h-8 bg-white/10 hidden md:block"></div>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-3xl md:text-4xl font-extrabold text-white uppercase">ZERO</span>
+                            <span class="text-blue-400 text-xs font-bold uppercase tracking-widest ml-1">Steroid</span>
+                        </div>
+                        <a href="https://m.booking.naver.com/booking/13/bizes/1436478/items/7595404" target="_blank" class="px-8 py-4 bg-brand-accent text-white font-bold rounded-full hover:bg-white hover:text-brand-dark transition-all duration-300 shadow-xl text-[15px]">예약하기</a>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- ==========================================
-             SECTION 3. 3R THERAPY — The Core Algorithm
+             SECTION 2. THE BENCHMARK — Standardized Layout
         =========================================== -->
-        <section class="py-24 md:py-40 px-6 md:px-12 xl:px-20 bg-brand-navy text-white overflow-hidden">
-            <div class="max-w-[1400px] mx-auto relative">
-                <!-- Large Watermark -->
-                <div class="absolute top-0 right-0 text-[20rem] font-black text-white/[0.02] leading-none select-none pointer-events-none">CORE</div>
-                
-                <div class="mb-24" data-aos="fade-up">
-                        <div class="flex items-center gap-5 p-6 rounded-2xl bg-brand-gray border border-gray-100">
-                            <svg class="w-6 h-6 text-brand-accent shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            <span class="text-gray-700 font-bold">인대·근육 기능 저하 상태</span>
+        <section class="py-24 md:py-32 px-6 md:px-12 xl:px-20 bg-white">
+            <div class="max-w-[1300px] mx-auto">
+                <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8" data-aos="fade-up">
+                    <div class="max-w-2xl">
+                        <p class="text-brand-accent font-bold tracking-[0.4em] uppercase mb-6 text-xs opacity-60">Classification</p>
+                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-dark tracking-tight leading-[1.1]">통증의 겉면이 아닌<br>신경의 틈새를 봅니다</h2>
+                    </div>
+                    <div class="max-w-md pb-2">
+                        <p class="text-lg text-gray-500 leading-relaxed font-light break-keep">약물에만 의존하는 일반 주사와 달리, 미세바늘 자체가 유착 조직을 물리적으로 직접 박리하여 숨통을 틔워줍니다.</p>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6" data-aos="fade-right">
+                        <div class="p-8 bg-brand-gray rounded-3xl border border-gray-100 premium-card">
+                            <h4 class="text-xl font-bold text-brand-dark mb-3">물리적 신경 박리</h4>
+                            <p class="text-gray-500 font-light leading-relaxed">바늘 자체가 치료 도구가 되어 신경을 옭아맨 유착을 직접 풀어줍니다.</p>
+                        </div>
+                        <div class="p-8 bg-brand-gray rounded-3xl border border-gray-100 premium-card">
+                            <h4 class="text-xl font-bold text-brand-dark mb-3">조직 손상 최소화</h4>
+                            <p class="text-gray-500 font-light leading-relaxed">0.3mm 미세바늘을 사용하여 시술 시 통증이 거의 없고 조직 손상을 극소화합니다.</p>
                         </div>
                     </div>
+                    <div class="rounded-3xl overflow-hidden shadow-2xl relative" data-aos="fade-left">
+                        <img src="cervical_spine.png" alt="Precision Treatment" class="w-full h-full object-cover aspect-[4/3]">
+                        <div class="absolute bottom-6 left-6 bg-brand-dark/90 backdrop-blur-md px-6 py-4 rounded-2xl">
+                            <p class="text-blue-300 font-bold text-2xl tracking-tighter">0.3mm</p>
+                            <p class="text-white text-xs opacity-60 uppercase tracking-widest">Ultra Precision</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <div class="text-center">
-                        <a href="info.html" class="inline-block bg-brand-accent text-white px-12 py-6 rounded-full text-xl font-bold hover:bg-brand-dark transition-all transform hover:scale-105 shadow-xl">
-                            지금 예약하고 상담받기
-                        </a>
-                        <p class="mt-8 text-gray-400 text-sm">대기 시간 단축을 위해 네이버 예약을 권장드립니다.</p>
+        <!-- ==========================================
+             SECTION 3. DIAGNOSTIC — 정밀 진단 시스템
+        =========================================== -->
+        <section class="py-24 md:py-32 bg-brand-gray">
+            <div class="max-w-[1300px] mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <p class="text-brand-accent font-bold tracking-[0.4em] uppercase mb-4 text-xs opacity-60">Process</p>
+                    <h2 class="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight">정밀 진단 시스템</h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 premium-card text-center" data-aos="fade-up">
+                        <div class="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-width="1.5"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-width="1.5"/></svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-brand-dark mb-4">영상 의학 분석</h4>
+                        <p class="text-gray-500 font-light text-[15px] leading-relaxed">X-ray 및 초음파를 통해 척추 정렬과 유착 상태를 정밀 파악합니다.</p>
+                    </div>
+                    <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 premium-card text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="1.5"/></svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-brand-dark mb-4">이학적 검사</h4>
+                        <p class="text-gray-500 font-light text-[15px] leading-relaxed">숙련된 전문의의 감각으로 정확한 신경 포착 지점을 찾아냅니다.</p>
+                    </div>
+                    <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 premium-card text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke-width="1.5"/></svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-brand-dark mb-4">맞춤 계획 설계</h4>
+                        <p class="text-gray-500 font-light text-[15px] leading-relaxed">개개인의 증상에 맞춰 3R 테라피의 단계를 최적화합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 4. 3R THERAPY — Standardized
+        =========================================== -->
+        <section class="py-24 md:py-32 bg-brand-navy text-white">
+            <div class="max-w-[1300px] mx-auto px-6">
+                <div class="mb-16" data-aos="fade-up">
+                    <p class="text-blue-400 font-bold tracking-[0.4em] uppercase mb-4 text-xs opacity-60">Mechanism</p>
+                    <h2 class="text-4xl md:text-5xl font-bold tracking-tight">3R Therapy Philosophy</h2>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <div class="group p-10 rounded-3xl bg-white/5 border border-white/10 hover:bg-brand-accent transition-all duration-500" data-aos="fade-up">
+                        <span class="text-4xl font-bold text-blue-400 opacity-20 block mb-6">R1</span>
+                        <h3 class="text-2xl font-bold mb-4">Release</h3>
+                        <p class="text-gray-400 font-light leading-relaxed group-hover:text-blue-50 transition-colors">심부 근육과 신경 주위의 유착을 미세바늘로 직접 정밀하게 풀어냅니다.</p>
+                    </div>
+                    <div class="group p-10 rounded-3xl bg-white/5 border border-white/10 hover:bg-brand-accent transition-all duration-500" data-aos="fade-up" data-aos-delay="100">
+                        <span class="text-4xl font-bold text-blue-400 opacity-20 block mb-6">R2</span>
+                        <h3 class="text-2xl font-bold mb-4">Reinforcement</h3>
+                        <p class="text-gray-400 font-light leading-relaxed group-hover:text-blue-50 transition-colors">약해진 조직에 재생 반응을 유도하여 신체 구조를 다시 견고하게 재건합니다.</p>
+                    </div>
+                    <div class="group p-10 rounded-3xl bg-white/5 border border-white/10 hover:bg-brand-accent transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
+                        <span class="text-4xl font-bold text-blue-400 opacity-20 block mb-6">R3</span>
+                        <h3 class="text-2xl font-bold mb-4">Recovery</h3>
+                        <p class="text-gray-400 font-light leading-relaxed group-hover:text-blue-50 transition-colors">예민해진 신경계를 안정시키고 신체 기능을 본연의 상태로 회복시킵니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 5. PROCESS — Standardized
+        =========================================== -->
+        <section class="py-24 md:py-32 bg-white">
+            <div class="max-w-[1200px] mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <p class="text-brand-accent font-bold tracking-[0.4em] uppercase mb-4 text-xs opacity-60">Journey</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-dark">치료 과정 가이드</h2>
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="p-8 bg-brand-gray rounded-3xl text-center premium-card" data-aos="fade-up">
+                        <div class="text-brand-accent font-bold text-3xl mb-4 italic">01</div>
+                        <h4 class="font-bold mb-2 text-brand-dark">심층 상담</h4>
+                        <p class="text-xs text-gray-500 font-light">전문의와 직접 증상을 상담합니다.</p>
+                    </div>
+                    <div class="p-8 bg-brand-gray rounded-3xl text-center premium-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-brand-accent font-bold text-3xl mb-4 italic">02</div>
+                        <h4 class="font-bold mb-2 text-brand-dark">정밀 검사</h4>
+                        <p class="text-xs text-gray-500 font-light">초음파 등으로 부위를 확인합니다.</p>
+                    </div>
+                    <div class="p-8 bg-brand-gray rounded-3xl text-center premium-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-brand-accent font-bold text-3xl mb-4 italic">03</div>
+                        <h4 class="font-bold mb-2 text-brand-dark">타겟 시술</h4>
+                        <p class="text-xs text-gray-500 font-light">미세바늘로 정교하게 시술합니다.</p>
+                    </div>
+                    <div class="p-8 bg-brand-gray rounded-3xl text-center premium-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-brand-accent font-bold text-3xl mb-4 italic">04</div>
+                        <h4 class="font-bold mb-2 text-brand-dark">일상 복귀</h4>
+                        <p class="text-xs text-gray-500 font-light">짧은 휴식 후 일상으로 돌아갑니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 6. INDICATIONS — Standardized
+        =========================================== -->
+        <section class="py-24 md:py-32 bg-brand-gray relative">
+            <div class="max-w-[1200px] mx-auto px-6 relative z-10">
+                <div class="bg-white rounded-3xl p-10 md:p-16 shadow-xl border border-gray-100">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-brand-dark leading-tight mb-8">
+                                통증의 악순환,<br>
+                                <span class="text-brand-accent">지금 멈출 수 있습니다.</span>
+                            </h2>
+                            <div class="space-y-4">
+                                <p class="flex items-center gap-3 text-gray-600 font-medium">
+                                    <svg class="w-5 h-5 text-brand-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    재발이 잦아 근본 해결이 필요하신 분
+                                </p>
+                                <p class="flex items-center gap-3 text-gray-600 font-medium">
+                                    <svg class="w-5 h-5 text-brand-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    스테로이드 부작용이 걱정되시는 분
+                                </p>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <a href="https://m.booking.naver.com/booking/13/bizes/1436478/items/7595404" target="_blank" class="block w-full bg-brand-accent text-white py-8 rounded-2xl text-2xl font-bold hover:bg-brand-dark transition-all duration-300 shadow-xl">
+                                예약하기
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -233,39 +315,30 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-brand-dark text-white py-12 px-6 md:px-12 xl:px-20 border-t border-white/5">
+    <footer class="bg-brand-dark text-white py-20 px-6 md:px-12 xl:px-20 border-t border-white/5">
         <div class="max-w-[1600px] mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
-                
-                <div class="space-y-4">
-                    <h2 class="text-xl font-bold tracking-tight">삼성365의원</h2>
-                    <div class="text-gray-400 text-[13px] font-light leading-snug">
-                        <p class="flex flex-wrap gap-x-4 gap-y-1">
+                <div class="space-y-6">
+                    <h2 class="text-2xl font-black tracking-tighter">삼성365의원</h2>
+                    <div class="text-gray-500 text-[13px] font-light leading-relaxed max-w-lg">
+                        <p class="flex flex-wrap gap-x-6 gap-y-2 mb-4">
                             <span><strong>대표원장</strong> 삼성365의원 대표원장</span>
-                            <span class="hidden md:inline text-gray-700">|</span>
-                            <span><strong>사업자등록번호</strong> 000-00-00000</span>
+                            <span><strong>사업자번호</strong> 000-00-00000</span>
                         </p>
-                        <p class="mt-1"><strong>주소</strong> 서울 은평구 진관2로 57-7 우물골두산위브아파트상가 253동 B106호, B107호</p>
-                    </div>
-                    <div class="flex items-baseline gap-3">
-                        <span class="text-[10px] tracking-[0.2em] text-gray-500 uppercase font-bold">Patient Services</span>
-                        <span class="text-xl font-medium tracking-wider text-brand-light">02-356-1275</span>
+                        <p class="mb-2"><strong>주소</strong> 서울 은평구 진관2로 57-7 우물골두산위브아파트상가 253동 B106호, B107호</p>
+                        <p>© 2024 SAMSUNG 365 CLINIC. ALL RIGHTS RESERVED.</p>
                     </div>
                 </div>
 
-                <div class="flex flex-col items-start md:items-end gap-6">
-                    <div class="flex gap-6">
-                        <a href="#" class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">이용약관</a>
-                        <a href="#" class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">개인정보처리방침</a>
-                        <a href="#" class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">카카오상담</a>
+                <div class="flex flex-col items-start md:items-end gap-8">
+                    <div class="flex items-baseline gap-4 text-brand-light">
+                        <span class="text-[10px] tracking-[0.3em] uppercase font-black opacity-50">Reservation</span>
+                        <span class="text-3xl font-bold tracking-wider">02-356-1275</span>
                     </div>
-                    <div class="text-left md:text-right">
-                        <p class="text-gray-600 text-[12px] leading-tight font-light max-w-md">
-                            의료법 제56조 제1항을 준수하여 작성되었습니다. 시술 시 통증, 부종 등이 발생할 수 있습니다.
-                        </p>
-                        <p class="text-gray-700 font-medium text-[10px] tracking-[0.2em] mt-3">
-                            © 2024 SAMSUNG 365 CLINIC. ALL RIGHTS RESERVED.
-                        </p>
+                    <div class="flex gap-8 text-[13px] font-medium text-gray-500">
+                        <a href="#" class="hover:text-white transition-colors">이용약관</a>
+                        <a href="#" class="hover:text-white transition-colors text-white">개인정보처리방침</a>
+                        <a href="#" class="hover:text-white transition-colors">카카오톡 상담</a>
                     </div>
                 </div>
             </div>
@@ -274,35 +347,17 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+        AOS.init({ duration: 1000, easing: 'ease-out-quint', once: true, offset: 100 });
         
         document.addEventListener('DOMContentLoaded', () => {
             const menuBtn = document.getElementById('mobile-menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
             const header = document.getElementById('header');
             
-            menuBtn.addEventListener('click', () => {
-                const isOpen = !mobileMenu.classList.contains('hidden');
-                if (isOpen) {
-                    mobileMenu.classList.add('hidden');
-                    menuBtn.textContent = 'MENU';
-                    header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-                    document.body.style.overflow = 'auto';
-                } else {
-                    mobileMenu.classList.remove('hidden');
-                    menuBtn.textContent = 'CLOSE';
-                    header.style.backgroundColor = 'rgba(255, 255, 255, 1)';
-                    document.body.style.overflow = 'hidden';
-                }
-            });
-
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
                     header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-                    header.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.05)';
                 } else {
-                    header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-                    header.style.boxShadow = 'none';
+                    header.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
                 }
             });
         });
