@@ -410,22 +410,11 @@
                     <!-- Left: Visual -->
                     <div class="w-full lg:w-[42%] shrink-0 relative z-20" data-aos="fade-right">
                         <div class="relative">
-                            <div class="w-full aspect-[4/5] rounded-[3rem] bg-white shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] overflow-hidden border border-gray-100 flex items-center justify-center p-10 relative">
-                                <div class="w-full h-full rounded-2xl img-placeholder border-0 bg-gray-50/50 flex flex-col items-center justify-center text-gray-400">
-                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                                    </svg>
-                                    <span class="text-xs font-bold tracking-[0.3em] uppercase mt-6 opacity-40">Gut-Brain Axis Visual</span>
-                                </div>
+                            <div class="w-full aspect-[4/5] rounded-[3rem] bg-white shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] overflow-hidden border border-gray-100 relative">
+                                <img src="digestive_3rd.webp" alt="위장관 해부도" class="w-full h-full object-cover">
                                 <div class="absolute top-8 left-8 bg-brand-accent/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-brand-accent/20">
                                     <p class="text-[10px] font-black text-brand-accent tracking-tighter uppercase">Vagus Nerve Pathway</p>
                                 </div>
-                            </div>
-                            
-                            <div class="absolute -bottom-10 -right-8 bg-brand-dark p-10 rounded-[2.5rem] shadow-3xl hidden xl:block max-w-[280px]" data-aos="zoom-in" data-aos-delay="300">
-                                <div class="w-8 h-1 bg-blue-400 mb-6"></div>
-                                <p class="text-2xl font-bold text-white leading-tight mb-4">제2의 뇌, 장<br><span class="text-blue-400 font-light text-lg">신경계의 조율</span></p>
-                                <p class="text-xs text-gray-400 leading-relaxed font-light break-keep">장은 뇌와 독립적으로 작용하는 5억 개의 신경세포를 보유하며, 미주신경을 통해 뇌와 끊임없이 소통합니다.</p>
                             </div>
                         </div>
                     </div>
@@ -630,22 +619,35 @@
 
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-brand-dark text-white py-12 px-6 md:px-12 xl:px-20 border-t border-white/5">
-        <div class="max-w-[1600px] mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
-                <div class="space-y-4">
-                    <h2 class="text-xl font-bold tracking-tight">삼성365의원</h2>
-                    <div class="text-gray-400 text-[13px] font-light leading-snug">
-                        <p>서울 은평구 진관2로 57-7 우물골두산위브아파트상가 253동 B106호, B107호</p>
+    <footer class="bg-brand-dark text-white pt-20 pb-12 px-6 md:px-12 xl:px-20 border-t border-white/5">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+                <div class="space-y-8">
+                    <h2 class="text-2xl font-bold tracking-tight text-white">삼성365의원</h2>
+                    <div class="text-gray-400 text-[13px] font-light leading-relaxed space-y-1">
+                        <p><strong>대표</strong> 김성훈 · <strong>사업자번호</strong> 123-45-67890</p>
+                        <p class="mt-1"><strong>주소</strong> 서울 은평구 진관2로 57-7 우물골두산위브아파트상가 253동 B106호, B107호</p>
                     </div>
                     <div class="flex items-baseline gap-3">
                         <span class="text-[10px] tracking-[0.2em] text-gray-500 uppercase font-bold">Patient Services</span>
                         <span class="text-xl font-medium tracking-wider text-brand-light">02-356-1275</span>
                     </div>
                 </div>
-                <div class="text-left md:text-right">
-                    <p class="text-gray-700 font-medium text-[10px] tracking-[0.2em]">© 2024 SAMSUNG 365 CLINIC. ALL RIGHTS RESERVED.</p>
+
+                <div class="flex flex-col items-start md:items-end gap-6">
+                    <div class="flex gap-6">
+                        <a href="#" class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">이용약관</a>
+                        <a href="#" class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">개인정보처리방침</a>
+                        <a href="#" class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">카카오상담</a>
+                    </div>
+                    <div class="text-left md:text-right">
+                        <p class="text-gray-600 text-[12px] leading-tight font-light max-w-md">
+                            의료법 제56조 제1항을 준수하여 작성되었습니다. 시술 시 통증, 부종 등이 발생할 수 있습니다.
+                        </p>
+                        <p class="text-gray-700 font-medium text-[10px] tracking-[0.2em] mt-3">
+                            © 2024 SAMSUNG 365 CLINIC. ALL RIGHTS RESERVED.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
