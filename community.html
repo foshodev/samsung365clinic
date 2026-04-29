@@ -255,43 +255,106 @@
         </div>
 
         <!-- HERO SECTION -->
-        <section class="relative min-h-[600px] md:min-h-[700px] flex items-center bg-[#071121] overflow-hidden">
-            <div class="absolute inset-0 z-0">
-                <div class="absolute inset-0 bg-gradient-to-r from-[#071121] via-transparent to-transparent z-10"></div>
-                <img src="https://images.unsplash.com/photo-1576091160550-2173bdb999ef?q=80&w=2070&auto=format&fit=crop" alt="커뮤니티 배경"
-                    class="w-full h-full object-cover object-center filter brightness-[0.4] opacity-60">
+        <section class="relative pt-20 pb-12 bg-brand-dark overflow-hidden">
+            <div class="absolute inset-0 z-0 opacity-20">
+                <div class="absolute inset-0 bg-gradient-to-b from-brand-dark via-transparent to-brand-dark z-10"></div>
+                <div class="absolute inset-0" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 40px 40px;"></div>
             </div>
 
-            <div class="relative z-20 w-full max-w-[1400px] mx-auto px-6 md:px-12 xl:px-20 text-center md:text-left" data-aos="fade-up"
-                data-aos-duration="1000">
-                <p class="text-blue-300 font-bold tracking-[0.3em] uppercase mb-4 text-sm">Community</p>
-                <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white mb-6 leading-tight">
-                    환자와 소통하는<br><span class="text-brand-accent">삼성365 커뮤니티</span>
+            <div class="relative z-20 max-w-[1400px] mx-auto px-6 md:px-12 xl:px-20 text-center py-20">
+                <p class="text-brand-accent font-bold tracking-[0.4em] uppercase mb-4 text-xs" data-aos="fade-down">Private Archive</p>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight" data-aos="fade-up">
+                    결과로 증명하는 <span class="text-blue-400">삼성365 임상센터</span>
                 </h1>
-                <p class="text-gray-300 text-lg md:text-xl max-w-2xl font-medium leading-relaxed">
-                    유용한 건강 정보와 병원의 새로운 소식을 가장 빠르게 전해드립니다.<br>
-                    정확한 의학 지식으로 여러분의 건강한 일상을 돕겠습니다.
+                <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+                    의료법 제56조 및 환자 정보 보호를 위해,<br class="hidden md:block">
+                    실제 치료 사례 및 전후 기록은 로그인 후 확인하실 수 있습니다.
                 </p>
             </div>
         </section>
 
-        <!-- COMING SOON CONTENT -->
-        <section class="py-32 px-6 md:px-12 xl:px-20 relative z-10 flex flex-col items-center">
-            <div class="max-w-[800px] text-center" data-aos="fade-up">
-                <div class="w-24 h-24 bg-brand-light rounded-3xl flex items-center justify-center text-brand-accent mx-auto mb-10 shadow-sm border border-brand-accent/10">
-                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.2ed6M5.882 11h13.438"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21a9 9 0 100-18 9 9 0 000 18z"></path>
-                    </svg>
+        <!-- MEMBER GATE SECTION -->
+        <section class="relative py-20 md:py-28 bg-white overflow-hidden">
+            <div class="max-w-[800px] mx-auto px-6 relative z-10">
+                <!-- Persuasive Text Block -->
+                <div class="text-center mb-10" data-aos="fade-up">
+                    <h3 class="text-2xl md:text-3xl font-bold text-brand-dark mb-5">
+                        치료의 과정을 투명하게 공유하여<br class="md:hidden"> 신뢰를 더합니다.
+                    </h3>
+                    <p class="text-gray-500 leading-relaxed font-light break-keep max-w-xl mx-auto text-sm md:text-base">
+                        삼성365의원의 정밀 진단과 3R 테라피가 만드는 놀라운 변화들,<br class="hidden md:block">
+                        회원가입 후 수많은 임상 사례와 회복 수기를 통해 직접 확인해 보세요.
+                    </p>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-6">커뮤니티 서비스 준비 중</h2>
-                <p class="text-lg text-gray-500 mb-12 leading-relaxed">
-                    더욱 알차고 정확한 건강 정보와 소통의 공간을 마련하기 위해 현재 준비 중에 있습니다.<br>
-                    빠른 시일 내에 좋은 서비스로 찾아뵙겠습니다.
-                </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="index.html" class="px-8 py-4 bg-brand-accent text-white rounded-xl font-bold hover:bg-brand-dark transition-all duration-300 shadow-lg shadow-brand-accent/20 w-full sm:w-auto">메인으로 돌아가기</a>
-                    <a href="info.html" class="px-8 py-4 bg-white border border-gray-200 text-gray-700 rounded-xl font-bold hover:bg-gray-50 transition-all duration-300 w-full sm:w-auto">진료시간 안내보기</a>
+
+                <!-- Login Modal -->
+                <div class="w-full max-w-[480px] bg-white rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-gray-100 p-10 md:p-14 text-center mx-auto" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-brand-light rounded-2xl flex items-center justify-center mx-auto mb-8 transform rotate-3">
+                        <svg class="w-8 h-8 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                    
+                    <h2 class="text-2xl font-bold text-brand-dark mb-3">회원 로그인</h2>
+                    <p class="text-sm text-gray-400 mb-10 leading-relaxed font-light">
+                        치료 전후 사진 및 상세 기록 열람을 위해<br>
+                        로그인이 필요합니다.
+                    </p>
+
+                    <form class="space-y-3 mb-8 text-left">
+                        <div>
+                            <input type="text" placeholder="아이디" class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent/10 focus:border-brand-accent transition-all text-sm">
+                        </div>
+                        <div>
+                            <input type="password" placeholder="비밀번호" class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent/10 focus:border-brand-accent transition-all text-sm">
+                        </div>
+                        <button type="button" class="w-full py-5 bg-brand-dark text-white rounded-xl font-bold hover:bg-brand-accent transition-all duration-300 shadow-xl shadow-brand-dark/10 mt-2">
+                            로그인
+                        </button>
+                    </form>
+
+                    <div class="flex items-center justify-center gap-6 text-xs text-gray-400">
+                        <a href="#" class="hover:text-brand-dark transition-colors">아이디 찾기</a>
+                        <span class="w-1 h-1 bg-gray-200 rounded-full"></span>
+                        <a href="#" class="hover:text-brand-dark transition-colors">비밀번호 찾기</a>
+                        <span class="w-1 h-1 bg-gray-200 rounded-full"></span>
+                        <a href="#" class="font-bold text-brand-accent hover:underline decoration-2 underline-offset-4">회원가입</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+                <div class="w-full max-w-[480px] bg-white rounded-[2.5rem] shadow-[0_30px_90px_-15px_rgba(0,0,0,0.12)] border border-gray-50 p-10 md:p-14 text-center relative z-40" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-brand-light rounded-2xl flex items-center justify-center mx-auto mb-8 transform rotate-3">
+                        <svg class="w-8 h-8 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                    
+                    <h2 class="text-2xl font-bold text-brand-dark mb-3">회원 로그인</h2>
+                    <p class="text-sm text-gray-400 mb-10 leading-relaxed font-light">
+                        치료 전후 사진 및 상세 기록 열람을 위해<br>
+                        로그인이 필요합니다.
+                    </p>
+
+                    <form class="space-y-3 mb-8 text-left">
+                        <div>
+                            <input type="text" placeholder="아이디" class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent/10 focus:border-brand-accent transition-all text-sm">
+                        </div>
+                        <div>
+                            <input type="password" placeholder="비밀번호" class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent/10 focus:border-brand-accent transition-all text-sm">
+                        </div>
+                        <button type="button" class="w-full py-5 bg-brand-dark text-white rounded-xl font-bold hover:bg-brand-accent transition-all duration-300 shadow-xl shadow-brand-dark/10 mt-2">
+                            로그인
+                        </button>
+                    </form>
+
+                    <div class="flex items-center justify-center gap-6 text-xs text-gray-400">
+                        <a href="#" class="hover:text-brand-dark transition-colors">아이디 찾기</a>
+                        <span class="w-1 h-1 bg-gray-200 rounded-full"></span>
+                        <a href="#" class="hover:text-brand-dark transition-colors">비밀번호 찾기</a>
+                        <span class="w-1 h-1 bg-gray-200 rounded-full"></span>
+                        <a href="#" class="font-bold text-brand-accent hover:underline decoration-2 underline-offset-4">회원가입</a>
+                    </div>
                 </div>
             </div>
         </section>
