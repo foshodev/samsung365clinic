@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공황장애 클리닉 | 삼성365의원</title>
+    <meta name="description" content="갑작스러운 가슴 답답함, 질식감, 극심한 공포. 심장의 문제가 아닌 자율신경계의 오작동을 삼성365의원만의 3R Therapy로 리셋합니다.">
+    <meta name="keywords" content="공황장애, 공황발작, 예기불안, 과호흡, 가슴답답함, 자율신경실조증, 3RTherapy, 은평구정형외과, 삼성365의원">
+    <meta property="og:title" content="공황장애 클리닉 | 삼성365의원">
+    <meta property="og:description" content="신체가 보내는 비명, 고장 난 신경계의 스위치를 리셋합니다.">
+    <meta property="og:type" content="website">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontSize: {
+                        '4xl': ['2.25rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
+                        '5xl': ['3rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
+                        '6xl': ['3.75rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
+                        '7xl': ['4.5rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
+                    },
+                    fontFamily: { sans: ['Pretendard', 'sans-serif'] },
+                    colors: {
+                        brand: { dark: '#111111', light: '#F8F9FA', accent: '#0C4A9E', gray: '#E9ECEF' }
+                    },
+                    spacing: { '30': '7.5rem', '40': '10rem', '50': '12.5rem' }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #FAFAF8;
+            color: #111111;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .hover-underline-animation {
+            display: inline-block;
+            position: relative;
+        }
+
+        .hover-underline-animation::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #0C4A9E;
+            transform-origin: bottom right;
+            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+
+        .hover-underline-animation:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .img-placeholder {
+            background: linear-gradient(135deg, #EDF0F7 0%, #E8EDF5 100%);
+            border: 2px dashed #B8C4D8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #8A96AB;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .img-placeholder svg {
+            margin-bottom: 0.75rem;
+            opacity: 0.45;
+        }
+
+        details[open] .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq-arrow {
+            transition: transform 0.3s ease;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.1); }
+        }
+
+        .pulse-glow {
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-brand-accent selection:text-white break-keep">
+
+    <!-- HEADER -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-500" id="header"
+        style="background-color: rgba(255,255,255,0.95); backdrop-filter: blur(12px);">
+        <div class="max-w-[1600px] mx-auto px-6 md:px-12 xl:px-20 flex justify-between items-center h-24">
+            <a href="index.html" class="text-2xl md:text-3xl font-extrabold text-brand-dark">삼성365의원</a>
+
+            <nav class="hidden lg:flex space-x-8 xl:space-x-12 items-center h-full">
+                <!-- Navigation links same as digestive-pain.html but with active state on Panic Disorder -->
+                <div class="relative group h-full flex items-center">
+                    <a href="staff.html" class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">병원소개</a>
+                    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-48 bg-white/95 backdrop-blur-md shadow-lg rounded-b-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 py-3 z-[60]">
+                        <a href="staff.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">의료진소개</a>
+                        <a href="info.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">병원진료시간</a>
+                    </div>
+                </div>
+                <div class="relative group h-full flex items-center">
+                    <a href="spine-neck.html" class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">척추질환</a>
+                    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-48 bg-white/95 backdrop-blur-md shadow-lg rounded-b-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 py-3 z-[60]">
+                        <a href="spine-neck.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">목통증</a>
+                        <a href="spine-back.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">등통증</a>
+                        <a href="spine-waist.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">허리통증</a>
+                    </div>
+                </div>
+                <div class="relative group h-full flex items-center">
+                    <a href="shoulder-pain.html" class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">관절질환</a>
+                    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-48 bg-white/95 backdrop-blur-md shadow-lg rounded-b-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 py-3 z-[60]">
+                        <a href="shoulder-pain.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">어깨통증</a>
+                        <a href="knee-pain.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">무릎통증</a>
+                        <a href="elbow-pain.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">팔꿈치통증</a>
+                        <a href="wrist-ankle-pain.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">손목/발목통증</a>
+                        <a href="hip-joint-pain.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">엉덩이 관절</a>
+                    </div>
+                </div>
+                <div class="relative group h-full flex items-center">
+                    <a href="tmj-pain.html" class="text-[17px] font-medium text-brand-accent hover-underline-animation pb-1">난치성질환</a>
+                    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-48 bg-white/95 backdrop-blur-md shadow-lg rounded-b-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 py-3 z-[60]">
+                        <a href="tmj-pain.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">턱관절통증</a>
+                        <a href="headache-pain.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">두통</a>
+                        <a href="tinnitus-pain.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">이명</a>
+                        <a href="digestive-pain.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">만성위장관질환</a>
+                        <a href="panic-disorder.html" class="block px-6 py-2.5 text-[15px] font-medium text-brand-accent bg-brand-light transition-colors">공황장애</a>
+                    </div>
+                </div>
+                <a href="injection-therapy.html" class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">주사치료</a>
+                <a href="community.html" class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">커뮤니티</a>
+                <a href="https://m.booking.naver.com/booking/13/bizes/1436478/items/7595404" target="_blank" class="px-6 py-2.5 bg-brand-accent text-white text-[14px] font-semibold hover:bg-brand-dark transition-colors duration-300 ml-4 rounded-sm">예약하기</a>
+            </nav>
+
+            <button id="mobile-menu-toggle" class="lg:hidden text-lg font-bold uppercase tracking-[0.2em] text-brand-dark transition-colors hover:text-brand-accent">MENU</button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-24 left-0 w-full min-h-[calc(100vh-6rem)] bg-white flex flex-col py-8 px-6 space-y-6 z-40 overflow-y-auto">
+            <details class="group border-b border-gray-100 pb-4">
+                <summary class="flex justify-between items-center text-3xl font-bold text-gray-900 cursor-pointer list-none">병원소개 <span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span></summary>
+                <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
+                    <a href="staff.html" class="text-xl text-gray-600 block">의료진소개</a>
+                    <a href="info.html" class="text-xl text-gray-600 block">병원진료시간</a>
+                </div>
+            </details>
+            <!-- Same mobile menu structure with active on Panic -->
+            <details class="group border-b border-gray-100 pb-4" open>
+                <summary class="flex justify-between items-center text-3xl font-bold text-brand-accent cursor-pointer list-none">난치성질환 <span class="transform transition-transform group-open:rotate-45">+</span></summary>
+                <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
+                    <a href="tmj-pain.html" class="text-xl text-gray-600 block">턱관절통증</a>
+                    <a href="headache-pain.html" class="text-xl text-gray-600 block">두통</a>
+                    <a href="tinnitus-pain.html" class="text-xl text-gray-600 block">이명</a>
+                    <a href="digestive-pain.html" class="text-xl text-gray-600 block">만성위장관질환</a>
+                    <a href="panic-disorder.html" class="text-xl text-brand-accent font-bold block">공황장애</a>
+                </div>
+            </details>
+            <!-- Other details... -->
+            <div class="pb-4"><a href="injection-therapy.html" class="text-3xl font-bold text-gray-900 block">주사치료</a></div>
+            <div class="pb-4"><a href="community.html" class="text-3xl font-bold text-gray-900 block">커뮤니티</a></div>
+            <div class="pt-8 mt-auto mb-10 w-full">
+                <a href="https://m.booking.naver.com/booking/13/bizes/1436478/items/7595404" target="_blank" class="w-full py-4 bg-brand-accent text-white text-center text-xl font-bold tracking-wide block">진료 예약하기</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24">
+
+        <!-- STICKY LNB -->
+        <div class="sticky top-24 z-40 bg-brand-dark shadow-lg">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12 flex justify-center py-3 overflow-x-auto no-scrollbar">
+                <nav class="flex space-x-1 bg-white/5 p-1 rounded-full border border-white/10 backdrop-blur-md">
+                    <a href="tmj-pain.html" class="px-6 py-2 text-gray-400 text-[15px] font-semibold hover:text-white hover:bg-white/10 rounded-full transition-all whitespace-nowrap">턱관절통증</a>
+                    <a href="headache-pain.html" class="px-6 py-2 text-gray-400 text-[15px] font-semibold hover:text-white hover:bg-white/10 rounded-full transition-all whitespace-nowrap">두통</a>
+                    <a href="tinnitus-pain.html" class="px-6 py-2 text-gray-400 text-[15px] font-semibold hover:text-white hover:bg-white/10 rounded-full transition-all whitespace-nowrap">이명</a>
+                    <a href="digestive-pain.html" class="px-6 py-2 text-gray-400 text-[15px] font-semibold hover:text-white hover:bg-white/10 rounded-full transition-all whitespace-nowrap">만성위장관질환</a>
+                    <a href="panic-disorder.html" class="px-6 py-2 bg-brand-accent text-white text-[15px] font-bold rounded-full shadow-md transition-all whitespace-nowrap">공황장애</a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- SECTION 1. HERO -->
+        <section class="relative min-h-[600px] md:min-h-[700px] flex items-center bg-[#0C0F1A] overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#0C0F1A] via-transparent to-transparent z-10"></div>
+                <img src="panic_hero.webp" alt="공황장애 히어로" class="absolute inset-0 w-full h-full object-cover object-center opacity-50">
+            </div>
+
+            <div class="relative z-20 w-full max-w-[1400px] mx-auto px-6 md:px-12 xl:px-20">
+                <div class="w-full md:w-3/5 lg:w-[55%]">
+                    <p class="text-blue-300 font-bold tracking-[0.3em] uppercase mb-6 text-sm" data-aos="fade-up">Intractable Clinic — Panic Disorder</p>
+                    <h1 class="text-4xl md:text-5xl lg:text-[3.4rem] font-extrabold text-white mb-8 leading-[1.3]" data-aos="fade-up" data-aos-delay="100">
+                        이유 없는 공포는 없습니다.<br>
+                        <span class="text-blue-200">고장 난 스위치</span>를 리셋하세요.
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 leading-[1.9] font-light" data-aos="fade-up" data-aos-delay="200">
+                        심장 마비가 올 것 같은 두려움, 숨이 막히는 답답함.<br class="hidden md:block">
+                        이것은 심장의 문제가 아닌, 과잉 보호 중인 자율신경계의 오작동입니다.<br class="hidden md:block">
+                        신체 시스템을 차분히 리셋하여 다시 안전한 일상을 되찾아 드립니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2. Diagnostic Context -->
+        <section class="pt-24 md:pt-32 pb-12 md:pb-16 px-6 md:px-12 xl:px-20 bg-white">
+            <div class="max-w-[1300px] mx-auto">
+                <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8" data-aos="fade-up">
+                    <div class="max-w-2xl">
+                        <p class="text-brand-accent font-bold tracking-[0.4em] uppercase mb-6 text-xs opacity-60">Symptom Patterns</p>
+                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-dark tracking-tight leading-[1.1]">신체가 보내는<br>긴급 구조 신호</h2>
+                    </div>
+                    <div class="max-w-md pb-2">
+                        <p class="text-lg text-gray-500 leading-relaxed font-light break-keep">공황은 단순히 마음의 문제가 아닙니다. 뇌의 편도체가 위험 상황으로 오인하여 온몸에 비상 신호를 보내는 물리적 현상입니다.</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 border-t border-gray-100">
+                    <div class="group pt-10 pb-10 md:pr-12 border-b md:border-b-0 md:border-r border-gray-100 transition-all hover:bg-brand-light/30" data-aos="fade-up">
+                        <div class="mb-12"><span class="text-5xl font-black text-brand-accent/10 group-hover:text-brand-accent/20 transition-colors">01.</span></div>
+                        <h3 class="text-2xl font-bold mb-6 text-brand-dark group-hover:text-brand-accent transition-colors">신체화 증상</h3>
+                        <p class="text-gray-500 leading-[2.1] break-keep font-light text-[17px]">심장 두근거림, 호흡 곤란, 어지럼증, 식은땀 등 강렬한 신체 반응이 동반됩니다. 자율신경계의 급격한 항진이 원인입니다.</p>
+                    </div>
+                    <div class="group pt-10 pb-10 md:px-12 border-b md:border-b-0 md:border-r border-gray-100 transition-all hover:bg-brand-light/30" data-aos="fade-up" data-aos-delay="100">
+                        <div class="mb-12"><span class="text-5xl font-black text-brand-accent/10 group-hover:text-brand-accent/20 transition-colors">02.</span></div>
+                        <h3 class="text-2xl font-bold mb-6 text-brand-dark group-hover:text-brand-accent transition-colors">예기 불안</h3>
+                        <p class="text-gray-500 leading-[2.1] break-keep font-light text-[17px]">언제 다시 공황이 찾아올지 모른다는 지속적인 불안감에 시달립니다. 신경계가 상시 긴장 상태(On-Edge)에 놓여 있습니다.</p>
+                    </div>
+                    <div class="group pt-10 pb-10 md:pl-12 border-gray-100 transition-all hover:bg-brand-light/30" data-aos="fade-up" data-aos-delay="200">
+                        <div class="mb-12"><span class="text-5xl font-black text-brand-accent/10 group-hover:text-brand-accent/20 transition-colors">03.</span></div>
+                        <h3 class="text-2xl font-bold mb-6 text-brand-dark group-hover:text-brand-accent transition-colors">광장 공포증</h3>
+                        <p class="text-gray-500 leading-[2.1] break-keep font-light text-[17px]">도움을 받기 어렵거나 피하기 힘든 장소(지하철, 터널 등)를 회피하게 됩니다. 행동 반경이 좁아지며 삶의 질이 저하됩니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3. Medical Insight -->
+        <section class="py-24 md:py-40 px-6 md:px-12 xl:px-20 bg-brand-light relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-1/3 h-full bg-white/50 -z-10 skew-x-[-15deg] translate-x-20"></div>
+
+            <div class="max-w-[1350px] mx-auto">
+                <div class="flex flex-col lg:flex-row gap-16 lg:gap-28 items-center">
+                    
+                    <div class="w-full lg:w-[42%] shrink-0 relative z-20" data-aos="fade-right">
+                        <div class="relative">
+                            <div class="w-full aspect-[4/5] rounded-[3rem] bg-white shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] overflow-hidden border border-gray-100 flex items-center justify-center p-10 relative">
+                                <div class="w-full h-full rounded-2xl img-placeholder border-0 bg-gray-50/50 flex flex-col items-center justify-center text-gray-400">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                        <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20z"/><path d="M2 12h20"/>
+                                    </svg>
+                                    <span class="text-xs font-bold tracking-[0.3em] uppercase mt-6 opacity-40">Amygdala Response Visual</span>
+                                </div>
+                            </div>
+                            
+                            <div class="absolute -bottom-10 -right-8 bg-brand-dark p-10 rounded-[2.5rem] shadow-3xl hidden xl:block max-w-[280px]" data-aos="zoom-in" data-aos-delay="300">
+                                <div class="w-8 h-1 bg-red-400 mb-6"></div>
+                                <p class="text-2xl font-bold text-white leading-tight mb-4">공포의 알람 스위치<br><span class="text-red-400 font-light text-lg">편도체 하이재킹</span></p>
+                                <p class="text-xs text-gray-400 leading-relaxed font-light break-keep">공황 상태에서는 논리적인 사고를 담당하는 전두엽보다 생존 본능의 편도체가 신체 제어권을 가로챕니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full lg:flex-1" data-aos="fade-left">
+                        <div class="max-w-2xl">
+                            <p class="text-brand-accent font-bold tracking-[0.4em] uppercase mb-6 text-xs">Medical Insight — Autonomic Reset</p>
+                            <h2 class="text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight leading-[1.2] mb-10">
+                                공황장애의 본질은,<br>
+                                <span class="text-brand-accent">잘못 설정된 생존 모드입니다.</span>
+                            </h2>
+                            
+                            <div class="relative pl-10 mb-16">
+                                <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-accent to-transparent rounded-full"></div>
+                                <p class="text-xl md:text-2xl text-gray-600 leading-[1.85] font-light break-keep">
+                                    위험이 없는 상황에서도 뇌가 '비상사태'로 인식하여 교감신경을 풀가동시키는 것이 공황입니다. <span class="text-brand-dark font-semibold">신경계의 역치를 높이고 자율신경의 유연성을 회복하면</span>, 뇌는 더 이상 사소한 자극에 과잉 반응하지 않게 됩니다.
+                                </p>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-12 border-t border-gray-100 pt-12">
+                                <div class="group">
+                                    <div class="flex items-end gap-3 mb-3">
+                                        <span class="text-4xl md:text-5xl font-extralight text-brand-dark tracking-tighter group-hover:text-brand-accent transition-colors">RESET</span>
+                                        <span class="text-xs font-bold text-brand-accent mb-2 tracking-widest uppercase">System</span>
+                                    </div>
+                                    <p class="text-sm font-bold text-gray-800 mb-2">신경망 안정화</p>
+                                    <p class="text-[13px] text-gray-400 leading-relaxed font-light break-keep">과하게 예민해진 신체 감각 회로를 안정시켜, 사소한 자극을 위험으로 오인하지 않도록 교육합니다.</p>
+                                </div>
+                                <div class="group">
+                                    <div class="flex items-end gap-3 mb-3">
+                                        <span class="text-4xl md:text-5xl font-extralight text-brand-dark tracking-tighter group-hover:text-brand-accent transition-colors">Balance</span>
+                                        <span class="text-xs font-bold text-brand-accent mb-2 tracking-widest uppercase">HRV</span>
+                                    </div>
+                                    <p class="text-sm font-bold text-gray-800 mb-2">자율신경 유연성</p>
+                                    <p class="text-[13px] text-gray-400 leading-relaxed font-light break-keep">부교감 신경의 기능을 활성화하여, 불안 상황에서도 신체가 스스로 진정될 수 있는 힘을 키웁니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4. Timeline -->
+        <section class="py-24 md:py-36 px-6 md:px-12 xl:px-20 bg-[#07111F] text-white overflow-hidden">
+            <div class="max-w-[1100px] mx-auto">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <p class="text-blue-300 font-bold tracking-[0.3em] uppercase mb-4 text-sm">Anxiety Escalation Timeline</p>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">공황의 고리는<br>학습되어 강화됩니다</h2>
+                    <p class="text-lg text-gray-400 max-w-xl mx-auto">한 번의 발작이 만성적인 공포로 자리 잡기 전, 시스템을 리셋해야 합니다.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-8 rounded-3xl" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07);">
+                        <div class="w-12 h-12 rounded-full border border-gray-600/40 flex items-center justify-center mb-5">
+                            <span class="font-black text-lg text-gray-500">01</span>
+                        </div>
+                        <p class="text-xs font-bold tracking-[0.2em] text-gray-500 uppercase mb-2">Initial Strike</p>
+                        <h3 class="text-xl font-bold text-white mb-4">첫 발작기</h3>
+                        <p class="text-gray-400 leading-[1.85]">이유 없이 갑작스러운 신체화 증상 발생. '죽을 것 같다'는 강렬한 공포를 경험하며 응급실을 찾기도 하는 시기입니다.</p>
+                    </div>
+
+                    <div class="p-8 rounded-3xl relative" style="background:rgba(12,74,158,0.14); border:1px solid rgba(12,74,158,0.4);">
+                        <div class="absolute -top-3 left-6 bg-brand-accent text-white text-xs font-bold px-4 py-1.5 rounded-full">악순환이 고착되는 핵심 시기</div>
+                        <div class="w-12 h-12 rounded-full border border-brand-accent/50 flex items-center justify-center mb-5 mt-2">
+                            <span class="font-black text-lg text-blue-300">02</span>
+                        </div>
+                        <p class="text-xs font-bold tracking-[0.2em] text-blue-400 uppercase mb-2">Anticipatory Phase</p>
+                        <h3 class="text-xl font-bold text-white mb-4">예기불안기</h3>
+                        <p class="text-gray-400 leading-[1.85]">언제 다시 발생할지 모른다는 불안에 신체 감각에 극도로 예민해집니다. 작은 두근거림도 공황의 전조로 오인하게 됩니다.</p>
+                    </div>
+
+                    <div class="p-8 rounded-3xl" style="background:rgba(239,68,68,0.07); border:1px solid rgba(239,68,68,0.3);">
+                        <div class="w-12 h-12 rounded-full border border-red-500/40 flex items-center justify-center mb-5">
+                            <span class="font-black text-lg text-red-400">03</span>
+                        </div>
+                        <p class="text-xs font-bold tracking-[0.2em] text-red-400 uppercase mb-2">Avoidance Phase ⛔</p>
+                        <h3 class="text-xl font-bold text-white mb-4">회피·고착기</h3>
+                        <p class="text-gray-400 leading-[1.85]">특정 장소나 상황을 피하게 되며 일상이 제약됩니다. 우울감, 무기력증 등 전신적인 신경계 탈진 상태로 이어집니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5. 3R Therapy -->
+        <section class="py-24 md:py-32 px-6 md:px-12 xl:px-20 bg-brand-light">
+            <div class="max-w-[1400px] mx-auto text-center mb-16 md:mb-20" data-aos="fade-up">
+                <p class="text-brand-accent font-bold tracking-[0.3em] uppercase mb-4 text-sm">Targeted Solution</p>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-brand-dark mb-6">삼성365의원 공황장애 특화 3R Therapy</h2>
+                <p class="text-lg md:text-xl text-gray-500">과민해진 신경계를 진정시키고, 다시 안전함을 학습하게 합니다.</p>
+            </div>
+            
+            <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                <div class="relative rounded-xl overflow-hidden shadow-xl group h-[450px] lg:h-[550px]" data-aos="fade-up">
+                    <img src="01.webp" alt="이완 치료" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/70 to-[#111111]/20"></div>
+                    <div class="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
+                        <h3 class="text-[4rem] lg:text-[5rem] font-black text-white/20 leading-none mb-2">01</h3>
+                        <h4 class="text-2xl lg:text-3xl font-bold text-white mb-3">Release <span class="text-blue-300 ml-2 text-lg lg:text-xl font-medium tracking-wide">이완</span></h4>
+                        <p class="text-gray-300 text-sm lg:text-base leading-relaxed break-keep font-light">흉곽 주변 근육과 호흡근의 긴장을 해소하여 신체적 답답함을 즉각적으로 완화합니다.</p>
+                    </div>
+                </div>
+                <div class="relative rounded-xl overflow-hidden shadow-xl group h-[450px] lg:h-[550px]" data-aos="fade-up" data-aos-delay="100">
+                    <img src="02.webp" alt="강화 치료" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/70 to-[#111111]/20"></div>
+                    <div class="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
+                        <h3 class="text-[4rem] lg:text-[5rem] font-black text-white/20 leading-none mb-2">02</h3>
+                        <h4 class="text-2xl lg:text-3xl font-bold text-white mb-3">Reinforcement <span class="text-blue-300 ml-2 text-lg lg:text-xl font-medium tracking-wide">강화</span></h4>
+                        <p class="text-gray-300 text-sm lg:text-base leading-relaxed break-keep font-light">자율신경 조절 능력을 강화하여 불안 자극에 흔들리지 않는 신체적 회복탄력성을 키웁니다.</p>
+                    </div>
+                </div>
+                <div class="relative rounded-xl overflow-hidden shadow-xl group h-[450px] lg:h-[550px]" data-aos="fade-up" data-aos-delay="200">
+                    <img src="03.webp" alt="정상화 치료" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/70 to-[#111111]/20"></div>
+                    <div class="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
+                        <h3 class="text-[4rem] lg:text-[5rem] font-black text-white/20 leading-none mb-2">03</h3>
+                        <h4 class="text-2xl lg:text-3xl font-bold text-white mb-3">Reset <span class="text-blue-300 ml-2 text-lg lg:text-xl font-medium tracking-wide">리셋</span></h4>
+                        <p class="text-gray-300 text-sm lg:text-base leading-relaxed break-keep font-light">잘못된 비상 스위치(편도체 과활성)를 리셋하여 일상을 다시 안전한 공간으로 재정의합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6. Expert Quote & FAQ -->
+        <section class="py-24 md:py-40 px-6 md:px-12 xl:px-20 bg-white">
+            <div class="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-20">
+                <div class="w-full lg:w-[48%]" data-aos="fade-right">
+                    <div class="relative rounded-[3rem] overflow-hidden group shadow-2xl aspect-square md:aspect-auto md:h-[600px]">
+                        <img src="staff_hero.webp" alt="삼성365의원 대표원장" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent"></div>
+                        <div class="absolute inset-0 p-12 flex flex-col justify-end">
+                            <div class="w-12 h-1 bg-blue-400 mb-8 transition-all group-hover:w-20"></div>
+                            <p class="text-2xl md:text-3xl font-bold text-white leading-tight mb-8 break-keep">
+                                "공황은 당신이 약해서 생기는 것이 아닙니다. 단지 시스템이 잠시 오작동할 뿐입니다. 다시 원래의 안전한 상태로 되돌릴 수 있습니다."
+                            </p>
+                            <div class="flex items-center gap-4">
+                                <div class="w-px h-10 bg-white/20"></div>
+                                <div><p class="text-white font-bold text-lg">삼성365의원 대표원장</p><p class="text-gray-400 text-sm">Samsung Medical Center Specialist</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:flex-1" data-aos="fade-left">
+                    <p class="text-brand-accent font-bold tracking-[0.4em] uppercase mb-6 text-xs">Patient Consultation</p>
+                    <h2 class="text-4xl font-bold text-brand-dark mb-10">자주 묻는 질문</h2>
+                    <div class="divide-y divide-gray-100 border-t border-gray-100">
+                        <details class="group py-7" open>
+                            <summary class="flex justify-between items-center cursor-pointer list-none gap-4">
+                                <span class="text-lg font-bold text-gray-800 group-open:text-brand-accent transition-colors">공황장애도 신체적인 치료가 가능한가요?</span>
+                                <span class="faq-arrow text-brand-accent text-2xl font-light shrink-0">↓</span>
+                            </summary>
+                            <p class="mt-5 text-gray-600 leading-[1.85] pl-2 border-l-2 border-brand-accent/20">
+                                네, 공황장애는 강렬한 신체 반응을 동반하므로 자율신경계 조절과 같은 신체적 접근이 매우 효과적입니다. 과항진된 교감신경을 물리적으로 완화하고 부교감신경을 활성화하는 치료를 통해 공황의 빈도와 강도를 줄일 수 있습니다.
+                            </p>
+                        </details>
+                        <details class="group py-7">
+                            <summary class="flex justify-between items-center cursor-pointer list-none gap-4">
+                                <span class="text-lg font-bold text-gray-800 group-open:text-brand-accent transition-colors">정신과 약물 없이 치료가 될까요?</span>
+                                <span class="faq-arrow text-brand-accent text-2xl font-light shrink-0">↓</span>
+                            </summary>
+                            <p class="mt-5 text-gray-600 leading-[1.85] pl-2 border-l-2 border-brand-accent/20">
+                                증상이 심한 초기에는 약물 치료가 도움이 될 수 있으나, 삼성365의원은 약물에만 의존하지 않고 신체 시스템 자체의 회복탄력성을 높이는 데 집중합니다. 자율신경계가 스스로 밸런스를 찾으면 약물을 점진적으로 줄이거나 끊는 목표를 달성할 수 있습니다.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7. CTA -->
+        <section class="py-20 px-6 bg-white" data-aos="zoom-in">
+            <div class="max-w-[1000px] mx-auto bg-[#050D1A] rounded-[3rem] p-12 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-accent/20 to-transparent z-0"></div>
+                <div class="relative z-10">
+                    <h2 class="text-3xl md:text-5xl font-extrabold mb-6 text-white leading-tight">
+                        불안의 터널 끝에는,<br>
+                        <span class="text-blue-200">다시 평온한 일상이 있습니다.</span>
+                    </h2>
+                    <p class="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed">네이버 예약을 이용하시면 대기 시간을 최소화하여 정밀한 진료를 받으실 수 있습니다.</p>
+                    <a href="https://m.booking.naver.com/booking/13/bizes/1436478/items/7595404" target="_blank"
+                        class="inline-flex items-center justify-center bg-white text-brand-dark px-10 py-5 rounded-full text-xl font-bold hover:bg-gray-100 transition-all shadow-[0_10px_30px_rgba(255,255,255,0.15)] hover:-translate-y-1">
+                        진료 예약하기
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER same as digestive -->
+    <footer class="bg-brand-dark text-white py-12 px-6 md:px-12 xl:px-20 border-t border-white/5">
+        <div class="max-w-[1600px] mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
+                <div class="space-y-4">
+                    <h2 class="text-xl font-bold tracking-tight">삼성365의원</h2>
+                    <div class="text-gray-400 text-[13px] font-light leading-snug">
+                        <p>서울 은평구 진관2로 57-7 우물골두산위브아파트상가 253동 B106호, B107호</p>
+                    </div>
+                </div>
+                <div class="text-left md:text-right">
+                    <p class="text-gray-700 font-medium text-[10px] tracking-[0.2em]">© 2024 SAMSUNG 365 CLINIC. ALL RIGHTS RESERVED.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const header = document.getElementById('header');
+            let isMenuOpen = false;
+
+            menuBtn.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('hidden');
+                    menuBtn.textContent = 'CLOSE';
+                    header.style.backgroundColor = 'rgba(255,255,255,1)';
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    menuBtn.textContent = 'MENU';
+                    header.style.backgroundColor = 'rgba(255,255,255,0.95)';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                } else {
+                    header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                }
+            });
+
+            AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+        });
+    </script>
+</body>
+
+</html>

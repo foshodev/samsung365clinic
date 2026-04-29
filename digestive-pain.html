@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>두통 클리닉 | 삼성365의원</title>
-    <meta name="description" content="경추성 두통, 긴장성 두통, 편두통. 반복되는 두통의 근본 원인을 상부 경추에서 찾아 삼성365의원의 정밀 진찰로 해결합니다.">
-    <meta name="keywords" content="두통, 경추성두통, 긴장성두통, 편두통, 후두하근이완, 만성두통치료, 은평구두통, 삼성365의원">
-    <meta property="og:title" content="두통 클리닉 | 삼성365의원">
-    <meta property="og:description" content="머리가 아픈 것이 아니라, 목이 보내는 신호일 수 있습니다.">
+    <title>만성위장관질환 클리닉 | 삼성365의원</title>
+    <meta name="description" content="신경인성 소화불량, 과민성 대장 증후군, 기능성 위장장애. 위장의 문제가 아닌 신경계의 불균형을 삼성365의원만의 3R Therapy로 해결합니다.">
+    <meta name="keywords" content="소화불량, 위장장애, 과민성대장증후군, 만성복통, 신경성위염, 3RTherapy, 은평구정형외과, 삼성365의원">
+    <meta property="og:title" content="만성위장관질환 클리닉 | 삼성365의원">
+    <meta property="og:description" content="위장이 보내는 신호, 뇌와 신경의 불균형일 수 있습니다.">
     <meta property="og:type" content="website">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -109,8 +109,6 @@
             }
         }
 
-
-
         @keyframes fadeFloat {
 
             0%,
@@ -130,33 +128,6 @@
             animation: flowDown 5s ease-in-out infinite;
         }
 
-        .flow-path-2 {
-            stroke-dasharray: 500;
-            animation: flowDown 5s ease-in-out infinite 1.5s;
-        }
-
-        .flow-path-3 {
-            stroke-dasharray: 500;
-            animation: flowDown 5s ease-in-out infinite 3s;
-        }
-
-        .pulse-glow {
-            animation: pulseGlow 4s ease-in-out infinite;
-        }
-
-        .brain-wave {
-            opacity: 0.7;
-        }
-
-        .fade-float {
-            animation: fadeFloat 7s ease-in-out infinite;
-        }
-
-        .fade-float-2 {
-            animation: fadeFloat 9s ease-in-out infinite 2s;
-        }
-
-        /* Image placeholder */
         .img-placeholder {
             background: linear-gradient(135deg, #EDF0F7 0%, #E8EDF5 100%);
             border: 2px dashed #B8C4D8;
@@ -175,7 +146,6 @@
             opacity: 0.45;
         }
 
-        /* FAQ arrow */
         details[open] .faq-arrow {
             transform: rotate(180deg);
         }
@@ -184,29 +154,8 @@
             transition: transform 0.3s ease;
         }
 
-        /* Brainwave SVG container */
-        .wave-container {
-            overflow: hidden;
-        }
-
-        /* Headache zone card */
-        .zone-card {
-            transition: all 0.3s ease;
-        }
-
-        .zone-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(12, 74, 158, 0.08);
-        }
-
-        /* 3R circular step */
-        .r-circle {
-            background: conic-gradient(from 200deg, rgba(12, 74, 158, 0.08) 0%, rgba(12, 74, 158, 0.18) 100%);
-            transition: all 0.4s ease;
-        }
-
-        .r-circle:hover {
-            transform: scale(1.03);
+        .fade-float {
+            animation: fadeFloat 7s ease-in-out infinite;
         }
     </style>
 </head>
@@ -220,6 +169,7 @@
             <a href="index.html" class="text-2xl md:text-3xl font-extrabold text-brand-dark">삼성365의원</a>
 
             <nav class="hidden lg:flex space-x-8 xl:space-x-12 items-center h-full">
+                <!-- 1. 병원소개 -->
                 <div class="relative group h-full flex items-center">
                     <a href="staff.html"
                         class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">병원소개</a>
@@ -231,6 +181,7 @@
                             class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">병원진료시간</a>
                     </div>
                 </div>
+                <!-- 2. 척추질환 -->
                 <div class="relative group h-full flex items-center">
                     <a href="spine-neck.html"
                         class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">척추질환</a>
@@ -244,6 +195,7 @@
                             class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">허리통증</a>
                     </div>
                 </div>
+                <!-- 3. 관절질환 -->
                 <div class="relative group h-full flex items-center">
                     <a href="shoulder-pain.html"
                         class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">관절질환</a>
@@ -262,6 +214,7 @@
                             관절</a>
                     </div>
                 </div>
+                <!-- 4. 난치성질환 -->
                 <div class="relative group h-full flex items-center">
                     <a href="tmj-pain.html"
                         class="text-[17px] font-medium text-brand-accent hover-underline-animation pb-1">난치성질환</a>
@@ -270,11 +223,11 @@
                         <a href="tmj-pain.html"
                             class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">턱관절통증</a>
                         <a href="headache-pain.html"
-                            class="block px-6 py-2.5 text-[15px] font-medium text-brand-accent bg-brand-light transition-colors">두통</a>
+                            class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">두통</a>
                         <a href="tinnitus-pain.html"
                             class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">이명</a>
                         <a href="digestive-pain.html"
-                            class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">만성위장관질환</a>
+                            class="block px-6 py-2.5 text-[15px] font-medium text-brand-accent bg-brand-light transition-colors">만성위장관질환</a>
                         <a href="panic-disorder.html"
                             class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">공황장애</a>
                     </div>
@@ -294,7 +247,7 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu"
             class="hidden absolute top-24 left-0 w-full min-h-[calc(100vh-6rem)] bg-white flex flex-col py-8 px-6 space-y-6 z-40 overflow-y-auto">
-            <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
+            <details class="group border-b border-gray-100 pb-4">
                 <summary
                     class="flex justify-between items-center text-3xl font-bold text-gray-900 cursor-pointer list-none">
                     병원소개 <span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span>
@@ -304,7 +257,7 @@
                     <a href="info.html" class="text-xl text-gray-600 block">병원진료시간</a>
                 </div>
             </details>
-            <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
+            <details class="group border-b border-gray-100 pb-4">
                 <summary
                     class="flex justify-between items-center text-3xl font-bold text-gray-900 cursor-pointer list-none">
                     척추질환 <span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span>
@@ -315,7 +268,7 @@
                     <a href="spine-waist.html" class="text-xl text-gray-600 block">허리통증</a>
                 </div>
             </details>
-            <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
+            <details class="group border-b border-gray-100 pb-4">
                 <summary
                     class="flex justify-between items-center text-3xl font-bold text-gray-900 cursor-pointer list-none">
                     관절질환 <span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span>
@@ -328,15 +281,15 @@
                     <a href="hip-joint-pain.html" class="text-xl text-gray-600 block">엉덩이 관절</a>
                 </div>
             </details>
-            <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden" open>
+            <details class="group border-b border-gray-100 pb-4" open>
                 <summary
                     class="flex justify-between items-center text-3xl font-bold text-brand-accent cursor-pointer list-none">
                     난치성질환 <span class="transform transition-transform group-open:rotate-45">+</span></summary>
                 <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
                     <a href="tmj-pain.html" class="text-xl text-gray-600 block">턱관절통증</a>
-                    <a href="headache-pain.html" class="text-xl text-brand-accent font-bold block">두통</a>
+                    <a href="headache-pain.html" class="text-xl text-gray-600 block">두통</a>
                     <a href="tinnitus-pain.html" class="text-xl text-gray-600 block">이명</a>
-                    <a href="digestive-pain.html" class="text-xl text-gray-600 block">만성위장관질환</a>
+                    <a href="digestive-pain.html" class="text-xl text-brand-accent font-bold block">만성위장관질환</a>
                     <a href="panic-disorder.html" class="text-xl text-gray-600 block">공황장애</a>
                 </div>
             </details>
@@ -355,61 +308,58 @@
 
         <!-- STICKY LNB -->
         <div class="sticky top-24 z-40 bg-brand-dark shadow-lg">
-            <div class="max-w-[1200px] mx-auto px-6 md:px-12 flex justify-center py-3 overflow-x-auto no-scrollbar">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12 flex justify-center py-3 overflow-x-auto no-scrollbar">
                 <nav class="flex space-x-1 bg-white/5 p-1 rounded-full border border-white/10 backdrop-blur-md">
                     <a href="tmj-pain.html"
                         class="px-6 py-2 text-gray-400 text-[15px] font-semibold hover:text-white hover:bg-white/10 rounded-full transition-all whitespace-nowrap">턱관절통증</a>
                     <a href="headache-pain.html"
-                        class="px-6 py-2 bg-brand-accent text-white text-[15px] font-bold rounded-full shadow-md transition-all whitespace-nowrap">두통</a>
+                        class="px-6 py-2 text-gray-400 text-[15px] font-semibold hover:text-white hover:bg-white/10 rounded-full transition-all whitespace-nowrap">두통</a>
                     <a href="tinnitus-pain.html"
                         class="px-6 py-2 text-gray-400 text-[15px] font-semibold hover:text-white hover:bg-white/10 rounded-full transition-all whitespace-nowrap">이명</a>
                     <a href="digestive-pain.html"
-                        class="px-6 py-2 text-gray-400 text-[15px] font-semibold hover:text-white hover:bg-white/10 rounded-full transition-all whitespace-nowrap">만성위장관질환</a>
+                        class="px-6 py-2 bg-brand-accent text-white text-[15px] font-bold rounded-full shadow-md transition-all whitespace-nowrap">만성위장관질환</a>
                     <a href="panic-disorder.html"
                         class="px-6 py-2 text-gray-400 text-[15px] font-semibold hover:text-white hover:bg-white/10 rounded-full transition-all whitespace-nowrap">공황장애</a>
                 </nav>
             </div>
         </div>
 
-        <!-- ==================================================
-             SECTION 1. HERO — 통증의 역설
-        ================================================== -->
-        <section class="relative min-h-[600px] md:min-h-[700px] flex items-center bg-[#061028] overflow-hidden">
-
+        <!-- SECTION 1. HERO -->
+        <section class="relative min-h-[600px] md:min-h-[700px] flex items-center bg-[#081225] overflow-hidden">
             <div class="absolute inset-0 z-0">
-                <div class="absolute inset-0 bg-[url('headache_hero.webp')] bg-cover bg-bottom bg-no-repeat opacity-50 mix-blend-screen pointer-events-none"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-[#081225] via-transparent to-transparent z-10"></div>
+                <img src="digestive_hero.webp" alt="만성위장관질환 히어로" class="absolute inset-0 w-full h-full object-cover object-center opacity-60">
             </div>
 
-            <div
-                class="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 xl:px-20 flex flex-col lg:flex-row items-center gap-16">
-                <div class="w-full md:w-3/5 lg:w-[50%]">
+            <div class="relative z-20 w-full max-w-[1400px] mx-auto px-6 md:px-12 xl:px-20">
+                <div class="w-full md:w-3/5 lg:w-[55%]">
                     <p class="text-blue-300 font-bold tracking-[0.3em] uppercase mb-6 text-sm" data-aos="fade-up">
-                        Intractable Clinic — Headache</p>
+                        Intractable Clinic — Digestive</p>
                     <h1 class="text-4xl md:text-5xl lg:text-[3.4rem] font-extrabold text-white mb-8 leading-[1.3]"
                         data-aos="fade-up" data-aos-delay="100">
-                        머리가 아픈 것이 아니라,<br>
-                        <span class="text-blue-200">목이 보내는 신호</span>일 수 있습니다.
+                        끊이지 않는 속 쓰림,<br>
+                        <span class="text-blue-200">두 번째 뇌</span>가 보내는 경고입니다.
                     </h1>
                     <p class="text-lg md:text-xl text-gray-300 leading-[1.9] font-light" data-aos="fade-up"
                         data-aos-delay="200">
-                        반복되는 두통에 진통제만 찾고 계셨나요?<br class="hidden md:block">
-                        보이지 않는 신경의 압박과 근육의 긴장을 찾아내어,<br class="hidden md:block">
-                        머리끝까지 맑아지는 일상을 선사합니다.
+                        위장약만으로 해결되지 않는 만성 소화불량의 본질은 무엇일까요?<br class="hidden md:block">
+                        위장관을 조절하는 자율신경계의 밸런스를 바로잡아,<br class="hidden md:block">
+                        어떤 음식을 드셔도 편안한 일상을 되찾아 드립니다.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 2. Diagnostic Context (Ultra-Minimalist) -->
+        <!-- SECTION 2. Diagnostic Context -->
         <section class="pt-24 md:pt-32 pb-12 md:pb-16 px-6 md:px-12 xl:px-20 bg-white">
             <div class="max-w-[1300px] mx-auto">
                 <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8" data-aos="fade-up">
                     <div class="max-w-2xl">
-                        <p class="text-brand-accent font-bold tracking-[0.4em] uppercase mb-6 text-xs opacity-60">Symptoms Classification</p>
-                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-dark tracking-tight leading-[1.1]">내 두통의<br>진짜 이름</h2>
+                        <p class="text-brand-accent font-bold tracking-[0.4em] uppercase mb-6 text-xs opacity-60">Digestive Classification</p>
+                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-dark tracking-tight leading-[1.1]">반복되는<br>불편함의 양상</h2>
                     </div>
                     <div class="max-w-md pb-2">
-                        <p class="text-lg text-gray-500 leading-relaxed font-light break-keep">통증의 위치와 양상으로 원인을 구별할 수 있습니다. 정확한 진단이 반복되는 두통을 멈추는 첫걸음입니다.</p>
+                        <p class="text-lg text-gray-500 leading-relaxed font-light break-keep">내시경 결과는 정상이지만 증상은 계속된다면, 위장관의 '기능적' 문제와 자율신경계의 불균형을 의심해야 합니다.</p>
                     </div>
                 </div>
 
@@ -419,9 +369,9 @@
                         <div class="mb-12">
                             <span class="text-5xl font-black text-brand-accent/10 group-hover:text-brand-accent/20 transition-colors">01.</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-6 text-brand-dark group-hover:text-brand-accent transition-colors">경추성(Cervicogenic) 두통</h3>
+                        <h3 class="text-2xl font-bold mb-6 text-brand-dark group-hover:text-brand-accent transition-colors">기능성 소화불량</h3>
                         <p class="text-gray-500 leading-[2.1] break-keep font-light text-[17px]">
-                            목뼈 주변의 신경 자극으로 발생하며, 뒷머리부터 조여오는 느낌이 특징입니다. 경추 정렬을 바로잡는 것이 치료의 핵심입니다.
+                            조금만 먹어도 배가 부르거나 상복부 팽만감, 통증이 지속됩니다. 위장의 운동 기능과 감각 예민도를 조절하는 것이 핵심입니다.
                         </p>
                     </div>
 
@@ -430,9 +380,9 @@
                         <div class="mb-12">
                             <span class="text-5xl font-black text-brand-accent/10 group-hover:text-brand-accent/20 transition-colors">02.</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-6 text-brand-dark group-hover:text-brand-accent transition-colors">긴장성(Tension) 두통</h3>
+                        <h3 class="text-2xl font-bold mb-6 text-brand-dark group-hover:text-brand-accent transition-colors">과민성 대장 증후군</h3>
                         <p class="text-gray-500 leading-[2.1] break-keep font-light text-[17px]">
-                            스트레스나 피로로 머리 전체가 띠를 두른 듯 묵직한 통증입니다. 두피와 목 근육의 과긴장을 해소하는 것이 중요합니다.
+                            긴장하거나 식사 후에 갑작스러운 복통과 배변 습관의 변화가 나타납니다. 장-뇌 축(Gut-Brain Axis)의 안정이 필요합니다.
                         </p>
                     </div>
 
@@ -441,88 +391,79 @@
                         <div class="mb-12">
                             <span class="text-5xl font-black text-brand-accent/10 group-hover:text-brand-accent/20 transition-colors">03.</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-6 text-brand-dark group-hover:text-brand-accent transition-colors">편두통(Migraine)</h3>
+                        <h3 class="text-2xl font-bold mb-6 text-brand-dark group-hover:text-brand-accent transition-colors">신경성 위염</h3>
                         <p class="text-gray-500 leading-[2.1] break-keep font-light text-[17px]">
-                            머리 한쪽이 맥박 뛰듯 욱신거리며, 구역질이나 빛·소리에 예민해집니다. 신경계 안정과 혈류 정상화 치료가 필요합니다.
+                            스트레스 상황에서 위산 과다나 위경련 증상이 심해집니다. 과항진된 교감신경을 완화하고 소화관 혈류를 개선해야 합니다.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 3. Medical Insight (Editorial Premium) -->
+        <!-- SECTION 3. Medical Insight -->
         <section class="py-24 md:py-40 px-6 md:px-12 xl:px-20 bg-brand-light relative overflow-hidden">
-            <!-- Decorative Background Element -->
             <div class="absolute top-0 right-0 w-1/3 h-full bg-white/50 -z-10 skew-x-[-15deg] translate-x-20"></div>
 
             <div class="max-w-[1350px] mx-auto">
                 <div class="flex flex-col lg:flex-row gap-16 lg:gap-28 items-center">
                     
-                    <!-- Left: Anatomical Visual -->
+                    <!-- Left: Visual -->
                     <div class="w-full lg:w-[42%] shrink-0 relative z-20" data-aos="fade-right">
                         <div class="relative">
                             <div class="w-full aspect-[4/5] rounded-[3rem] bg-white shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] overflow-hidden border border-gray-100 flex items-center justify-center p-10 relative">
                                 <div class="w-full h-full rounded-2xl img-placeholder border-0 bg-gray-50/50 flex flex-col items-center justify-center text-gray-400">
                                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                                        <path d="M12 6v6l4 2"/>
+                                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                                     </svg>
-                                    <span class="text-xs font-bold tracking-[0.3em] uppercase mt-6 opacity-40">Anatomical Visual</span>
+                                    <span class="text-xs font-bold tracking-[0.3em] uppercase mt-6 opacity-40">Gut-Brain Axis Visual</span>
                                 </div>
-                                <!-- Subtle Overlay Badge -->
                                 <div class="absolute top-8 left-8 bg-brand-accent/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-brand-accent/20">
-                                    <p class="text-[10px] font-black text-brand-accent tracking-tighter uppercase">Pain Origin Point</p>
+                                    <p class="text-[10px] font-black text-brand-accent tracking-tighter uppercase">Vagus Nerve Pathway</p>
                                 </div>
                             </div>
                             
-                            <!-- Premium Floating Card -->
                             <div class="absolute -bottom-10 -right-8 bg-brand-dark p-10 rounded-[2.5rem] shadow-3xl hidden xl:block max-w-[280px]" data-aos="zoom-in" data-aos-delay="300">
                                 <div class="w-8 h-1 bg-blue-400 mb-6"></div>
-                                <p class="text-2xl font-bold text-white leading-tight mb-4">신경절 복합체<br><span class="text-blue-400 font-light text-lg">통증의 관문</span></p>
-                                <p class="text-xs text-gray-400 leading-relaxed font-light break-keep">상부 경추 주변에 밀집된 신경절은 뇌로 전달되는 통증 신호를 조절하는 핵심 통로입니다.</p>
+                                <p class="text-2xl font-bold text-white leading-tight mb-4">제2의 뇌, 장<br><span class="text-blue-400 font-light text-lg">신경계의 조율</span></p>
+                                <p class="text-xs text-gray-400 leading-relaxed font-light break-keep">장은 뇌와 독립적으로 작용하는 5억 개의 신경세포를 보유하며, 미주신경을 통해 뇌와 끊임없이 소통합니다.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Right: Narrative & Structured Data -->
+                    <!-- Right: Narrative -->
                     <div class="w-full lg:flex-1" data-aos="fade-left">
                         <div class="max-w-2xl">
-                            <p class="text-brand-accent font-bold tracking-[0.4em] uppercase mb-6 text-xs">Medical Insight — Cervical Logic</p>
+                            <p class="text-brand-accent font-bold tracking-[0.4em] uppercase mb-6 text-xs">Medical Insight — Digestive Autonomics</p>
                             <h2 class="text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight leading-[1.2] mb-10">
-                                머리의 통증,<br>
-                                <span class="text-brand-accent">목에서 시작된 경고일 수 있습니다.</span>
+                                위장의 문제는,<br>
+                                <span class="text-brand-accent">신경의 명령 체계에서 비롯됩니다.</span>
                             </h2>
                             
-                            <!-- Editorial Paragraph with Vertical Line -->
                             <div class="relative pl-10 mb-16">
                                 <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-accent to-transparent rounded-full"></div>
                                 <p class="text-xl md:text-2xl text-gray-600 leading-[1.85] font-light break-keep">
-                                    반복되는 두통의 원인을 뇌 자체에서만 찾으려 하면 근본적인 해결이 어렵습니다. <span class="text-brand-dark font-semibold">상부 경추의 미세한 변형은</span> 주변 신경을 자극하고 뇌혈류를 방해하여, 진통제로는 해결되지 않는 만성 두통의 원인이 됩니다.
+                                    음식물을 분해하고 흡수하는 일련의 과정은 자율신경계의 정밀한 통제 아래 이루어집니다. <span class="text-brand-dark font-semibold">스트레스나 자세 불균형으로 자율신경이 교란되면</span>, 위장은 물리적으로 건강하더라도 비정상적인 운동과 과민 반응을 보이게 됩니다.
                                 </p>
                             </div>
 
-                            <!-- Diagnostic Data Grid -->
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-12 border-t border-gray-100 pt-12">
-                                <!-- Data 01 -->
                                 <div class="group">
                                     <div class="flex items-end gap-3 mb-3">
-                                        <span class="text-4xl md:text-5xl font-extralight text-brand-dark tracking-tighter group-hover:text-brand-accent transition-colors">하중</span>
-                                        <span class="text-xs font-bold text-brand-accent mb-2 tracking-widest uppercase">Load</span>
+                                        <span class="text-4xl md:text-5xl font-extralight text-brand-dark tracking-tighter group-hover:text-brand-accent transition-colors">95%</span>
+                                        <span class="text-xs font-bold text-brand-accent mb-2 tracking-widest uppercase">Serotonin</span>
                                     </div>
-                                    <p class="text-sm font-bold text-gray-800 mb-2">경추의 부담</p>
-                                    <p class="text-[13px] text-gray-400 leading-relaxed font-light break-keep">잘못된 자세로 인해 머리의 하중이 정상 범위를 벗어나면, 경추 주변 신경과 근육에 과부하가 걸려 극심한 통증 신호를 보냅니다.</p>
+                                    <p class="text-sm font-bold text-gray-800 mb-2">행복 호르몬의 거점</p>
+                                    <p class="text-[13px] text-gray-400 leading-relaxed font-light break-keep">신체 세로토닌의 95%가 장에서 생성됩니다. 위장 건강이 곧 마음의 건강과 직결되는 이유입니다.</p>
                                 </div>
                                 
-                                <!-- Data 02 -->
                                 <div class="group">
                                     <div class="flex items-end gap-3 mb-3">
-                                        <span class="text-4xl md:text-5xl font-extralight text-brand-dark tracking-tighter group-hover:text-brand-accent transition-colors">대다수</span>
-                                        <span class="text-xs font-bold text-brand-accent mb-2 tracking-widest uppercase">Majority</span>
+                                        <span class="text-4xl md:text-5xl font-extralight text-brand-dark tracking-tighter group-hover:text-brand-accent transition-colors">RESET</span>
+                                        <span class="text-xs font-bold text-brand-accent mb-2 tracking-widest uppercase">Autonomic</span>
                                     </div>
-                                    <p class="text-sm font-bold text-gray-800 mb-2">경추성 원인</p>
-                                    <p class="text-[13px] text-gray-400 leading-relaxed font-light break-keep">만성 두통의 상당수는 머리 자체의 문제가 아닌, 목 주변 조직의 유착과 신경 눌림에서 비롯된 '경추성 두통'인 경우가 많습니다.</p>
+                                    <p class="text-sm font-bold text-gray-800 mb-2">자율신경 리셋</p>
+                                    <p class="text-[13px] text-gray-400 leading-relaxed font-light break-keep">단순 소화제 처방이 아닌, 과민해진 위장 신경망을 리셋하는 것이 만성 장애 해결의 열쇠입니다.</p>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -530,88 +471,68 @@
             </div>
         </section>
 
-        <!-- ==================================================
-             SECTION 4. 만성 두통의 악순환 (브레인웨이브 타임라인)
-        ================================================== -->
+        <!-- SECTION 4. Timeline -->
         <section class="py-24 md:py-36 px-6 md:px-12 xl:px-20 bg-[#07111F] text-white overflow-hidden">
             <div class="max-w-[1100px] mx-auto">
-
                 <div class="text-center mb-16" data-aos="fade-up">
-                    <p class="text-blue-300 font-bold tracking-[0.3em] uppercase mb-4 text-sm">Pain Cycle Timeline</p>
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">방치된 두통은<br>더 깊이 고착됩니다</h2>
-                    <p class="text-lg text-gray-400 max-w-xl mx-auto">진통제가 효과 없어지기 시작할 때, 이미 2단계입니다.</p>
+                    <p class="text-blue-300 font-bold tracking-[0.3em] uppercase mb-4 text-sm">Chronic Cycle Timeline</p>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">만성화된 위장 장애는<br>전신 피로로 이어집니다</h2>
+                    <p class="text-lg text-gray-400 max-w-xl mx-auto">식사 후의 불편함이 일상을 잠식하기 전에 개입해야 합니다.</p>
                 </div>
 
-
-
-                <!-- Stage cards -->
                 <div class="grid md:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="100">
-
-                    <!-- Stage 1 -->
-                    <div class="p-8 rounded-3xl"
-                        style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07);">
-                        <div
-                            class="w-12 h-12 rounded-full border border-gray-600/40 flex items-center justify-center mb-5">
+                    <div class="p-8 rounded-3xl" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07);">
+                        <div class="w-12 h-12 rounded-full border border-gray-600/40 flex items-center justify-center mb-5">
                             <span class="font-black text-lg text-gray-500">01</span>
                         </div>
-                        <p class="text-xs font-bold tracking-[0.2em] text-gray-500 uppercase mb-2">Signal Stage</p>
-                        <h3 class="text-xl font-bold text-white mb-4">신호기</h3>
-                        <p class="text-gray-400 leading-[1.85]">피로 시 간헐적인 두통 발생, 약 복용 시 즉시 호전. 대부분 방치하거나 진통제로 넘기는 시기입니다.
-                        </p>
+                        <p class="text-xs font-bold tracking-[0.2em] text-gray-500 uppercase mb-2">Acute Phase</p>
+                        <h3 class="text-xl font-bold text-white mb-4">급성기</h3>
+                        <p class="text-gray-400 leading-[1.85]">식사 메뉴에 따라 간헐적인 속 쓰림이나 더부룩함 발생. 소화제로 쉽게 호전되지만 빈도가 점차 늘어나는 시기입니다.</p>
                     </div>
 
-                    <!-- Stage 2 (highlight) -->
-                    <div class="p-8 rounded-3xl relative"
-                        style="background:rgba(12,74,158,0.14); border:1px solid rgba(12,74,158,0.4);">
-                        <div
-                            class="absolute -top-3 left-6 bg-brand-accent text-white text-xs font-bold px-4 py-1.5 rounded-full">
-                            많은 환자가 이 단계에서 내원</div>
-                        <div
-                            class="w-12 h-12 rounded-full border border-brand-accent/50 flex items-center justify-center mb-5 mt-2">
+                    <div class="p-8 rounded-3xl relative" style="background:rgba(12,74,158,0.14); border:1px solid rgba(12,74,158,0.4);">
+                        <div class="absolute -top-3 left-6 bg-brand-accent text-white text-xs font-bold px-4 py-1.5 rounded-full">많은 환자가 이 단계에서 내원</div>
+                        <div class="w-12 h-12 rounded-full border border-brand-accent/50 flex items-center justify-center mb-5 mt-2">
                             <span class="font-black text-lg text-blue-300">02</span>
                         </div>
-                        <p class="text-xs font-bold tracking-[0.2em] text-blue-400 uppercase mb-2">Sensitive Stage</p>
-                        <h3 class="text-xl font-bold text-white mb-4">민감기</h3>
-                        <p class="text-gray-400 leading-[1.85]">주 2~3회 이상 통증이 반복되며, 약의 효과가 점차 떨어지고 목과 어깨의 경직이 상시 동반됩니다.
-                        </p>
+                        <p class="text-xs font-bold tracking-[0.2em] text-blue-400 uppercase mb-2">Functional Phase</p>
+                        <h3 class="text-xl font-bold text-white mb-4">기능저하기</h3>
+                        <p class="text-gray-400 leading-[1.85]">약 효과가 미미해지며 상시적인 복부 팽만감, 변비/설사가 반복됩니다. 식사 자체가 스트레스가 되기 시작합니다.</p>
                     </div>
 
-                    <!-- Stage 3 -->
-                    <div class="p-8 rounded-3xl"
-                        style="background:rgba(239,68,68,0.07); border:1px solid rgba(239,68,68,0.3);">
-                        <div
-                            class="w-12 h-12 rounded-full border border-red-500/40 flex items-center justify-center mb-5">
+                    <div class="p-8 rounded-3xl" style="background:rgba(239,68,68,0.07); border:1px solid rgba(239,68,68,0.3);">
+                        <div class="w-12 h-12 rounded-full border border-red-500/40 flex items-center justify-center mb-5">
                             <span class="font-black text-lg text-red-400">03</span>
                         </div>
-                        <p class="text-xs font-bold tracking-[0.2em] text-red-400 uppercase mb-2">Chronic Stage ⛔</p>
-                        <h3 class="text-xl font-bold text-white mb-4">고착기</h3>
-                        <p class="text-gray-400 leading-[1.85]">매일 지속되는 통증으로 집중력이 저하되고, 수면 장애 및 무력감 등 전신 증상으로 확산됩니다.</p>
+                        <p class="text-xs font-bold tracking-[0.2em] text-red-400 uppercase mb-2">Systemic Phase ⛔</p>
+                        <h3 class="text-xl font-bold text-white mb-4">전신확산기</h3>
+                        <p class="text-gray-400 leading-[1.85]">영양 흡수 저하로 만성 피로, 브레인 포그, 근육통 등이 동반되며 체중 변화와 심리적 위축이 나타나는 고착 단계입니다.</p>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 5. 3R THERAPY (Image Card Layout) -->
+        <!-- SECTION 5. 3R Therapy -->
         <section class="py-24 md:py-32 px-6 md:px-12 xl:px-20 bg-brand-light">
             <div class="max-w-[1400px] mx-auto text-center mb-16 md:mb-20" data-aos="fade-up">
                 <p class="text-brand-accent font-bold tracking-[0.3em] uppercase mb-4 text-sm">Targeted Solution</p>
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-brand-dark mb-6">삼성365의원 두통 특화 3R Therapy</h2>
-                <p class="text-lg md:text-xl text-gray-500">신경을 이완하고, 지지 구조를 강화하여, 뇌혈류를 정상화합니다.</p>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-brand-dark mb-6">삼성365의원 위장관 특화 3R Therapy</h2>
+                <p class="text-lg md:text-xl text-gray-500">위장 운동을 정상화하고, 자율신경 밸런스를 되찾아 편안한 속을 만듭니다.</p>
             </div>
             
             <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                 <!-- Release -->
-                <div class="relative rounded-xl overflow-hidden shadow-xl group h-[450px] lg:h-[550px]" data-aos="fade-up" data-aos-delay="0">
+                <div class="relative rounded-xl overflow-hidden shadow-xl group h-[450px] lg:h-[550px]" data-aos="fade-up">
                     <img src="01.webp" alt="이완 치료" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/70 to-[#111111]/20"></div>
                     <div class="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
                         <h3 class="text-[4rem] lg:text-[5rem] font-black text-white/20 leading-none mb-2">01</h3>
                         <h4 class="text-2xl lg:text-3xl font-bold text-white mb-3">Release <span class="text-blue-300 ml-2 text-lg lg:text-xl font-medium tracking-wide">이완</span></h4>
-                        <p class="text-gray-300 leading-relaxed text-[16px] lg:text-[17px] break-keep">두통을 유발하는 상부 경추 주변의 미세 유착과 과민해진 신경절을 미세바늘로 정밀하게 이완합니다.</p>
+                        <p class="text-gray-300 text-sm lg:text-base leading-relaxed break-keep font-light">
+                            위장관 평활근의 긴장을 완화하고 복부 심층 유착을 해소하여 혈류 순환을 개선합니다.
+                        </p>
                     </div>
                 </div>
-                
                 <!-- Reinforcement -->
                 <div class="relative rounded-xl overflow-hidden shadow-xl group h-[450px] lg:h-[550px]" data-aos="fade-up" data-aos-delay="100">
                     <img src="02.webp" alt="강화 치료" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
@@ -619,144 +540,89 @@
                     <div class="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
                         <h3 class="text-[4rem] lg:text-[5rem] font-black text-white/20 leading-none mb-2">02</h3>
                         <h4 class="text-2xl lg:text-3xl font-bold text-white mb-3">Reinforcement <span class="text-blue-300 ml-2 text-lg lg:text-xl font-medium tracking-wide">강화</span></h4>
-                        <p class="text-gray-300 leading-relaxed text-[16px] lg:text-[17px] break-keep">머리의 하중을 지탱하는 목 주변 심부 근육을 보강하여, 신경이 다시 압박받지 않는 구조를 만듭니다.</p>
+                        <p class="text-gray-300 text-sm lg:text-base leading-relaxed break-keep font-light">
+                            장 점막의 재생력을 높이고 소화 흡수 기능을 강화하여 기초 체력을 재건합니다.
+                        </p>
                     </div>
                 </div>
-                
-                <!-- Recovery -->
+                <!-- Reset -->
                 <div class="relative rounded-xl overflow-hidden shadow-xl group h-[450px] lg:h-[550px]" data-aos="fade-up" data-aos-delay="200">
                     <img src="03.webp" alt="정상화 치료" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/70 to-[#111111]/20"></div>
                     <div class="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
                         <h3 class="text-[4rem] lg:text-[5rem] font-black text-white/20 leading-none mb-2">03</h3>
-                        <h4 class="text-2xl lg:text-3xl font-bold text-white mb-3">Recovery <span class="text-blue-300 ml-2 text-lg lg:text-xl font-medium tracking-wide">정상화</span></h4>
-                        <p class="text-gray-300 leading-relaxed text-[16px] lg:text-[17px] break-keep">과민해진 통증 회로를 안정시키고 뇌혈류의 흐름을 정상화하여 맑은 정신과 컨디션을 회복시킵니다.</p>
+                        <h4 class="text-2xl lg:text-3xl font-bold text-white mb-3">Reset <span class="text-blue-300 ml-2 text-lg lg:text-xl font-medium tracking-wide">리셋</span></h4>
+                        <p class="text-gray-300 text-sm lg:text-base leading-relaxed break-keep font-light">
+                            교란된 자율신경 밸런스를 리셋하여 스트레스와 통증의 연결 고리를 완전히 끊어냅니다.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ==================================================
-             SECTION 6. 전문가 소견 & FAQ (Integrated Template)
-        ================================================== -->
-        <section class="py-24 px-6 md:px-12 xl:px-20 bg-white">
-            <div class="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-                
-                <!-- Left: Integrated Quote Card -->
+        <!-- SECTION 6. Expert Quote & FAQ -->
+        <section class="py-24 md:py-40 px-6 md:px-12 xl:px-20 bg-white">
+            <div class="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-20">
                 <div class="w-full lg:w-[48%]" data-aos="fade-right">
-                    <div class="relative w-full aspect-square rounded-[3rem] overflow-hidden shadow-2xl group">
-                        <!-- Doctor Image -->
-                        <img src="staff_hero.webp" alt="삼성365의원 대표원장" class="absolute inset-0 w-full h-full object-cover object-bottom transition-transform duration-700 group-hover:scale-105">
-                        
-                        <!-- Gradient Overlay -->
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0A1628]/90 via-[#0A1628]/40 to-transparent"></div>
-                        
-                        <!-- Integrated Quote -->
-                        <div class="absolute inset-0 p-10 md:p-14 flex flex-col justify-end">
-                            <div class="relative">
-                                <!-- Quote Icon -->
-                                <svg class="w-10 h-10 text-brand-accent/40 mb-6" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
-                                </svg>
-                                
-                                <p class="text-xl md:text-2xl font-bold text-white leading-[1.6] mb-6 break-keep drop-shadow-md">
-                                    "원인 없는 두통은 없습니다. 정밀한 진찰로 약 없이도 개운한 일상을 되찾아 드립니다."
-                                </p>
-                                
-                                <div class="flex items-center gap-4">
-                                    <div class="w-8 h-[2px] bg-brand-accent"></div>
-                                    <p class="text-lg md:text-xl font-extrabold text-white tracking-wide">삼성365의원 대표원장</p>
+                    <div class="relative rounded-[3rem] overflow-hidden group shadow-2xl aspect-square md:aspect-auto md:h-[600px]">
+                        <img src="staff_hero.webp" alt="삼성365의원 대표원장" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent"></div>
+                        <div class="absolute inset-0 p-12 flex flex-col justify-end">
+                            <div class="w-12 h-1 bg-blue-400 mb-8 transition-all group-hover:w-20"></div>
+                            <p class="text-2xl md:text-3xl font-bold text-white leading-tight mb-8 break-keep">
+                                "위장의 고요함은 곧 일상의 평온입니다. 약에만 의존하지 않는 근본적인 치료를 약속합니다."
+                            </p>
+                            <div class="flex items-center gap-4">
+                                <div class="w-px h-10 bg-white/20"></div>
+                                <div>
+                                    <p class="text-white font-bold text-lg">삼성365의원 대표원장</p>
+                                    <p class="text-gray-400 text-sm">Samsung Medical Center Specialist</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right: FAQ -->
-                <div class="w-full lg:w-[52%]" data-aos="fade-left">
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-12">자주 묻는 질문</h2>
-
-                    <div class="flex flex-col divide-y divide-gray-200">
-
-                        <details class="group py-7">
+                <div class="w-full lg:flex-1" data-aos="fade-left">
+                    <p class="text-brand-accent font-bold tracking-[0.4em] uppercase mb-6 text-xs">Patient Consultation</p>
+                    <h2 class="text-4xl font-bold text-brand-dark mb-10">자주 묻는 질문</h2>
+                    <div class="divide-y divide-gray-100 border-t border-gray-100">
+                        <details class="group py-7" open>
                             <summary class="flex justify-between items-center cursor-pointer list-none gap-4">
-                                <span class="text-lg font-bold text-gray-800 group-open:text-brand-accent transition-colors">MRI 검사에서도 이상이 없다는데 치료가 될까요?</span>
+                                <span class="text-lg font-bold text-gray-800 group-open:text-brand-accent transition-colors">내시경은 정상인데 왜 계속 아픈가요?</span>
                                 <span class="faq-arrow text-brand-accent text-2xl font-light shrink-0">↓</span>
                             </summary>
                             <p class="mt-5 text-gray-600 leading-[1.85] pl-2 border-l-2 border-brand-accent/20">
-                                네, MRI는 뇌 자체의 구조적 문제를 보지만, 만성 두통의 많은 원인은 근육과 미세 신경의 기능적 문제입니다. 세밀한 진찰로 그 기능적 문제를 찾아내면 충분히 호전될 수 있습니다.
+                                내시경은 위장 점막의 '구조적' 이상을 확인하는 검사입니다. 반면 소화불량의 상당수는 위장의 운동 능력이나 신경학적 예민함 같은 '기능적' 문제에서 비롯됩니다. 삼성365의원은 이러한 기능적 불균형을 진단하고 치료합니다.
                             </p>
                         </details>
-
                         <details class="group py-7">
                             <summary class="flex justify-between items-center cursor-pointer list-none gap-4">
-                                <span class="text-lg font-bold text-gray-800 group-open:text-brand-accent transition-colors">목 치료를 하면 두통이 정말 사라지나요?</span>
+                                <span class="text-lg font-bold text-gray-800 group-open:text-brand-accent transition-colors">치료 기간은 얼마나 걸리나요?</span>
                                 <span class="faq-arrow text-brand-accent text-2xl font-light shrink-0">↓</span>
                             </summary>
                             <p class="mt-5 text-gray-600 leading-[1.85] pl-2 border-l-2 border-brand-accent/20">
-                                경추성 두통의 경우, 원인이 되는 목 근육의 유착만 해결해도 눈 앞이 밝아지는 듯한 즉각적인 개선을 느끼시는 경우가 많습니다.
+                                만성적인 경우 보통 4~8주 정도의 집중 치료 기간이 필요합니다. 자율신경계가 안정되고 위장관 조직이 재생되는 시간이 필요하기 때문이며, 환자분의 증상 정도에 따라 맞춤형 계획을 수립합니다.
                             </p>
                         </details>
-
-                        <details class="group py-7">
-                            <summary class="flex justify-between items-center cursor-pointer list-none gap-4">
-                                <span class="text-lg font-bold text-gray-800 group-open:text-brand-accent transition-colors">오랫동안 진통제를 먹어왔는데 괜찮은가요?</span>
-                                <span class="faq-arrow text-brand-accent text-2xl font-light shrink-0">↓</span>
-                            </summary>
-                            <p class="mt-5 text-gray-600 leading-[1.85] pl-2 border-l-2 border-brand-accent/20">
-                                장기간 진통제 복용은 '약물 과용 두통(MOH)'을 유발할 수 있습니다. 근본 원인을 해결하면 진통제 의존도를 점차 줄일 수 있으며, 이 과정을 전문의와 함께 안전하게 진행합니다.
-                            </p>
-                        </details>
-
-                        <details class="group py-7">
-                            <summary class="flex justify-between items-center cursor-pointer list-none gap-4">
-                                <span class="text-lg font-bold text-gray-800 group-open:text-brand-accent transition-colors">두통과 어지럼증이 함께 오는데 치료 가능한가요?</span>
-                                <span class="faq-arrow text-brand-accent text-2xl font-light shrink-0">↓</span>
-                            </summary>
-                            <p class="mt-5 text-gray-600 leading-[1.85] pl-2 border-l-2 border-brand-accent/20">
-                                두통과 어지럼증의 동반은 상부 경추 기능 장애와 밀접한 연관이 있습니다. 경추 관련 어지럼증(경추성 현훈)은 목 치료만으로도 크게 개선되는 경우가 많으며, 정밀 진찰로 감별 진단을 진행합니다.
-                            </p>
-                        </details>
-
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ==================================================
-             CTA
-        ================================================== -->
+        <!-- SECTION 7. CTA -->
         <section class="py-20 px-6 bg-white" data-aos="zoom-in">
-            <div
-                class="max-w-[1000px] mx-auto bg-[#050D1A] rounded-[3rem] p-12 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
+            <div class="max-w-[1000px] mx-auto bg-[#050D1A] rounded-[3rem] p-12 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
                 <div class="absolute inset-0 bg-gradient-to-br from-brand-accent/20 to-transparent z-0"></div>
-                <!-- Soft flow decoration -->
-                <div class="absolute right-8 top-8 pointer-events-none fade-float opacity-25">
-                    <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-                        <circle cx="60" cy="60" r="55" stroke="white" stroke-width="0.8" />
-                        <circle cx="60" cy="60" r="36" stroke="white" stroke-width="0.6" stroke-dasharray="6 4" />
-                        <circle cx="60" cy="60" r="18" stroke="white" stroke-width="0.5" />
-                        <circle cx="60" cy="60" r="4" fill="white" opacity="0.6" />
-                        <!-- downward flow suggestion -->
-                        <path d="M60 78 C60 78 58 96 60 116" stroke="white" stroke-width="0.5" stroke-dasharray="3 4"
-                            opacity="0.4" />
-                    </svg>
-                </div>
-
                 <div class="relative z-10">
                     <h2 class="text-3xl md:text-5xl font-extrabold mb-6 text-white leading-tight">
-                        약에 의존하기 전에,<br>
-                        <span class="text-blue-200">원인부터 찾아보세요.</span>
+                        반복되는 약 복용 대신,<br>
+                        <span class="text-blue-200">근본 원인을 해결하세요.</span>
                     </h2>
-                    <p class="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed">네이버 예약을 이용하시면 대기 시간을 최소화하여 정밀한 진료를
-                        받으실 수 있습니다.</p>
+                    <p class="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed">네이버 예약을 이용하시면 대기 시간을 최소화하여 정밀한 진료를 받으실 수 있습니다.</p>
                     <a href="https://m.booking.naver.com/booking/13/bizes/1436478/items/7595404" target="_blank"
                         class="inline-flex items-center justify-center bg-white text-brand-dark px-10 py-5 rounded-full text-xl font-bold hover:bg-gray-100 transition-all shadow-[0_10px_30px_rgba(255,255,255,0.15)] hover:-translate-y-1">
                         진료 예약하기
-                        <svg class="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
                     </a>
                 </div>
             </div>
@@ -768,46 +634,24 @@
     <footer class="bg-brand-dark text-white py-12 px-6 md:px-12 xl:px-20 border-t border-white/5">
         <div class="max-w-[1600px] mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
-
                 <div class="space-y-4">
                     <h2 class="text-xl font-bold tracking-tight">삼성365의원</h2>
                     <div class="text-gray-400 text-[13px] font-light leading-snug">
-                        <p class="flex flex-wrap gap-x-4 gap-y-1">
-                            <span><strong>대표원장</strong> 삼성365의원 대표원장</span>
-                            <span class="hidden md:inline text-gray-700">|</span>
-                            <span><strong>사업자등록번호</strong> 000-00-00000</span>
-                        </p>
-                        <p class="mt-1"><strong>주소</strong> 서울 은평구 진관2로 57-7 우물골두산위브아파트상가 253동 B106호, B107호</p>
+                        <p>서울 은평구 진관2로 57-7 우물골두산위브아파트상가 253동 B106호, B107호</p>
                     </div>
                     <div class="flex items-baseline gap-3">
-                        <span class="text-[10px] tracking-[0.2em] text-gray-500 uppercase font-bold">Patient
-                            Services</span>
+                        <span class="text-[10px] tracking-[0.2em] text-gray-500 uppercase font-bold">Patient Services</span>
                         <span class="text-xl font-medium tracking-wider text-brand-light">02-356-1275</span>
                     </div>
                 </div>
-
-                <div class="flex flex-col items-start md:items-end gap-6">
-                    <div class="flex gap-6">
-                        <a href="#"
-                            class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">이용약관</a>
-                        <a href="#"
-                            class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">개인정보처리방침</a>
-                        <a href="#"
-                            class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">카카오상담</a>
-                    </div>
-                    <div class="text-left md:text-right">
-                        <p class="text-gray-600 text-[12px] leading-tight font-light max-w-md">
-                            의료법 제56조 제1항을 준수하여 작성되었습니다. 시술 시 통증, 부종 등이 발생할 수 있습니다.
-                        </p>
-                        <p class="text-gray-700 font-medium text-[10px] tracking-[0.2em] mt-3">
-                            © 2024 SAMSUNG 365 CLINIC. ALL RIGHTS RESERVED.
-                        </p>
-                    </div>
+                <div class="text-left md:text-right">
+                    <p class="text-gray-700 font-medium text-[10px] tracking-[0.2em]">© 2024 SAMSUNG 365 CLINIC. ALL RIGHTS RESERVED.</p>
                 </div>
             </div>
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const menuBtn = document.getElementById('mobile-menu-toggle');
@@ -831,20 +675,18 @@
             });
 
             window.addEventListener('scroll', () => {
-                if (!isMenuOpen) {
-                    if (window.scrollY > 50) {
-                        header.style.backgroundColor = 'rgba(255,255,255,0.98)';
-                        header.style.boxShadow = '0 10px 40px rgba(0,0,0,0.05)';
-                    } else {
-                        header.style.backgroundColor = 'rgba(255,255,255,0.95)';
-                        header.style.boxShadow = 'none';
-                    }
+                if (window.scrollY > 50) {
+                    header.style.backgroundColor = 'rgba(255,255,255,0.98)';
+                    header.style.boxShadow = '0 10px 40px rgba(0,0,0,0.05)';
+                } else {
+                    header.style.backgroundColor = 'rgba(255,255,255,0.95)';
+                    header.style.boxShadow = 'none';
                 }
             });
+
+            AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
         });
     </script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });</script>
 </body>
 
 </html>
