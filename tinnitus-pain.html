@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이명 클리닉 | 삼성365의원</title>
+    <link rel="icon" type="image/png" href="samsung365_logo.png">
     <meta name="description" content="사라지지 않는 소음, 귀가 아닌 뇌와 목의 신호입니다. 정밀한 진찰로 당신의 일상에 진정한 정적을 선사합니다.">
     <meta name="keywords" content="이명, 귀울림, 경추성 이명, 턱관절 이명, 3R 테라피, 은평구 이명치료, 삼성365의원">
     <meta property="og:title" content="이명 클리닉 | 삼성365의원">
@@ -85,7 +86,10 @@
     <!-- HEADER -->
     <header class="fixed w-full top-0 z-50 transition-all duration-500" id="header" style="background-color: rgba(255,255,255,0.95); backdrop-filter: blur(12px);">
         <div class="max-w-[1600px] mx-auto px-6 md:px-12 xl:px-20 flex justify-between items-center h-24">
-            <a href="index.html" class="text-2xl md:text-3xl font-extrabold text-brand-dark">삼성365의원</a>
+                        <!-- Logo -->
+            <a href="index.html" class="relative z-50 flex items-center">
+                <img src="samsung365_logo.png" alt="삼성365의원" class="h-14 md:h-16 w-auto object-contain">
+            </a>
 
             <nav class="hidden lg:flex space-x-8 xl:space-x-12 items-center h-full">
                 <div class="relative group h-full flex items-center">
@@ -131,6 +135,9 @@
             <button id="mobile-menu-toggle" class="lg:hidden text-lg font-bold uppercase tracking-[0.2em] text-brand-dark transition-colors hover:text-brand-accent">MENU</button>
 
         <div id="mobile-menu" class="hidden absolute top-24 left-0 w-full min-h-[calc(100vh-6rem)] bg-white flex flex-col py-8 px-6 space-y-6 z-40 overflow-y-auto">
+            <div class="flex justify-start items-center mb-4 pb-6 border-b border-gray-50">
+                <img src="samsung365_logo.png" alt="삼성365의원" class="h-14 md:h-16 w-auto object-contain">
+            </div>
             <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
                 <summary class="flex justify-between items-center text-3xl font-bold text-gray-900 cursor-pointer list-none">병원소개 <span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span></summary>
                 <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
@@ -475,7 +482,7 @@
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
                 
                 <div class="space-y-4">
-                    <h2 class="text-xl font-bold tracking-tight">삼성365의원</h2>
+                    <a href="index.html" class="block mb-6"><img src="samsung365_logo.png" alt="삼성365의원" class="h-9 w-auto object-contain brightness-0 invert"></a>
                     <div class="text-gray-400 text-[13px] font-light leading-snug">
                         <p class="flex flex-wrap gap-x-4 gap-y-1">
                             <span><strong>대표자</strong> 유명환</span>
