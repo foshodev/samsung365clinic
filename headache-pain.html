@@ -210,6 +210,7 @@
             transform: scale(1.03);
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body class="antialiased selection:bg-brand-accent selection:text-white break-keep">
@@ -301,6 +302,7 @@
             <div class="flex justify-start items-center mb-4 pb-6 border-b border-gray-50">
                 <img src="samsung365_logo.png" alt="삼성365의원" class="h-10 w-auto">
             </div>
+            <div id="mobile-auth-area" class="mt-4"></div>
             <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
                 <summary
                     class="flex justify-between items-center text-3xl font-bold text-gray-900 cursor-pointer list-none">
@@ -831,6 +833,8 @@
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });</script>
+    <script src="supabase-client.js"></script>
+    <script src="auth-ui.js"></script>
 </body>
 
 </html>

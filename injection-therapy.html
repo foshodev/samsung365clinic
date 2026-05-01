@@ -60,6 +60,7 @@
         .premium-card { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
         .premium-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06); border-color: #0C4A9E; }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body class="antialiased selection:bg-brand-accent selection:text-white break-keep">
 
@@ -109,6 +110,7 @@
                 </div>
                 <a href="injection-therapy.html" class="text-[17px] font-bold text-brand-accent pb-1 border-b-2 border-brand-accent">주사치료</a>
                 <a href="community.html" class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">커뮤니티</a>
+                <div id="auth-area" class="flex items-center ml-8"></div>
                 <a href="https://m.booking.naver.com/booking/13/bizes/1436478/items/7595404" target="_blank" class="px-6 py-2.5 bg-brand-accent text-white text-[14px] font-semibold hover:bg-brand-dark transition-colors duration-300 ml-4 rounded-sm">예약하기</a>
             </nav>
 
@@ -147,7 +149,8 @@
                             <span class="text-3xl md:text-4xl font-extrabold text-white uppercase">ZERO</span>
                             <span class="text-blue-400 text-xs font-bold uppercase tracking-widest ml-1">Steroid</span>
                         </div>
-                        <a href="https://m.booking.naver.com/booking/13/bizes/1436478/items/7595404" target="_blank" class="px-8 py-4 bg-brand-accent text-white font-bold rounded-full hover:bg-white hover:text-brand-dark transition-all duration-300 shadow-xl text-[15px]">예약하기</a>
+                        <div id="auth-area" class="flex items-center ml-8"></div>
+                <a href="https://m.booking.naver.com/booking/13/bizes/1436478/items/7595404" target="_blank" class="px-8 py-4 bg-brand-accent text-white font-bold rounded-full hover:bg-white hover:text-brand-dark transition-all duration-300 shadow-xl text-[15px]">예약하기</a>
                     </div>
                 </div>
             </div>
@@ -383,7 +386,8 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <a href="https://m.booking.naver.com/booking/13/bizes/1436478/items/7595404" target="_blank" class="block w-full bg-brand-accent text-white py-8 rounded-2xl text-2xl font-bold hover:bg-brand-dark transition-all duration-300 shadow-xl">
+                            <div id="auth-area" class="flex items-center ml-8"></div>
+                <a href="https://m.booking.naver.com/booking/13/bizes/1436478/items/7595404" target="_blank" class="block w-full bg-brand-accent text-white py-8 rounded-2xl text-2xl font-bold hover:bg-brand-dark transition-all duration-300 shadow-xl">
                                 예약하기
                             </a>
                         </div>
@@ -446,5 +450,7 @@
             });
         });
     </script>
+    <script src="supabase-client.js"></script>
+    <script src="auth-ui.js"></script>
 </body>
 </html>

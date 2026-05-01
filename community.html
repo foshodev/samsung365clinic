@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>커뮤니티 | 삼성365의원</title>
     <link rel="icon" type="image/png" href="samsung365_logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <meta name="description" content="삼성365의원 커뮤니티 페이지입니다. 유용한 건강 정보와 소식을 전해드립니다.">
     <meta name="keywords" content="삼성365의원, 커뮤니티, 건강정보, 병원소식">
@@ -163,6 +164,7 @@
                 <a href="injection-therapy.html" class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">주사치료</a>
                 <a href="community.html" class="text-[17px] font-bold text-brand-accent pb-1 border-b-2 border-brand-accent">커뮤니티</a>
 
+                <div id="auth-area" class="flex items-center ml-8"></div>
                 <a href="https://m.booking.naver.com/booking/13/bizes/1436478/items/7595404" target="_blank" id="nav-cta-btn"
                     class="px-6 py-2.5 bg-brand-accent text-white text-[14px] font-semibold hover:bg-brand-dark transition-colors duration-300 ml-4 rounded-sm">
                     예약하기
@@ -182,6 +184,7 @@
             <div class="flex justify-start items-center mb-4 pb-6 border-b border-gray-50">
                 <img src="samsung365_logo.png" alt="삼성365의원" class="h-10 w-auto">
             </div>
+            <div id="mobile-auth-area" class="mt-4"></div>
 
             <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
                 <summary
@@ -280,7 +283,7 @@
         </section>
 
         <!-- MEMBER GATE SECTION -->
-        <section class="relative py-20 md:py-28 bg-white overflow-hidden">
+        <section id="login-gate" class="relative py-20 md:py-28 bg-white overflow-hidden">
             <div class="max-w-[800px] mx-auto px-6 relative z-10">
                 <!-- Persuasive Text Block -->
                 <div class="text-center mb-10" data-aos="fade-up">
@@ -303,14 +306,15 @@
                         로그인이 필요합니다.
                     </p>
 
-                    <form class="space-y-3 mb-8 text-left">
+                    <form id="login-form" class="space-y-3 mb-8 text-left">
                         <div>
-                            <input type="text" placeholder="아이디" class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent/10 focus:border-brand-accent transition-all text-sm">
+                            <input type="email" id="login-email" placeholder="이메일 주소" required class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent/10 focus:border-brand-accent transition-all text-sm">
                         </div>
                         <div>
-                            <input type="password" placeholder="비밀번호" class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent/10 focus:border-brand-accent transition-all text-sm">
+                            <input type="password" id="login-password" placeholder="비밀번호" required class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent/10 focus:border-brand-accent transition-all text-sm">
                         </div>
-                        <button type="button" class="w-full py-5 bg-brand-dark text-white rounded-xl font-bold hover:bg-brand-accent transition-all duration-300 shadow-xl shadow-brand-dark/10 mt-2">
+                        <p id="login-error" class="text-red-500 text-xs hidden text-center font-medium"></p>
+                        <button type="submit" id="login-btn" class="w-full py-5 bg-brand-dark text-white rounded-xl font-bold hover:bg-brand-accent transition-all duration-300 shadow-xl shadow-brand-dark/10 mt-2">
                             로그인
                         </button>
                     </form>
@@ -320,7 +324,48 @@
                         <span class="w-1 h-1 bg-gray-200 rounded-full"></span>
                         <a href="#" class="hover:text-brand-dark transition-colors">비밀번호 찾기</a>
                         <span class="w-1 h-1 bg-gray-200 rounded-full"></span>
-                        <a href="#" class="font-bold text-brand-accent hover:underline decoration-2 underline-offset-4">회원가입</a>
+                        <a href="signup.html" class="font-bold text-brand-accent hover:underline decoration-2 underline-offset-4">회원가입</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRIVATE CONTENT SECTION (Logged in only) -->
+        <section id="private-content" class="hidden relative py-20 bg-gray-50 overflow-hidden">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12 xl:px-20">
+                <div class="mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl font-bold text-brand-dark">임상 사례 아카이브</h2>
+                    <p class="text-gray-500 mt-2">삼성365의원의 전문적인 치료 사례들을 확인하실 수 있습니다.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Sample Card 1 -->
+                    <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all" data-aos="fade-up">
+                        <div class="aspect-video bg-gray-200">
+                            <div class="w-full h-full flex items-center justify-center text-gray-400">
+                                <span class="text-sm">임상 이미지 (치료 전/후)</span>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <span class="inline-block px-3 py-1 bg-brand-light text-brand-accent text-xs font-bold rounded-full mb-4">흉추 통증</span>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">만성 등 통증의 3R 테라피 개선 사례</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed mb-6">10년 이상 지속된 흉추 부위의 뻐근함과 통증을 정밀 진단 후 신경 차단술과 도수 치료를 병행하여 개선한 사례입니다.</p>
+                            <a href="#" class="text-brand-accent font-bold text-sm hover:underline">상세보기 →</a>
+                        </div>
+                    </div>
+                    <!-- Sample Card 2 -->
+                    <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all" data-aos="fade-up" data-aos-delay="100">
+                        <div class="aspect-video bg-gray-200">
+                            <div class="w-full h-full flex items-center justify-center text-gray-400">
+                                <span class="text-sm">임상 이미지 (치료 전/후)</span>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <span class="inline-block px-3 py-1 bg-blue-50 text-blue-500 text-xs font-bold rounded-full mb-4">턱관절</span>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">턱관절 불균형으로 인한 두통 개선</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed mb-6">턱관절의 구조적 문제로 인한 만성 두통 환자의 교정 치료 및 프롤로 테라피 적용 결과입니다.</p>
+                            <a href="#" class="text-brand-accent font-bold text-sm hover:underline">상세보기 →</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -364,8 +409,53 @@
         </div>
     </footer>
 
+    <script src="supabase-client.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Login Logic
+            const loginForm = document.getElementById('login-form');
+            if (loginForm) {
+                loginForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const email = document.getElementById('login-email').value;
+                    const password = document.getElementById('login-password').value;
+                    const errorMsg = document.getElementById('login-error');
+                    const loginBtn = document.getElementById('login-btn');
+
+                    errorMsg.classList.add('hidden');
+                    loginBtn.disabled = true;
+                    loginBtn.textContent = '로그인 중...';
+
+                    try {
+                        const { data, error } = await window.supabaseClient.auth.signInWithPassword({
+                            email: email,
+                            password: password,
+                        });
+
+                        if (error) throw error;
+
+                        alert('로그인 성공!');
+                        
+                        // Redirection Logic
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const returnTo = urlParams.get('returnTo');
+                        
+                        if (returnTo) {
+                            window.location.href = returnTo;
+                        } else {
+                            window.location.reload(); 
+                        }
+
+                    } catch (error) {
+                        errorMsg.textContent = '이메일 또는 비밀번호가 올바르지 않습니다.';
+                        errorMsg.classList.remove('hidden');
+                    } finally {
+                        loginBtn.disabled = false;
+                        loginBtn.textContent = '로그인';
+                    }
+                });
+            }
+
             const menuBtn = document.getElementById('mobile-menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
             const header = document.getElementById('header');
@@ -400,6 +490,7 @@
             });
         });
     </script>
+    <script src="auth-ui.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {

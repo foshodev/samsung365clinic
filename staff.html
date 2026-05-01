@@ -80,6 +80,7 @@
             transform-origin: bottom left;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body class="antialiased selection:bg-brand-accent selection:text-white break-keep">
     <!-- ==========================================
@@ -138,6 +139,7 @@
                 <a href="injection-therapy.html" class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">주사치료</a>
                 <a href="community.html" class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">커뮤니티</a>
                 
+                <div id="auth-area" class="flex items-center ml-8"></div>
                 <a href="https://m.booking.naver.com/booking/13/bizes/1436478/items/7595404" target="_blank" id="nav-cta-btn" class="px-6 py-2.5 bg-brand-accent text-white text-[14px] font-semibold hover:bg-brand-dark transition-colors duration-300 ml-4 rounded-sm">
                     예약하기
                 </a>
@@ -400,5 +402,7 @@
             offset: 50
         });
     </script>
+    <script src="supabase-client.js"></script>
+    <script src="auth-ui.js"></script>
 </body>
 </html>

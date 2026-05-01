@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 | 삼성365의원</title>
+    <link rel="icon" type="image/png" href="samsung365_logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', 'Pretendard', sans-serif; }
+        .bg-brand-accent { background-color: #0C4A9E; }
+        .text-brand-accent { color: #0C4A9E; }
+        .bg-brand-light { background-color: #F0F7FF; }
+        .brand-shadow { box-shadow: 0 20px 50px rgba(12, 74, 158, 0.1); }
+    </style>
+</head>
+
+<body class="bg-gray-50 flex items-center justify-center min-h-screen p-6">
+    <div class="w-full max-w-[480px]" data-aos="fade-up">
+        <!-- Logo -->
+        <div class="text-center mb-10">
+            <a href="index.html">
+                <img src="samsung365_logo.png" alt="삼성365의원" class="h-16 mx-auto mb-4">
+            </a>
+            <h1 class="text-2xl font-bold text-gray-900">회원가입</h1>
+            <p class="text-gray-500 mt-2">삼성365의원 멤버십에 가입하고 전용 콘텐츠를 만나보세요.</p>
+        </div>
+
+        <!-- Signup Form Card -->
+        <div class="bg-white rounded-[2.5rem] shadow-[0_30px_90px_-15px_rgba(0,0,0,0.1)] p-10 md:p-12 border border-gray-100">
+            <form id="signup-form" class="space-y-6">
+                <!-- Email -->
+                <div>
+                    <label class="block text-[13px] font-semibold text-gray-700 mb-2 ml-1">이메일 주소 (아이디)</label>
+                    <input type="email" id="email" required
+                        class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-accent/20 focus:border-brand-accent transition-all text-[15px]"
+                        placeholder="example@email.com">
+                </div>
+
+                <!-- Password -->
+                <div>
+                    <label class="block text-[13px] font-semibold text-gray-700 mb-2 ml-1">비밀번호</label>
+                    <input type="password" id="password" required
+                        class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-accent/20 focus:border-brand-accent transition-all text-[15px]"
+                        placeholder="6자리 이상 입력해주세요">
+                </div>
+
+                <!-- Confirm Password -->
+                <div>
+                    <label class="block text-[13px] font-semibold text-gray-700 mb-2 ml-1">비밀번호 확인</label>
+                    <input type="password" id="confirm-password" required
+                        class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-accent/20 focus:border-brand-accent transition-all text-[15px]"
+                        placeholder="비밀번호를 한번 더 입력해주세요">
+                </div>
+
+                <!-- Error Message -->
+                <p id="error-msg" class="text-red-500 text-sm hidden text-center font-medium"></p>
+
+                <!-- Submit Button -->
+                <button type="submit" id="signup-btn"
+                    class="w-full py-4 bg-brand-accent text-white rounded-2xl font-bold text-lg hover:bg-[#093d84] transition-all transform active:scale-[0.98] shadow-lg shadow-brand-accent/20">
+                    가입하기
+                </button>
+            </form>
+
+            <div class="mt-8 pt-8 border-t border-gray-50 text-center">
+                <p class="text-gray-500 text-sm">
+                    이미 계정이 있으신가요? 
+                    <a href="community.html" class="text-brand-accent font-bold hover:underline ml-1">로그인하기</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <p class="text-center text-gray-400 text-[12px] mt-8">
+            © 2024 SAMSUNG 365 CLINIC. ALL RIGHTS RESERVED.
+        </p>
+    </div>
+
+    <script src="supabase-client.js"></script>
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const errorMsg = document.getElementById('error-msg');
+            const signupBtn = document.getElementById('signup-btn');
+
+            // Reset UI
+            errorMsg.classList.add('hidden');
+            
+            // Validation
+            if (password !== confirmPassword) {
+                errorMsg.textContent = '비밀번호가 일치하지 않습니다.';
+                errorMsg.classList.remove('hidden');
+                return;
+            }
+
+            if (password.length < 6) {
+                errorMsg.textContent = '비밀번호는 최소 6자리 이상이어야 합니다.';
+                errorMsg.classList.remove('hidden');
+                return;
+            }
+
+            // Processing UI
+            signupBtn.disabled = true;
+            signupBtn.textContent = '처리 중...';
+
+            try {
+                const { data, error } = await window.supabaseClient.auth.signUp({
+                    email: email,
+                    password: password,
+                });
+
+                if (error) throw error;
+
+                alert('회원가입 신청이 완료되었습니다!\n입력하신 이메일함에서 인증 메일을 확인해주세요.\n인증 완료 후 로그인이 가능합니다.');
+                window.location.href = 'community.html';
+
+            } catch (error) {
+                errorMsg.textContent = error.message;
+                errorMsg.classList.remove('hidden');
+            } finally {
+                signupBtn.disabled = false;
+                signupBtn.textContent = '가입하기';
+            }
+        });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
+</body>
+
+</html>
