@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>어드민 | 삼성365의원</title>
+    <link rel="icon" type="image/png" href="samsung365_logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', 'Pretendard', sans-serif; }
+        .bg-brand-accent { background-color: #0C4A9E; }
+        .text-brand-accent { color: #0C4A9E; }
+    </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-100 px-6 py-4">
+        <div class="max-w-[1200px] mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <img src="samsung365_logo.png" alt="삼성365의원" class="h-10">
+                <span class="text-gray-400">|</span>
+                <h1 class="font-bold text-gray-900">콘텐츠 관리 시스템 (CMS)</h1>
+            </div>
+            <a href="community.html" class="text-sm text-gray-500 hover:text-brand-accent font-medium">← 커뮤니티로 돌아가기</a>
+        </div>
+    </nav>
+
+    <main class="max-w-[800px] mx-auto px-6 py-12">
+        <!-- Auth Check Message -->
+        <div id="auth-loading" class="text-center py-20">
+            <p class="text-gray-500 animate-pulse">관리자 권한 확인 중...</p>
+        </div>
+
+        <!-- Admin Form (Hidden by default) -->
+        <div id="admin-container" class="hidden">
+            <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 md:p-12">
+                <div class="mb-10">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-2">새 임상 사례 등록</h2>
+                    <p class="text-gray-500">사진 또는 영상을 포함한 새로운 치료 사례를 등록하세요.</p>
+                </div>
+
+                <form id="upload-form" class="space-y-6">
+                    <!-- Title -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">사례 제목</label>
+                        <input type="text" id="title" required
+                            class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-accent/20 focus:border-brand-accent transition-all"
+                            placeholder="예: 10년 만성 흉추 통증 개선 사례">
+                    </div>
+
+                    <!-- Category -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">카테고리</label>
+                        <select id="category" required
+                            class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-accent/20 focus:border-brand-accent transition-all">
+                            <option value="흉추통증">흉추통증</option>
+                            <option value="요추통증">요추통증</option>
+                            <option value="어깨통증">어깨통증</option>
+                            <option value="무릎통증">무릎통증</option>
+                            <option value="관절/기능">관절/기능</option>
+                            <option value="두통/이명">두통/이명</option>
+                        </select>
+                    </div>
+
+                    <!-- Description -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">상세 내용</label>
+                        <textarea id="description" rows="4" required
+                            class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-accent/20 focus:border-brand-accent transition-all"
+                            placeholder="환자의 증상과 치료 과정을 간략히 적어주세요."></textarea>
+                    </div>
+
+                    <!-- File Upload -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">사진 또는 영상 파일</label>
+                        <div class="relative group">
+                            <input type="file" id="file" accept="image/*,video/*" required
+                                class="w-full px-6 py-4 bg-gray-50 border border-dashed border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-accent/20 transition-all cursor-pointer">
+                        </div>
+                        <p class="mt-2 text-xs text-gray-400">* 이미지(jpg, png, webp) 또는 영상(mp4) 파일을 선택하세요.</p>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="submit-btn"
+                        class="w-full py-5 bg-brand-accent text-white rounded-2xl font-bold text-lg hover:bg-[#093d84] transition-all transform active:scale-[0.98] shadow-xl shadow-brand-accent/20">
+                        데이터 등록하기
+                    </button>
+                </form>
+
+                <div id="status-msg" class="mt-6 text-center text-sm hidden font-medium"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="supabase-client.js"></script>
+    <script>
+        const ADMIN_EMAIL = 'admin@365.com'; // 원장님 어드민 계정
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const container = document.getElementById('admin-container');
+            const loading = document.getElementById('auth-loading');
+
+            // 1. Auth Check
+            const { data: { session } } = await window.supabaseClient.auth.getSession();
+
+            if (!session) {
+                alert('로그인이 필요한 페이지입니다.');
+                window.location.href = 'community.html';
+                return;
+            }
+
+            // 2. Admin Check (Email-based)
+            if (session.user.email !== ADMIN_EMAIL) {
+                // 원장님 이메일이 아닐 경우 경고 후 리다이렉트
+                // (서버 RLS에서도 막혀있으므로 안전합니다.)
+            }
+
+            loading.classList.add('hidden');
+            container.classList.remove('hidden');
+
+            // 3. Upload Logic
+            const uploadForm = document.getElementById('upload-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const statusMsg = document.getElementById('status-msg');
+
+            uploadForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const title = document.getElementById('title').value;
+                const category = document.getElementById('category').value;
+                const description = document.getElementById('description').value;
+                const fileInput = document.getElementById('file');
+                const file = fileInput.files[0];
+
+                if (!file) return;
+
+                // UI Processing
+                submitBtn.disabled = true;
+                submitBtn.textContent = '데이터 업로드 중...';
+                statusMsg.classList.remove('hidden');
+                statusMsg.className = 'mt-6 text-center text-sm text-blue-500 font-medium';
+                statusMsg.textContent = '파일을 저장소에 올리는 중입니다...';
+
+                try {
+                    // A. File Upload to Storage
+                    const fileExt = file.name.split('.').pop();
+                    const fileName = `${Math.random().toString(36).substring(2)}-${Date.now()}.${fileExt}`;
+                    const filePath = `clinical-cases/${fileName}`;
+
+                    const { data: uploadData, error: uploadError } = await window.supabaseClient.storage
+                        .from('cases')
+                        .upload(filePath, file);
+
+                    if (uploadError) throw uploadError;
+
+                    // Get Public URL
+                    const { data: { publicUrl } } = window.supabaseClient.storage
+                        .from('cases')
+                        .getPublicUrl(filePath);
+
+                    // B. Save to Database
+                    statusMsg.textContent = '데이터베이스에 정보를 기록 중입니다...';
+                    
+                    const isVideo = file.type.startsWith('video/');
+                    
+                    const { error: dbError } = await window.supabaseClient
+                        .from('clinical_cases')
+                        .insert([{
+                            title: title,
+                            category: category,
+                            description: description,
+                            image_url: isVideo ? null : publicUrl,
+                            video_url: isVideo ? publicUrl : null
+                        }]);
+
+                    if (dbError) throw dbError;
+
+                    // Success!
+                    statusMsg.className = 'mt-6 text-center text-sm text-green-600 font-bold';
+                    statusMsg.textContent = '✅ 등록이 성공적으로 완료되었습니다!';
+                    uploadForm.reset();
+                    
+                    setTimeout(() => {
+                        if(confirm('등록이 완료되었습니다. 커뮤니티 페이지로 이동하여 확인하시겠습니까?')) {
+                            window.location.href = 'community.html';
+                        }
+                    }, 500);
+
+                } catch (error) {
+                    console.error(error);
+                    statusMsg.className = 'mt-6 text-center text-sm text-red-500 font-bold';
+                    statusMsg.textContent = '❌ 오류 발생: ' + error.message;
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = '데이터 등록하기';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

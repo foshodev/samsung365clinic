@@ -8,6 +8,7 @@
     <title>커뮤니티 | 삼성365의원</title>
     <link rel="icon" type="image/png" href="samsung365_logo.png">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
     <meta name="description" content="삼성365의원 커뮤니티 페이지입니다. 유용한 건강 정보와 소식을 전해드립니다.">
     <meta name="keywords" content="삼성365의원, 커뮤니티, 건강정보, 병원소식">
@@ -313,6 +314,10 @@
                         <div>
                             <input type="password" id="login-password" placeholder="비밀번호" required class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent/10 focus:border-brand-accent transition-all text-sm">
                         </div>
+                        
+                        <!-- CAPTCHA -->
+                        <div class="cf-turnstile flex justify-center py-2" data-sitekey="0x4AAAAAADHa5JBRhPuWLUv1"></div>
+
                         <p id="login-error" class="text-red-500 text-xs hidden text-center font-medium"></p>
                         <button type="submit" id="login-btn" class="w-full py-5 bg-brand-dark text-white rounded-xl font-bold hover:bg-brand-accent transition-all duration-300 shadow-xl shadow-brand-dark/10 mt-2">
                             로그인
@@ -427,9 +432,24 @@
                     loginBtn.textContent = '로그인 중...';
 
                     try {
+                        // Get Turnstile token
+                        const turnstileResponse = document.querySelector('[name="cf-turnstile-response"]');
+                        const captchaToken = turnstileResponse ? turnstileResponse.value : null;
+
+                        if (!captchaToken) {
+                            errorMsg.textContent = '보안 확인(CAPTCHA)을 완료해주세요.';
+                            errorMsg.classList.remove('hidden');
+                            loginBtn.disabled = false;
+                            loginBtn.textContent = '로그인';
+                            return;
+                        }
+
                         const { data, error } = await window.supabaseClient.auth.signInWithPassword({
                             email: email,
                             password: password,
+                            options: {
+                                captchaToken: captchaToken
+                            }
                         });
 
                         if (error) throw error;
@@ -447,8 +467,16 @@
                         }
 
                     } catch (error) {
-                        errorMsg.textContent = '이메일 또는 비밀번호가 올바르지 않습니다.';
+                        let message = error.message;
+                        if (message === 'Invalid login credentials') {
+                            message = '이메일 또는 비밀번호가 올바르지 않습니다.';
+                        } else if (message === 'Email not confirmed') {
+                            message = '이메일 인증이 완료되지 않았습니다. 수파베이스 대시보드에서 해당 유저의 [Confirm User] 버튼을 눌러주세요.';
+                        }
+                        
+                        errorMsg.textContent = message;
                         errorMsg.classList.remove('hidden');
+                        console.error('Login error:', error);
                     } finally {
                         loginBtn.disabled = false;
                         loginBtn.textContent = '로그인';
