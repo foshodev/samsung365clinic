@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <style>
         body { font-family: 'Inter', 'Pretendard', sans-serif; }
         .bg-brand-accent { background-color: #0C4A9E; }
@@ -56,6 +57,9 @@
                         class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-accent/20 focus:border-brand-accent transition-all text-[15px]"
                         placeholder="비밀번호를 한번 더 입력해주세요">
                 </div>
+
+                <!-- CAPTCHA -->
+                <div class="cf-turnstile flex justify-center" data-sitekey="0x4AAAAAADHa5JBRhPuWLUv1"></div>
 
                 <!-- Error Message -->
                 <p id="error-msg" class="text-red-500 text-sm hidden text-center font-medium"></p>
@@ -113,18 +117,44 @@
             signupBtn.textContent = '처리 중...';
 
             try {
+                // Get Turnstile token
+                const turnstileResponse = document.querySelector('[name="cf-turnstile-response"]');
+                const captchaToken = turnstileResponse ? turnstileResponse.value : null;
+
+                if (!captchaToken) {
+                    errorMsg.textContent = '보안 확인(CAPTCHA)을 완료해주세요.';
+                    errorMsg.classList.remove('hidden');
+                    signupBtn.disabled = false;
+                    signupBtn.textContent = '가입하기';
+                    return;
+                }
+
                 const { data, error } = await window.supabaseClient.auth.signUp({
                     email: email,
                     password: password,
+                    options: {
+                        captchaToken: captchaToken
+                    }
                 });
 
                 if (error) throw error;
+
+                // Check if user already exists (Supabase enumeration protection workaround)
+                if (data.user && data.user.identities && data.user.identities.length === 0) {
+                    errorMsg.textContent = '이미 가입된 이메일 주소입니다.';
+                    errorMsg.classList.remove('hidden');
+                    return;
+                }
 
                 alert('회원가입 신청이 완료되었습니다!\n입력하신 이메일함에서 인증 메일을 확인해주세요.\n인증 완료 후 로그인이 가능합니다.');
                 window.location.href = 'community.html';
 
             } catch (error) {
-                errorMsg.textContent = error.message;
+                let message = error.message;
+                if (message === 'User already registered') {
+                    message = '이미 가입된 이메일 주소입니다.';
+                }
+                errorMsg.textContent = message;
                 errorMsg.classList.remove('hidden');
             } finally {
                 signupBtn.disabled = false;
