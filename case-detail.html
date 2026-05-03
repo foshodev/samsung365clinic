@@ -134,9 +134,31 @@
                     <div class="w-12 h-1 bg-brand-accent rounded-full"></div>
                 </div>
 
-                <!-- Media -->
+                <!-- Before / After Comparison -->
+                <div id="detail-before-after" class="hidden mb-12">
+                    <div class="flex rounded-3xl overflow-hidden shadow-lg" style="height: 60vh; max-height: 500px;">
+                        <!-- Before -->
+                        <div class="relative w-1/2 overflow-hidden">
+                            <img id="detail-before-img" alt="치료 전" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1.5 bg-black/60 backdrop-blur-sm text-white text-sm font-bold rounded-full tracking-wider">BEFORE</span>
+                            </div>
+                        </div>
+                        <!-- Divider -->
+                        <div class="w-1 bg-white flex-shrink-0 z-10"></div>
+                        <!-- After -->
+                        <div class="relative w-1/2 overflow-hidden">
+                            <img id="detail-after-img" alt="치료 후" class="w-full h-full object-cover">
+                            <div class="absolute top-4 right-4">
+                                <span class="px-3 py-1.5 bg-brand-accent/90 backdrop-blur-sm text-white text-sm font-bold rounded-full tracking-wider">AFTER</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Extra Media (video or additional image) -->
                 <div id="detail-media" class="w-full rounded-3xl mb-12 shadow-lg bg-gray-900 flex items-center justify-center">
-                    <!-- image or video injected here -->
+                    <!-- extra media injected here -->
                 </div>
 
                 <!-- Description -->
@@ -237,11 +259,20 @@
                 document.getElementById('detail-title').textContent = data.title;
                 document.getElementById('detail-description').textContent = data.description;
 
-                // Media
+                // Before / After
+                const beforeAfterEl = document.getElementById('detail-before-after');
+                if (data.before_url && data.after_url) {
+                    document.getElementById('detail-before-img').src = data.before_url;
+                    document.getElementById('detail-after-img').src = data.after_url;
+                    beforeAfterEl.classList.remove('hidden');
+                }
+
+                // Extra media (video or old image_url)
                 const mediaContainer = document.getElementById('detail-media');
                 if (data.video_url) {
                     mediaContainer.innerHTML = `<video src="${data.video_url}" class="w-full rounded-3xl" style="max-height:70vh;" controls playsinline></video>`;
-                } else if (data.image_url) {
+                } else if (data.image_url && !data.before_url) {
+                    // fallback for old cases without before/after
                     mediaContainer.innerHTML = `<img src="${data.image_url}" alt="${data.title}" class="w-full rounded-3xl" style="max-height:70vh; object-fit:contain;">`;
                 } else {
                     mediaContainer.classList.add('hidden');
