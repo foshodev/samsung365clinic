@@ -277,61 +277,9 @@
                     결과로 증명하는 <span class="text-blue-400">삼성365 임상센터</span>
                 </h1>
                 <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed" data-aos="fade-up" data-aos-delay="100">
-                    의료법 제56조 및 환자 정보 보호를 위해,<br class="hidden md:block">
-                    실제 치료 사례 및 전후 기록은 로그인 후 확인하실 수 있습니다.
+                    치료 전 사진은 누구나 확인할 수 있습니다.<br class="hidden md:block">
+                    에프터(치료 후) 사진은 로그인 후 확인하실 수 있습니다.
                 </p>
-            </div>
-        </section>
-
-        <!-- MEMBER GATE SECTION -->
-        <section id="login-gate" class="relative py-20 md:py-28 bg-white overflow-hidden">
-            <div class="max-w-[800px] mx-auto px-6 relative z-10">
-                <!-- Persuasive Text Block -->
-                <div class="text-center mb-10" data-aos="fade-up">
-                    <h3 class="text-2xl md:text-3xl font-bold text-brand-dark mb-5">
-                        치료의 과정을 투명하게 공유하여<br class="md:hidden"> 신뢰를 더합니다.
-                    </h3>
-                    <p class="text-gray-500 leading-relaxed font-light break-keep max-w-xl mx-auto text-sm md:text-base">
-                        삼성365의원의 정밀 진단과 3R 테라피가 만드는 놀라운 변화들,<br class="hidden md:block">
-                        회원가입 후 수많은 임상 사례와 회복 수기를 통해 직접 확인해 보세요.
-                    </p>
-                </div>
-
-                <!-- Login Modal -->
-                <div class="w-full max-w-[480px] bg-white rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-gray-100 p-10 md:p-14 text-center mx-auto" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="mb-10 flex justify-center"><img src="samsung365_logo.png" alt="삼성365의원" class="h-14 md:h-16 w-auto object-contain"></div>
-                    
-                    <h2 class="text-2xl font-bold text-brand-dark mb-3">회원 로그인</h2>
-                    <p class="text-sm text-gray-400 mb-10 leading-relaxed font-light">
-                        치료 전후 사진 및 상세 기록 열람을 위해<br>
-                        로그인이 필요합니다.
-                    </p>
-
-                    <form id="login-form" class="space-y-3 mb-8 text-left">
-                        <div>
-                            <input type="email" id="login-email" placeholder="이메일 주소" required class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent/10 focus:border-brand-accent transition-all text-sm">
-                        </div>
-                        <div>
-                            <input type="password" id="login-password" placeholder="비밀번호" required class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent/10 focus:border-brand-accent transition-all text-sm">
-                        </div>
-                        
-                        <!-- CAPTCHA -->
-                        <div class="cf-turnstile flex justify-center py-2" data-sitekey="0x4AAAAAADHa5JBRhPuWLUv1"></div>
-
-                        <p id="login-error" class="text-red-500 text-xs hidden text-center font-medium"></p>
-                        <button type="submit" id="login-btn" class="w-full py-5 bg-brand-dark text-white rounded-xl font-bold hover:bg-brand-accent transition-all duration-300 shadow-xl shadow-brand-dark/10 mt-2">
-                            로그인
-                        </button>
-                    </form>
-
-                    <div class="flex items-center justify-center gap-6 text-xs text-gray-400">
-                        <a href="#" class="hover:text-brand-dark transition-colors">아이디 찾기</a>
-                        <span class="w-1 h-1 bg-gray-200 rounded-full"></span>
-                        <a href="#" class="hover:text-brand-dark transition-colors">비밀번호 찾기</a>
-                        <span class="w-1 h-1 bg-gray-200 rounded-full"></span>
-                        <a href="signup.html" class="font-bold text-brand-accent hover:underline decoration-2 underline-offset-4">회원가입</a>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -367,6 +315,49 @@
                     <!-- Cards will be injected here by JS -->
                     <div class="col-span-full text-center py-20" id="cases-loading">
                         <p class="text-gray-400 animate-pulse">데이터를 불러오는 중입니다...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MEMBER GATE SECTION -->
+        <section id="login-gate" class="relative py-20 md:py-28 bg-white overflow-hidden">
+            <div class="max-w-[800px] mx-auto px-6 relative z-10">
+                <div class="text-center mb-10" data-aos="fade-up">
+                    <h3 class="text-2xl md:text-3xl font-bold text-brand-dark mb-5">
+                        에프터 사진을 확인하려면<br class="md:hidden"> 로그인하세요.
+                    </h3>
+                    <p class="text-gray-500 leading-relaxed font-light break-keep max-w-xl mx-auto text-sm md:text-base">
+                        회원가입 후 치료 전후 사진과 상세 기록을 직접 확인해 보세요.
+                    </p>
+                </div>
+
+                <div class="w-full max-w-[480px] bg-white rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-gray-100 p-10 md:p-14 text-center mx-auto" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="mb-10 flex justify-center"><img src="samsung365_logo.png" alt="삼성365의원" class="h-14 md:h-16 w-auto object-contain"></div>
+                    <h2 class="text-2xl font-bold text-brand-dark mb-3">회원 로그인</h2>
+                    <p class="text-sm text-gray-400 mb-10 leading-relaxed font-light">
+                        치료 전후 사진 및 상세 기록 열람을 위해<br>
+                        로그인이 필요합니다.
+                    </p>
+                    <form id="login-form" class="space-y-3 mb-8 text-left">
+                        <div>
+                            <input type="email" id="login-email" placeholder="이메일 주소" required class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent/10 focus:border-brand-accent transition-all text-sm">
+                        </div>
+                        <div>
+                            <input type="password" id="login-password" placeholder="비밀번호" required class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent/10 focus:border-brand-accent transition-all text-sm">
+                        </div>
+                        <div class="cf-turnstile flex justify-center py-2" data-sitekey="0x4AAAAAADHa5JBRhPuWLUv1"></div>
+                        <p id="login-error" class="text-red-500 text-xs hidden text-center font-medium"></p>
+                        <button type="submit" id="login-btn" class="w-full py-5 bg-brand-dark text-white rounded-xl font-bold hover:bg-brand-accent transition-all duration-300 shadow-xl shadow-brand-dark/10 mt-2">
+                            로그인
+                        </button>
+                    </form>
+                    <div class="flex items-center justify-center gap-6 text-xs text-gray-400">
+                        <a href="#" class="hover:text-brand-dark transition-colors">아이디 찾기</a>
+                        <span class="w-1 h-1 bg-gray-200 rounded-full"></span>
+                        <a href="#" class="hover:text-brand-dark transition-colors">비밀번호 찾기</a>
+                        <span class="w-1 h-1 bg-gray-200 rounded-full"></span>
+                        <a href="signup.html" class="font-bold text-brand-accent hover:underline decoration-2 underline-offset-4">회원가입</a>
                     </div>
                 </div>
             </div>
