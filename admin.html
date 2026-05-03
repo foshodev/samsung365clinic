@@ -117,6 +117,40 @@
                             placeholder="환자의 증상과 치료 과정을 적어주세요."></textarea>
                     </div>
 
+                    <!-- Extra Media -->
+                    <div class="border-t border-gray-100 pt-8">
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">
+                            추가 사진 / 영상
+                            <span class="text-gray-400 font-normal ml-1">(선택, 비포/에프터 외 추가 콘텐츠)</span>
+                        </label>
+                        <p class="text-xs text-gray-400 mb-4">사진(jpg, png, webp) 또는 영상(mp4, mov) 업로드 가능합니다.</p>
+                        <input type="file" id="extra-media-file" accept="image/*,video/*"
+                            class="hidden" onchange="previewExtra(this)">
+                        <div class="w-full bg-gray-50 border-2 border-dashed border-gray-200 rounded-2xl overflow-hidden cursor-pointer hover:border-gray-400 transition-colors"
+                            onclick="document.getElementById('extra-media-file').click()">
+                            <!-- Preview area -->
+                            <div id="extra-preview-container" class="hidden relative">
+                                <img id="extra-img-preview" class="hidden w-full max-h-[320px] object-contain">
+                                <video id="extra-vid-preview" class="hidden w-full max-h-[320px]" controls muted playsinline></video>
+                                <button type="button" onclick="clearExtra(event)"
+                                    class="absolute top-3 right-3 w-8 h-8 bg-black/50 text-white rounded-full flex items-center justify-center text-lg hover:bg-black/80 transition-colors">×</button>
+                            </div>
+                            <!-- Placeholder -->
+                            <div id="extra-placeholder" class="text-center py-10 px-6">
+                                <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                                </div>
+                                <p class="text-sm text-gray-400 font-medium">클릭하여 파일 선택</p>
+                                <p class="text-xs text-gray-300 mt-1">사진 또는 동영상</p>
+                            </div>
+                        </div>
+                        <!-- Extra media clear note (edit mode) -->
+                        <div id="extra-existing-note" class="hidden mt-3 flex items-center justify-between text-sm text-gray-500 bg-gray-50 px-4 py-3 rounded-xl">
+                            <span id="extra-existing-label">현재 추가 미디어가 등록되어 있습니다.</span>
+                            <button type="button" onclick="clearExistingExtra()" class="text-red-400 font-bold hover:text-red-600 text-xs">제거</button>
+                        </div>
+                    </div>
+
                     <!-- Submit -->
                     <button type="submit" id="submit-btn"
                         class="w-full py-5 bg-brand-accent text-white rounded-2xl font-bold text-lg hover:bg-[#093d84] transition-all shadow-xl shadow-blue-900/20">
@@ -145,6 +179,45 @@
             reader.readAsDataURL(file);
         }
 
+        function previewExtra(input) {
+            const file = input.files[0];
+            if (!file) return;
+            const isVideo = file.type.startsWith('video/');
+            const container = document.getElementById('extra-preview-container');
+            const imgPrev = document.getElementById('extra-img-preview');
+            const vidPrev = document.getElementById('extra-vid-preview');
+            const placeholder = document.getElementById('extra-placeholder');
+            const url = URL.createObjectURL(file);
+            if (isVideo) {
+                vidPrev.src = url;
+                vidPrev.classList.remove('hidden');
+                imgPrev.classList.add('hidden');
+            } else {
+                imgPrev.src = url;
+                imgPrev.classList.remove('hidden');
+                vidPrev.classList.add('hidden');
+            }
+            container.classList.remove('hidden');
+            placeholder.classList.add('hidden');
+        }
+
+        function clearExtra(e) {
+            e.stopPropagation();
+            document.getElementById('extra-media-file').value = '';
+            document.getElementById('extra-img-preview').src = '';
+            document.getElementById('extra-img-preview').classList.add('hidden');
+            document.getElementById('extra-vid-preview').src = '';
+            document.getElementById('extra-vid-preview').classList.add('hidden');
+            document.getElementById('extra-preview-container').classList.add('hidden');
+            document.getElementById('extra-placeholder').classList.remove('hidden');
+        }
+
+        let removeExistingExtra = false;
+        function clearExistingExtra() {
+            removeExistingExtra = true;
+            document.getElementById('extra-existing-note').classList.add('hidden');
+        }
+
         const ADMIN_EMAIL = 'admin@365.com';
 
         document.addEventListener('DOMContentLoaded', async () => {
@@ -167,6 +240,8 @@
             const editId = urlParams.get('edit');
             let existingBeforeUrl = null;
             let existingAfterUrl = null;
+            let existingExtraImageUrl = null;
+            let existingExtraVideoUrl = null;
 
             if (editId) {
                 // EDIT MODE
@@ -199,6 +274,16 @@
                 document.getElementById('description').value = data.description || '';
                 existingBeforeUrl = data.before_url;
                 existingAfterUrl = data.after_url;
+                existingExtraImageUrl = data.image_url || null;
+                existingExtraVideoUrl = data.video_url || null;
+
+                // Show existing extra media note
+                if (data.image_url || data.video_url) {
+                    const note = document.getElementById('extra-existing-note');
+                    const label = document.getElementById('extra-existing-label');
+                    label.textContent = data.video_url ? '현재 동영상이 등록되어 있습니다. (교체하려면 위에서 새 파일 선택)' : '현재 추가 사진이 등록되어 있습니다. (교체하려면 위에서 새 파일 선택)';
+                    note.classList.remove('hidden');
+                }
 
                 // Show existing images as preview
                 if (data.before_url) {
@@ -241,6 +326,7 @@
                 const description = document.getElementById('description').value.trim();
                 const beforeFile = document.getElementById('before-file').files[0];
                 const afterFile = document.getElementById('after-file').files[0];
+                const extraFile = document.getElementById('extra-media-file').files[0];
 
                 // In create mode, both files are required
                 if (!editId && (!beforeFile || !afterFile)) {
@@ -280,19 +366,43 @@
 
                     statusMsg.textContent = '데이터베이스에 저장 중입니다...';
 
+                    // Upload extra media if selected
+                    let extraImageUrl = existingExtraImageUrl;
+                    let extraVideoUrl = existingExtraVideoUrl;
+
+                    if (removeExistingExtra) {
+                        extraImageUrl = null;
+                        extraVideoUrl = null;
+                    }
+
+                    if (extraFile) {
+                        const isVideo = extraFile.type.startsWith('video/');
+                        const folder = isVideo ? 'extra-video' : 'extra-image';
+                        const ext = extraFile.name.split('.').pop();
+                        const path = `${folder}/${Date.now()}-${Math.random().toString(36).substring(2)}.${ext}`;
+                        const { error: extraErr } = await window.supabaseClient.storage.from('casese').upload(path, extraFile);
+                        if (extraErr) throw extraErr;
+                        const { data: { publicUrl: extraUrl } } = window.supabaseClient.storage.from('casese').getPublicUrl(path);
+                        if (isVideo) {
+                            extraVideoUrl = extraUrl;
+                            extraImageUrl = null; // clear old image if video uploaded
+                        } else {
+                            extraImageUrl = extraUrl;
+                            extraVideoUrl = null; // clear old video if image uploaded
+                        }
+                    }
+
                     let dbError;
                     if (editId) {
-                        // UPDATE
                         const { error } = await window.supabaseClient
                             .from('clinical_cases')
-                            .update({ title, description, before_url: beforeUrl, after_url: afterUrl })
+                            .update({ title, description, before_url: beforeUrl, after_url: afterUrl, image_url: extraImageUrl, video_url: extraVideoUrl })
                             .eq('id', editId);
                         dbError = error;
                     } else {
-                        // INSERT
                         const { error } = await window.supabaseClient
                             .from('clinical_cases')
-                            .insert([{ title, description, before_url: beforeUrl, after_url: afterUrl }]);
+                            .insert([{ title, description, before_url: beforeUrl, after_url: afterUrl, image_url: extraImageUrl, video_url: extraVideoUrl }]);
                         dbError = error;
                     }
 
