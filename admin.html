@@ -23,7 +23,7 @@
             <div class="flex items-center gap-4">
                 <img src="samsung365_logo.png" alt="삼성365의원" class="h-10">
                 <span class="text-gray-400">|</span>
-                <h1 class="font-bold text-gray-900">콘텐츠 관리 시스템 (CMS)</h1>
+                <h1 id="page-title" class="font-bold text-gray-900">콘텐츠 관리 시스템 (CMS)</h1>
             </div>
             <a href="community.html" class="text-sm text-gray-500 hover:text-brand-accent font-medium">← 커뮤니티로 돌아가기</a>
         </div>
@@ -36,9 +36,15 @@
 
         <div id="admin-container" class="hidden">
             <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 md:p-12">
-                <div class="mb-10">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-2">새 임상 사례 등록</h2>
-                    <p class="text-gray-500">비포/애프터 사진과 설명을 입력하여 새로운 치료 사례를 등록하세요.</p>
+                <div class="mb-10 flex items-start justify-between">
+                    <div>
+                        <h2 id="form-title" class="text-2xl font-bold text-gray-900 mb-2">새 임상 사례 등록</h2>
+                        <p id="form-desc" class="text-gray-500">비포/애프터 사진과 설명을 입력하여 새로운 치료 사례를 등록하세요.</p>
+                    </div>
+                    <!-- Delete button (edit mode only) -->
+                    <button id="delete-btn" class="hidden px-4 py-2 text-sm font-bold text-red-500 border border-red-200 rounded-xl hover:bg-red-50 transition-colors">
+                        🗑 삭제
+                    </button>
                 </div>
 
                 <form id="upload-form" class="space-y-8">
@@ -59,12 +65,12 @@
                             <label class="block text-sm font-semibold text-gray-700 mb-2">
                                 <span class="inline-block px-2 py-0.5 bg-gray-800 text-white text-xs rounded mr-1">BEFORE</span>
                                 치료 전 사진
+                                <span id="before-optional" class="hidden text-gray-400 font-normal text-xs ml-1">(교체 시에만 선택)</span>
                             </label>
                             <div class="relative">
-                                <input type="file" id="before-file" accept="image/*" required
-                                    class="hidden" onchange="previewImage(this, 'before-preview')">
-                                <div id="before-preview-container"
-                                    class="w-full aspect-square bg-gray-50 border-2 border-dashed border-gray-200 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:border-gray-400 transition-colors overflow-hidden"
+                                <input type="file" id="before-file" accept="image/*"
+                                    class="hidden" onchange="previewImage(this, 'before-preview', 'before-placeholder')">
+                                <div class="w-full aspect-square bg-gray-50 border-2 border-dashed border-gray-200 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:border-gray-400 transition-colors overflow-hidden"
                                     onclick="document.getElementById('before-file').click()">
                                     <img id="before-preview" class="hidden preview-box">
                                     <div id="before-placeholder" class="text-center p-6">
@@ -83,12 +89,12 @@
                             <label class="block text-sm font-semibold text-gray-700 mb-2">
                                 <span class="inline-block px-2 py-0.5 bg-brand-accent text-white text-xs rounded mr-1">AFTER</span>
                                 치료 후 사진
+                                <span id="after-optional" class="hidden text-gray-400 font-normal text-xs ml-1">(교체 시에만 선택)</span>
                             </label>
                             <div class="relative">
-                                <input type="file" id="after-file" accept="image/*" required
-                                    class="hidden" onchange="previewImage(this, 'after-preview')">
-                                <div id="after-preview-container"
-                                    class="w-full aspect-square bg-gray-50 border-2 border-dashed border-gray-200 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:border-blue-300 transition-colors overflow-hidden"
+                                <input type="file" id="after-file" accept="image/*"
+                                    class="hidden" onchange="previewImage(this, 'after-preview', 'after-placeholder')">
+                                <div class="w-full aspect-square bg-gray-50 border-2 border-dashed border-gray-200 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:border-blue-300 transition-colors overflow-hidden"
                                     onclick="document.getElementById('after-file').click()">
                                     <img id="after-preview" class="hidden preview-box">
                                     <div id="after-placeholder" class="text-center p-6">
@@ -125,11 +131,11 @@
 
     <script src="supabase-client.js"></script>
     <script>
-        function previewImage(input, previewId) {
+        function previewImage(input, previewId, placeholderId) {
             const file = input.files[0];
             if (!file) return;
             const preview = document.getElementById(previewId);
-            const placeholder = document.getElementById(previewId.replace('-preview', '-placeholder'));
+            const placeholder = document.getElementById(placeholderId);
             const reader = new FileReader();
             reader.onload = (e) => {
                 preview.src = e.target.result;
@@ -156,6 +162,74 @@
             loading.classList.add('hidden');
             container.classList.remove('hidden');
 
+            // Check if editing existing case
+            const urlParams = new URLSearchParams(window.location.search);
+            const editId = urlParams.get('edit');
+            let existingBeforeUrl = null;
+            let existingAfterUrl = null;
+
+            if (editId) {
+                // EDIT MODE
+                document.getElementById('page-title').textContent = '사례 수정';
+                document.getElementById('form-title').textContent = '임상 사례 수정';
+                document.getElementById('form-desc').textContent = '내용을 수정하세요. 사진은 교체할 경우에만 새로 선택하면 됩니다.';
+                document.getElementById('submit-btn').textContent = '수정 저장하기';
+                document.getElementById('delete-btn').classList.remove('hidden');
+                document.getElementById('before-optional').classList.remove('hidden');
+                document.getElementById('after-optional').classList.remove('hidden');
+                // Before/after not required in edit mode
+                document.getElementById('before-file').removeAttribute('required');
+                document.getElementById('after-file').removeAttribute('required');
+
+                // Fetch existing data
+                const { data, error } = await window.supabaseClient
+                    .from('clinical_cases')
+                    .select('*')
+                    .eq('id', editId)
+                    .single();
+
+                if (error || !data) {
+                    alert('해당 사례를 찾을 수 없습니다.');
+                    window.location.href = 'community.html';
+                    return;
+                }
+
+                // Pre-fill form
+                document.getElementById('title').value = data.title || '';
+                document.getElementById('description').value = data.description || '';
+                existingBeforeUrl = data.before_url;
+                existingAfterUrl = data.after_url;
+
+                // Show existing images as preview
+                if (data.before_url) {
+                    const beforePreview = document.getElementById('before-preview');
+                    beforePreview.src = data.before_url;
+                    beforePreview.classList.remove('hidden');
+                    document.getElementById('before-placeholder').classList.add('hidden');
+                }
+                if (data.after_url) {
+                    const afterPreview = document.getElementById('after-preview');
+                    afterPreview.src = data.after_url;
+                    afterPreview.classList.remove('hidden');
+                    document.getElementById('after-placeholder').classList.add('hidden');
+                }
+
+                // Delete button
+                document.getElementById('delete-btn').addEventListener('click', async () => {
+                    if (!confirm('이 사례를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.')) return;
+                    const { error: delErr } = await window.supabaseClient
+                        .from('clinical_cases')
+                        .delete()
+                        .eq('id', editId);
+                    if (delErr) {
+                        alert('삭제 중 오류: ' + delErr.message);
+                    } else {
+                        alert('삭제 완료!');
+                        window.location.href = 'community.html';
+                    }
+                });
+            }
+
             const uploadForm = document.getElementById('upload-form');
             const submitBtn = document.getElementById('submit-btn');
             const statusMsg = document.getElementById('status-msg');
@@ -168,53 +242,68 @@
                 const beforeFile = document.getElementById('before-file').files[0];
                 const afterFile = document.getElementById('after-file').files[0];
 
-                if (!beforeFile || !afterFile) {
+                // In create mode, both files are required
+                if (!editId && (!beforeFile || !afterFile)) {
                     alert('비포와 에프터 사진을 모두 선택해주세요.');
                     return;
                 }
 
                 submitBtn.disabled = true;
-                submitBtn.textContent = '업로드 중...';
+                submitBtn.textContent = '처리 중...';
                 statusMsg.classList.remove('hidden');
                 statusMsg.className = 'mt-6 text-center text-sm text-blue-500 font-medium';
                 statusMsg.textContent = '사진을 업로드하는 중입니다...';
 
                 try {
-                    // Upload BEFORE image
-                    const beforeExt = beforeFile.name.split('.').pop();
-                    const beforePath = `before/${Date.now()}-${Math.random().toString(36).substring(2)}.${beforeExt}`;
-                    const { error: beforeErr } = await window.supabaseClient.storage.from('casese').upload(beforePath, beforeFile);
-                    if (beforeErr) throw beforeErr;
-                    const { data: { publicUrl: beforeUrl } } = window.supabaseClient.storage.from('casese').getPublicUrl(beforePath);
+                    let beforeUrl = existingBeforeUrl;
+                    let afterUrl = existingAfterUrl;
 
-                    // Upload AFTER image
-                    const afterExt = afterFile.name.split('.').pop();
-                    const afterPath = `after/${Date.now()}-${Math.random().toString(36).substring(2)}.${afterExt}`;
-                    const { error: afterErr } = await window.supabaseClient.storage.from('casese').upload(afterPath, afterFile);
-                    if (afterErr) throw afterErr;
-                    const { data: { publicUrl: afterUrl } } = window.supabaseClient.storage.from('casese').getPublicUrl(afterPath);
+                    // Upload new BEFORE image if selected
+                    if (beforeFile) {
+                        const ext = beforeFile.name.split('.').pop();
+                        const path = `before/${Date.now()}-${Math.random().toString(36).substring(2)}.${ext}`;
+                        const { error: err } = await window.supabaseClient.storage.from('casese').upload(path, beforeFile);
+                        if (err) throw err;
+                        const { data: { publicUrl } } = window.supabaseClient.storage.from('casese').getPublicUrl(path);
+                        beforeUrl = publicUrl;
+                    }
+
+                    // Upload new AFTER image if selected
+                    if (afterFile) {
+                        const ext = afterFile.name.split('.').pop();
+                        const path = `after/${Date.now()}-${Math.random().toString(36).substring(2)}.${ext}`;
+                        const { error: err } = await window.supabaseClient.storage.from('casese').upload(path, afterFile);
+                        if (err) throw err;
+                        const { data: { publicUrl } } = window.supabaseClient.storage.from('casese').getPublicUrl(path);
+                        afterUrl = publicUrl;
+                    }
 
                     statusMsg.textContent = '데이터베이스에 저장 중입니다...';
 
-                    // Insert to DB
-                    const { error: dbError } = await window.supabaseClient
-                        .from('clinical_cases')
-                        .insert([{ title, description, before_url: beforeUrl, after_url: afterUrl }]);
+                    let dbError;
+                    if (editId) {
+                        // UPDATE
+                        const { error } = await window.supabaseClient
+                            .from('clinical_cases')
+                            .update({ title, description, before_url: beforeUrl, after_url: afterUrl })
+                            .eq('id', editId);
+                        dbError = error;
+                    } else {
+                        // INSERT
+                        const { error } = await window.supabaseClient
+                            .from('clinical_cases')
+                            .insert([{ title, description, before_url: beforeUrl, after_url: afterUrl }]);
+                        dbError = error;
+                    }
 
                     if (dbError) throw dbError;
 
                     statusMsg.className = 'mt-6 text-center text-sm text-green-600 font-bold';
-                    statusMsg.textContent = '✅ 등록이 성공적으로 완료되었습니다!';
-                    uploadForm.reset();
-                    document.getElementById('before-preview').classList.add('hidden');
-                    document.getElementById('after-preview').classList.add('hidden');
-                    document.getElementById('before-placeholder').classList.remove('hidden');
-                    document.getElementById('after-placeholder').classList.remove('hidden');
+                    statusMsg.textContent = editId ? '✅ 수정이 완료되었습니다!' : '✅ 등록이 완료되었습니다!';
 
                     setTimeout(() => {
-                        if (confirm('등록 완료! 커뮤니티 페이지로 이동하시겠습니까?')) {
-                            window.location.href = 'community.html';
-                        }
+                        const msg = editId ? '수정 완료! 커뮤니티 페이지로 이동하시겠습니까?' : '등록 완료! 커뮤니티 페이지로 이동하시겠습니까?';
+                        if (confirm(msg)) window.location.href = 'community.html';
                     }, 500);
 
                 } catch (error) {
@@ -223,7 +312,7 @@
                     statusMsg.textContent = '❌ 오류 발생: ' + error.message;
                 } finally {
                     submitBtn.disabled = false;
-                    submitBtn.textContent = '등록하기';
+                    submitBtn.textContent = editId ? '수정 저장하기' : '등록하기';
                 }
             });
         });
