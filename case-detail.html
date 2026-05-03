@@ -63,8 +63,34 @@
                         <a href="info.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">병원진료시간</a>
                     </div>
                 </div>
+                <div class="relative group h-full flex items-center">
+                    <a href="spine-neck.html" class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">척추질환</a>
+                    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-48 bg-white/95 backdrop-blur-md shadow-lg rounded-b-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 py-3 z-[60]">
+                        <a href="spine-neck.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">목통증</a>
+                        <a href="spine-back.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">등통증</a>
+                        <a href="spine-waist.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">허리통증</a>
+                    </div>
+                </div>
+                <div class="relative group h-full flex items-center">
+                    <a href="shoulder-pain.html" class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">관절질환</a>
+                    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-48 bg-white/95 backdrop-blur-md shadow-lg rounded-b-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 py-3 z-[60]">
+                        <a href="shoulder-pain.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">어깨통증</a>
+                        <a href="knee-pain.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">무릎통증</a>
+                        <a href="elbow-pain.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">팔꿈치통증</a>
+                        <a href="wrist-ankle-pain.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">손목/발목통증</a>
+                        <a href="hip-joint-pain.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">엉덩이 관절</a>
+                    </div>
+                </div>
+                <div class="relative group h-full flex items-center">
+                    <a href="tmj-pain.html" class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">난치성질환</a>
+                    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-48 bg-white/95 backdrop-blur-md shadow-lg rounded-b-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 py-3 z-[60]">
+                        <a href="tmj-pain.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">턱관절통증</a>
+                        <a href="headache-pain.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">두통</a>
+                        <a href="tinnitus-pain.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">이명</a>
+                    </div>
+                </div>
                 <a href="injection-therapy.html" class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">주사치료</a>
-                <a href="community.html" class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">커뮤니티</a>
+                <a href="community.html" class="text-[17px] font-bold text-brand-accent pb-1 border-b-2 border-brand-accent">커뮤니티</a>
                 <a href="https://m.booking.naver.com/booking/13/bizes/1436478/items/7595404" target="_blank"
                     class="px-6 py-2.5 bg-brand-accent text-white text-[14px] font-semibold hover:bg-brand-dark transition-colors duration-300 rounded-sm">
                     예약하기
@@ -109,7 +135,7 @@
                 </div>
 
                 <!-- Media -->
-                <div id="detail-media" class="w-full rounded-3xl overflow-hidden mb-12 shadow-lg bg-gray-100">
+                <div id="detail-media" class="w-full rounded-3xl overflow-hidden mb-12 shadow-lg bg-gray-100" style="max-height: 70vh;">
                     <!-- image or video injected here -->
                 </div>
 
@@ -214,9 +240,11 @@
                 // Media
                 const mediaContainer = document.getElementById('detail-media');
                 if (data.video_url) {
-                    mediaContainer.innerHTML = `<video src="${data.video_url}" class="w-full" controls playsinline></video>`;
+                    mediaContainer.style.maxHeight = '70vh';
+                    mediaContainer.innerHTML = `<video src="${data.video_url}" class="w-full h-full object-contain" controls playsinline></video>`;
                 } else if (data.image_url) {
-                    mediaContainer.innerHTML = `<img src="${data.image_url}" alt="${data.title}" class="w-full object-cover max-h-[600px]">`;
+                    mediaContainer.style.maxHeight = '70vh';
+                    mediaContainer.innerHTML = `<img src="${data.image_url}" alt="${data.title}" class="w-full h-full object-contain">`;
                 } else {
                     mediaContainer.classList.add('hidden');
                 }
@@ -231,11 +259,11 @@
                 document.getElementById('detail-error').classList.remove('hidden');
             }
 
-            // Mobile menu
+            // Mobile menu (simple redirect to community)
             const menuBtn = document.getElementById('mobile-menu-toggle');
             if (menuBtn) {
                 menuBtn.addEventListener('click', () => {
-                    alert('메뉴');
+                    window.location.href = 'community.html';
                 });
             }
 
