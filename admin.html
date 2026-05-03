@@ -25,7 +25,7 @@
                 <span class="text-gray-400">|</span>
                 <h1 id="page-title" class="font-bold text-gray-900">콘텐츠 관리 시스템 (CMS)</h1>
             </div>
-            <a href="community.html" class="text-sm text-gray-500 hover:text-brand-accent font-medium">← 커뮤니티로 돌아가기</a>
+            <a href="community.html" class="text-sm text-gray-500 hover:text-brand-accent font-medium">← 목록으로 돌아가기</a>
         </div>
     </nav>
 
@@ -412,7 +412,7 @@
                     statusMsg.textContent = editId ? '✅ 수정이 완료되었습니다!' : '✅ 등록이 완료되었습니다!';
 
                     setTimeout(() => {
-                        const msg = editId ? '수정 완료! 커뮤니티 페이지로 이동하시겠습니까?' : '등록 완료! 커뮤니티 페이지로 이동하시겠습니까?';
+                        const msg = editId ? '수정 완료! 치료 전/후 페이지로 이동하시겠습니까?' : '등록 완료! 치료 전/후 페이지로 이동하시겠습니까?';
                         if (confirm(msg)) window.location.href = 'community.html';
                     }, 500);
 
