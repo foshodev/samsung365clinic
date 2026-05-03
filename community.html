@@ -443,23 +443,43 @@
                     }
 
                     casesGrid.innerHTML = data.map((item, index) => `
-                        <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all" data-aos="fade-up" data-aos-delay="${index * 100}">
-                            <div class="aspect-video bg-gray-100 relative group overflow-hidden">
-                                ${item.video_url 
-                                    ? `<video src="${item.video_url}" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>` 
-                                    : `<img src="${item.image_url || 'https://via.placeholder.com/600x400?text=No+Image'}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">`
+                        <a href="case-detail.html?id=${item.id}" class="group block bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 cursor-pointer" data-aos="fade-up" data-aos-delay="${index * 80}">
+                            <!-- Photo Area (tall, dominant) -->
+                            <div class="relative w-full aspect-[4/5] bg-gray-100 overflow-hidden">
+                                ${item.video_url
+                                    ? `<video src="${item.video_url}" class="w-full h-full object-cover" muted loop playsinline onmouseenter="this.play()" onmouseleave="this.pause()"></video>`
+                                    : `<img src="${item.image_url || ''}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">`
                                 }
-                                <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                    <span class="text-white text-sm font-medium px-4 py-2 bg-black/40 rounded-full backdrop-blur-sm">상세보기</span>
+                                <!-- Gradient overlay -->
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+
+                                <!-- Category Badge -->
+                                <div class="absolute top-4 left-4">
+                                    <span class="px-3 py-1 bg-white/20 backdrop-blur-md text-white text-xs font-bold rounded-full border border-white/30">${item.category}</span>
+                                </div>
+
+                                <!-- Video badge -->
+                                ${item.video_url ? `
+                                <div class="absolute top-4 right-4">
+                                    <span class="w-9 h-9 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                    </span>
+                                </div>` : ''}
+
+                                <!-- Bottom Text -->
+                                <div class="absolute bottom-0 left-0 right-0 p-5">
+                                    <h3 class="text-white font-bold text-lg leading-snug mb-1 drop-shadow-sm line-clamp-2">${item.title}</h3>
+                                    <p class="text-white/70 text-sm line-clamp-1">${item.description}</p>
+                                </div>
+
+                                <!-- Hover overlay -->
+                                <div class="absolute inset-0 bg-brand-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                    <div class="bg-white/90 backdrop-blur-sm px-5 py-2.5 rounded-full font-bold text-brand-accent text-sm shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                        자세히 보기 →
+                                    </div>
                                 </div>
                             </div>
-                            <div class="p-8">
-                                <span class="inline-block px-3 py-1 bg-brand-light text-brand-accent text-xs font-bold rounded-full mb-4">${item.category}</span>
-                                <h3 class="text-xl font-bold text-gray-900 mb-2">${item.title}</h3>
-                                <p class="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-2">${item.description}</p>
-                                <a href="#" class="text-brand-accent font-bold text-sm hover:underline">상세보기 →</a>
-                            </div>
-                        </div>
+                        </a>
                     `).join('');
 
                 } catch (err) {

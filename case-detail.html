@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>임상 사례 상세 | 삼성365의원</title>
+    <link rel="icon" type="image/png" href="samsung365_logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <meta name="description" content="삼성365의원 임상 사례 상세 내용입니다.">
+    <meta name="robots" content="noindex">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Pretendard', 'sans-serif'] },
+                    colors: {
+                        brand: { dark: '#111111', light: '#F8F9FA', accent: '#0C4A9E', gray: '#E9ECEF' }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Pretendard', sans-serif; background-color: #F8F9FA; }
+        html { scroll-behavior: smooth; }
+
+        .hover-underline-animation { display: inline-block; position: relative; }
+        .hover-underline-animation::after {
+            content: ''; position: absolute; width: 100%; transform: scaleX(0);
+            height: 2px; bottom: -4px; left: 0; background-color: #0C4A9E;
+            transform-origin: bottom right;
+            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+        .hover-underline-animation:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+
+        .skeleton { background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; }
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+    </style>
+</head>
+
+<body class="antialiased break-keep">
+
+    <!-- HEADER -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-500" id="header"
+        style="background-color: rgba(255,255,255,0.95); backdrop-filter: blur(12px);">
+        <div class="max-w-[1600px] mx-auto px-6 md:px-12 xl:px-20 flex justify-between items-center h-24">
+            <a href="index.html" class="relative z-50 flex items-center">
+                <img src="samsung365_logo.png" alt="삼성365의원" class="h-14 md:h-16 w-auto object-contain">
+            </a>
+            <nav class="hidden lg:flex space-x-8 xl:space-x-12 items-center h-full">
+                <div class="relative group h-full flex items-center">
+                    <a href="staff.html" class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">병원소개</a>
+                    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-48 bg-white/95 backdrop-blur-md shadow-lg rounded-b-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 py-3 z-[60]">
+                        <a href="staff.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">의료진소개</a>
+                        <a href="info.html" class="block px-6 py-2.5 text-[15px] font-medium text-gray-700 hover:text-brand-accent hover:bg-brand-light transition-colors">병원진료시간</a>
+                    </div>
+                </div>
+                <a href="injection-therapy.html" class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">주사치료</a>
+                <a href="community.html" class="text-[17px] font-medium text-gray-800 hover-underline-animation pb-1">커뮤니티</a>
+                <a href="https://m.booking.naver.com/booking/13/bizes/1436478/items/7595404" target="_blank"
+                    class="px-6 py-2.5 bg-brand-accent text-white text-[14px] font-semibold hover:bg-brand-dark transition-colors duration-300 rounded-sm">
+                    예약하기
+                </a>
+            </nav>
+            <button id="mobile-menu-toggle" class="lg:hidden text-lg font-bold uppercase tracking-[0.2em] text-brand-dark">MENU</button>
+        </div>
+    </header>
+
+    <main class="pt-24 min-h-screen bg-white">
+
+        <!-- Loading Skeleton -->
+        <div id="detail-loading" class="max-w-[900px] mx-auto px-6 md:px-12 py-20">
+            <div class="skeleton h-8 w-32 rounded-full mb-8"></div>
+            <div class="skeleton h-12 w-3/4 rounded-xl mb-4"></div>
+            <div class="skeleton h-6 w-1/4 rounded-full mb-12"></div>
+            <div class="skeleton w-full aspect-[16/9] rounded-3xl mb-12"></div>
+            <div class="space-y-3">
+                <div class="skeleton h-5 w-full rounded-lg"></div>
+                <div class="skeleton h-5 w-5/6 rounded-lg"></div>
+                <div class="skeleton h-5 w-4/6 rounded-lg"></div>
+            </div>
+        </div>
+
+        <!-- Detail Content -->
+        <div id="detail-content" class="hidden">
+            <!-- Back Button -->
+            <div class="max-w-[900px] mx-auto px-6 md:px-12 pt-12 pb-6">
+                <a href="community.html" class="inline-flex items-center gap-2 text-gray-400 hover:text-brand-accent transition-colors font-medium text-sm">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    임상 사례 목록으로
+                </a>
+            </div>
+
+            <!-- Article -->
+            <article class="max-w-[900px] mx-auto px-6 md:px-12 pb-24" data-aos="fade-up">
+                <!-- Category & Title -->
+                <div class="mb-10">
+                    <span id="detail-category" class="inline-block px-4 py-1.5 bg-blue-50 text-brand-accent text-sm font-bold rounded-full mb-5"></span>
+                    <h1 id="detail-title" class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-4"></h1>
+                    <div class="w-12 h-1 bg-brand-accent rounded-full"></div>
+                </div>
+
+                <!-- Media -->
+                <div id="detail-media" class="w-full rounded-3xl overflow-hidden mb-12 shadow-lg bg-gray-100">
+                    <!-- image or video injected here -->
+                </div>
+
+                <!-- Description -->
+                <div class="bg-gray-50 rounded-2xl p-8 md:p-12 border border-gray-100">
+                    <h2 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <span class="w-1 h-5 bg-brand-accent rounded-full"></span>
+                        치료 내용
+                    </h2>
+                    <p id="detail-description" class="text-gray-600 leading-relaxed text-base md:text-lg whitespace-pre-wrap"></p>
+                </div>
+
+                <!-- Disclaimer -->
+                <div class="mt-8 p-6 border border-gray-100 rounded-2xl">
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        ※ 본 내용은 실제 치료 사례를 바탕으로 작성되었으며, 환자의 동의 하에 게시되었습니다.<br>
+                        개인에 따라 치료 효과가 다를 수 있으므로, 정확한 상담을 위해 내원하여 전문의와 상담하시기 바랍니다.
+                    </p>
+                </div>
+
+                <!-- CTA -->
+                <div class="mt-10 text-center">
+                    <a href="https://m.booking.naver.com/booking/13/bizes/1436478/items/7595404" target="_blank"
+                        class="inline-block px-10 py-4 bg-brand-accent text-white font-bold rounded-2xl hover:bg-brand-dark transition-all shadow-xl shadow-brand-accent/20 text-base">
+                        지금 바로 상담 예약하기
+                    </a>
+                </div>
+            </article>
+        </div>
+
+        <!-- Error State -->
+        <div id="detail-error" class="hidden max-w-[900px] mx-auto px-6 py-32 text-center">
+            <p class="text-5xl mb-6">😔</p>
+            <p class="text-xl font-bold text-gray-700 mb-4">사례를 불러올 수 없습니다.</p>
+            <a href="community.html" class="text-brand-accent font-bold hover:underline">목록으로 돌아가기</a>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-white py-12 px-6 md:px-12 xl:px-20 border-t border-white/5">
+        <div class="max-w-[1600px] mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
+                <div class="space-y-4">
+                    <a href="index.html" class="block mb-6"><img src="samsung365_logo.png" alt="삼성365의원" class="h-9 w-auto object-contain brightness-0 invert"></a>
+                    <div class="text-gray-400 text-[13px] font-light leading-snug">
+                        <p class="flex flex-wrap gap-x-4 gap-y-1">
+                            <span><strong>대표자</strong> 유명환</span>
+                            <span><strong>대표번호</strong> 02-356-1275</span>
+                        </p>
+                        <p class="mt-1"><strong>주소</strong> 서울 은평구 진관2로 57-7 우물골두산위브아파트상가 253동 B106호, B107호</p>
+                    </div>
+                </div>
+                <div class="flex flex-col items-start md:items-end gap-6">
+                    <div class="flex gap-6">
+                        <a href="javascript:void(0)" class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">개인정보처리방침</a>
+                        <a href="javascript:void(0)" class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">이용약관</a>
+                        <a href="javascript:void(0)" class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">비급여 항목</a>
+                    </div>
+                    <p class="text-gray-700 font-medium text-[10px] tracking-[0.2em]">© 2024 SAMSUNG 365 CLINIC. ALL RIGHTS RESERVED.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="supabase-client.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Auth check - must be logged in to view
+            const { data: { session } } = await window.supabaseClient.auth.getSession();
+            if (!session) {
+                alert('로그인이 필요한 페이지입니다.');
+                window.location.href = 'community.html';
+                return;
+            }
+
+            // Get case ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const caseId = urlParams.get('id');
+
+            if (!caseId) {
+                document.getElementById('detail-loading').classList.add('hidden');
+                document.getElementById('detail-error').classList.remove('hidden');
+                return;
+            }
+
+            try {
+                const { data, error } = await window.supabaseClient
+                    .from('clinical_cases')
+                    .select('*')
+                    .eq('id', caseId)
+                    .single();
+
+                if (error || !data) throw error || new Error('Not found');
+
+                // Populate content
+                document.title = `${data.title} | 삼성365의원`;
+                document.getElementById('detail-category').textContent = data.category;
+                document.getElementById('detail-title').textContent = data.title;
+                document.getElementById('detail-description').textContent = data.description;
+
+                // Media
+                const mediaContainer = document.getElementById('detail-media');
+                if (data.video_url) {
+                    mediaContainer.innerHTML = `<video src="${data.video_url}" class="w-full" controls playsinline></video>`;
+                } else if (data.image_url) {
+                    mediaContainer.innerHTML = `<img src="${data.image_url}" alt="${data.title}" class="w-full object-cover max-h-[600px]">`;
+                } else {
+                    mediaContainer.classList.add('hidden');
+                }
+
+                // Show content
+                document.getElementById('detail-loading').classList.add('hidden');
+                document.getElementById('detail-content').classList.remove('hidden');
+
+            } catch (err) {
+                console.error(err);
+                document.getElementById('detail-loading').classList.add('hidden');
+                document.getElementById('detail-error').classList.remove('hidden');
+            }
+
+            // Mobile menu
+            const menuBtn = document.getElementById('mobile-menu-toggle');
+            if (menuBtn) {
+                menuBtn.addEventListener('click', () => {
+                    alert('메뉴');
+                });
+            }
+
+            // Header scroll
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.style.backgroundColor = 'rgba(255,255,255,0.98)';
+                    header.style.boxShadow = '0 10px 40px rgba(0,0,0,0.05)';
+                } else {
+                    header.style.backgroundColor = 'rgba(255,255,255,0.95)';
+                    header.style.boxShadow = 'none';
+                }
+            });
+        });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 });
+        });
+    </script>
+    <script src="non-benefit.js"></script>
+    <script src="legal.js"></script>
+</body>
+
+</html>
