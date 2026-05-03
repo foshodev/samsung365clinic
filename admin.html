@@ -152,14 +152,14 @@
                     const filePath = `clinical-cases/${fileName}`;
 
                     const { data: uploadData, error: uploadError } = await window.supabaseClient.storage
-                        .from('cases')
+                        .from('casese')
                         .upload(filePath, file);
 
                     if (uploadError) throw uploadError;
 
                     // Get Public URL
                     const { data: { publicUrl } } = window.supabaseClient.storage
-                        .from('cases')
+                        .from('casese')
                         .getPublicUrl(filePath);
 
                     // B. Save to Database
