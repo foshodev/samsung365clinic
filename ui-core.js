@@ -12,21 +12,34 @@ document.addEventListener('DOMContentLoaded', () => {
     let scrollY = 0;
     
     if (menuBtn && mobileMenu && header) {
-        menuBtn.addEventListener('click', () => {
-            isMenuOpen = !isMenuOpen;
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        const toggleMenu = (open) => {
+            isMenuOpen = open;
             if (isMenuOpen) {
-                mobileMenu.classList.remove('hidden');
-                menuBtn.textContent = 'CLOSE';
+                // Open Menu
+                mobileMenu.classList.remove('translate-x-full', 'invisible');
+                mobileMenu.classList.add('translate-x-0');
+                
+                hamburgerIcon?.classList.add('hidden');
+                closeIcon?.classList.remove('hidden');
+                
                 header.style.backgroundColor = 'rgba(255, 255, 255, 1)';
                 
-                // Prevent background scrolling (Robust iOS fix)
+                // Prevent background scrolling
                 scrollY = window.scrollY;
                 document.body.style.position = 'fixed';
                 document.body.style.top = `-${scrollY}px`;
                 document.body.style.width = '100%';
             } else {
-                mobileMenu.classList.add('hidden');
-                menuBtn.textContent = 'MENU';
+                // Close Menu
+                mobileMenu.classList.add('translate-x-full', 'invisible');
+                mobileMenu.classList.remove('translate-x-0');
+                
+                hamburgerIcon?.classList.remove('hidden');
+                closeIcon?.classList.add('hidden');
+                
                 header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
                 
                 // Restore background scrolling
@@ -35,22 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.body.style.width = '';
                 window.scrollTo(0, scrollY);
             }
-        });
+        };
+
+        menuBtn.addEventListener('click', () => toggleMenu(!isMenuOpen));
 
         // Close mobile menu when a link is clicked
         mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                isMenuOpen = false;
-                mobileMenu.classList.add('hidden');
-                menuBtn.textContent = 'MENU';
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-                
-                // Restore background scrolling
-                document.body.style.position = '';
-                document.body.style.top = '';
-                document.body.style.width = '';
-                window.scrollTo(0, scrollY);
-            });
+            link.addEventListener('click', () => toggleMenu(false));
         });
 
         // 2. Header Style Update on Scroll

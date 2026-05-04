@@ -29,7 +29,7 @@
         <div class="max-w-[1600px] mx-auto px-6 md:px-12 xl:px-20 flex justify-between items-center h-24">
                         <!-- Logo -->
             <a href="index.html" class="relative z-50 flex items-center">
-                <img src="samsung365_logo.png" alt="삼성365의원" class="h-14 md:h-16 w-auto object-contain">
+                <img src="samsung365_logo.png" alt="삼성365의원" class="h-11 md:h-16 w-auto object-contain">
             </a>
 
             <nav class="hidden lg:flex space-x-8 xl:space-x-12 items-center h-full">
@@ -104,15 +104,15 @@
                     class="px-6 py-2.5 bg-brand-accent text-white text-[14px] font-semibold hover:bg-brand-dark transition-colors duration-300 ml-4 rounded-sm">예약하기</a>
             </nav>
 
-            <button id="mobile-menu-toggle"
-                class="lg:hidden text-lg font-bold uppercase tracking-[0.2em] text-brand-dark transition-colors hover:text-brand-accent">MENU</button>
+            <button id="mobile-menu-toggle" class="lg:hidden text-brand-dark hover:text-brand-accent transition-colors z-50 p-2">
+                <svg id="hamburger-icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <svg id="close-icon" class="w-8 h-8 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden fixed inset-0 top-24 w-full bg-white flex flex-col py-8 px-6 space-y-6 z-40 overflow-y-auto">
-            <div class="flex justify-start items-center mb-4 pb-6 border-b border-gray-50">
-                <img src="samsung365_logo.png" alt="삼성365의원" class="h-10 w-auto">
-            </div>
+        <div id="mobile-menu" class="fixed inset-0 top-24 w-full bg-white flex flex-col py-8 px-6 space-y-6 z-40 overflow-y-auto transform translate-x-full transition-transform duration-300 ease-in-out invisible">
+            
             <div id="mobile-auth-area" class="mt-4"></div>
             <details class="group border-b border-gray-100 pb-4">
                 <summary
