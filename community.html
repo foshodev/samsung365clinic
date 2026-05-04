@@ -311,46 +311,28 @@
             </div>
         </section>
 
-        <!-- MEMBER GATE SECTION -->
-        <section id="login-gate" class="relative py-20 md:py-28 bg-white overflow-hidden">
-            <div class="max-w-[800px] mx-auto px-6 relative z-10">
-                <div class="text-center mb-10" data-aos="fade-up">
-                    <h3 class="text-2xl md:text-3xl font-bold text-brand-dark mb-5">
-                        에프터 사진을 확인하려면<br class="md:hidden"> 로그인하세요.
-                    </h3>
-                    <p class="text-gray-500 leading-relaxed font-light break-keep max-w-xl mx-auto text-sm md:text-base">
-                        회원가입 후 치료 전후 사진과 상세 기록을 직접 확인해 보세요.
-                    </p>
+        <!-- CLOSING SECTION -->
+        <section class="py-20 md:py-28 bg-white">
+            <div class="max-w-[800px] mx-auto px-6 text-center">
+                <p class="text-[13px] font-medium tracking-[0.2em] text-brand-accent uppercase mb-6">삼성365의원</p>
+                <h2 class="text-2xl md:text-3xl font-bold text-brand-dark leading-snug mb-6 break-keep">
+                    직접 경험해보시는 것이<br>가장 정확한 답입니다.
+                </h2>
+                <p class="text-gray-400 text-sm md:text-base font-light leading-relaxed max-w-lg mx-auto break-keep">
+                    위 사례들은 개별 환자의 경험을 기록한 참고 자료입니다.<br>
+                    개인마다 체질과 반응이 다를 수 있으며, 치료 전 충분한 상담을 권합니다.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="https://m.booking.naver.com/booking/13/bizes/1436478/items/7595404" target="_blank"
+                        class="px-8 py-4 bg-brand-dark text-white text-sm font-bold tracking-wide hover:bg-brand-accent transition-all duration-300">
+                        상담 예약하기
+                    </a>
+                    <a href="injection-therapy.html"
+                        class="px-8 py-4 border border-gray-200 text-sm font-medium text-gray-600 hover:border-brand-dark hover:text-brand-dark transition-all duration-300">
+                        치료 방법 알아보기
+                    </a>
                 </div>
-
-                <div class="w-full max-w-[480px] bg-white rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-gray-100 p-10 md:p-14 text-center mx-auto" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="mb-10 flex justify-center"><img src="samsung365_logo.png" alt="삼성365의원" class="h-14 md:h-16 w-auto object-contain"></div>
-                    <h2 class="text-2xl font-bold text-brand-dark mb-3">회원 로그인</h2>
-                    <p class="text-sm text-gray-400 mb-10 leading-relaxed font-light">
-                        치료 전후 사진 및 상세 기록 열람을 위해<br>
-                        로그인이 필요합니다.
-                    </p>
-                    <form id="login-form" class="space-y-3 mb-8 text-left">
-                        <div>
-                            <input type="email" id="login-email" placeholder="이메일 주소" required class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent/10 focus:border-brand-accent transition-all text-sm">
-                        </div>
-                        <div>
-                            <input type="password" id="login-password" placeholder="비밀번호" required class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent/10 focus:border-brand-accent transition-all text-sm">
-                        </div>
-                        <div class="cf-turnstile flex justify-center py-2" data-sitekey="0x4AAAAAADHa5JBRhPuWLUv1"></div>
-                        <p id="login-error" class="text-red-500 text-xs hidden text-center font-medium"></p>
-                        <button type="submit" id="login-btn" class="w-full py-5 bg-brand-dark text-white rounded-xl font-bold hover:bg-brand-accent transition-all duration-300 shadow-xl shadow-brand-dark/10 mt-2">
-                            로그인
-                        </button>
-                    </form>
-                    <div class="flex items-center justify-center gap-6 text-xs text-gray-400">
-                        <a href="#" class="hover:text-brand-dark transition-colors">아이디 찾기</a>
-                        <span class="w-1 h-1 bg-gray-200 rounded-full"></span>
-                        <a href="#" class="hover:text-brand-dark transition-colors">비밀번호 찾기</a>
-                        <span class="w-1 h-1 bg-gray-200 rounded-full"></span>
-                        <a href="signup.html" class="font-bold text-brand-accent hover:underline decoration-2 underline-offset-4">회원가입</a>
-                    </div>
-                </div>
+                <p class="mt-8 text-xs text-gray-300">의료법 제56조에 따라 과장·허위 광고 없이 작성되었습니다.</p>
             </div>
         </section>
 
@@ -413,8 +395,6 @@
             }
 
             if (isLoggedIn) {
-                // Hide login gate and cta
-                document.getElementById('login-gate').classList.add('hidden');
                 // Show admin controls if admin
                 if (isAdmin) {
                     const adminControls = document.getElementById('admin-controls');
@@ -454,7 +434,7 @@
                     }
 
                     casesGrid.innerHTML = data.map((item, index) => {
-                        const dest = isLoggedIn ? `case-detail.html?id=${item.id}` : '#login-gate';
+                        const dest = isLoggedIn ? `case-detail.html?id=${item.id}` : `login.html?returnTo=${encodeURIComponent(window.location.href)}`;
                         const before = item.before_url || item.image_url || '';
                         const after  = item.after_url  || item.image_url || '';
 
@@ -514,70 +494,6 @@
                 }
             }
 
-            // Login Logic
-            const loginForm = document.getElementById('login-form');
-            if (loginForm) {
-                loginForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    const email = document.getElementById('login-email').value;
-                    const password = document.getElementById('login-password').value;
-                    const errorMsg = document.getElementById('login-error');
-                    const loginBtn = document.getElementById('login-btn');
-
-                    errorMsg.classList.add('hidden');
-                    loginBtn.disabled = true;
-                    loginBtn.textContent = '로그인 중...';
-
-                    try {
-                        // Get Turnstile token
-                        const turnstileResponse = document.querySelector('[name="cf-turnstile-response"]');
-                        const captchaToken = turnstileResponse ? turnstileResponse.value : null;
-
-                        if (!captchaToken) {
-                            errorMsg.textContent = '보안 확인(CAPTCHA)을 완료해주세요.';
-                            errorMsg.classList.remove('hidden');
-                            loginBtn.disabled = false;
-                            loginBtn.textContent = '로그인';
-                            return;
-                        }
-
-                        const { data, error } = await window.supabaseClient.auth.signInWithPassword({
-                            email: email,
-                            password: password,
-                            options: {
-                                captchaToken: captchaToken
-                            }
-                        });
-
-                        if (error) throw error;
-
-                        // Redirection Logic - same for all users
-                        const urlParams = new URLSearchParams(window.location.search);
-                        const returnTo = urlParams.get('returnTo');
-
-                        if (returnTo) {
-                            window.location.href = returnTo;
-                        } else {
-                            window.location.reload();
-                        }
-
-                    } catch (error) {
-                        let message = error.message;
-                        if (message === 'Invalid login credentials') {
-                            message = '이메일 또는 비밀번호가 올바르지 않습니다.';
-                        } else if (message === 'Email not confirmed') {
-                            message = '이메일 인증이 완료되지 않았습니다. 수파베이스 대시보드에서 해당 유저의 [Confirm User] 버튼을 눌러주세요.';
-                        }
-                        
-                        errorMsg.textContent = message;
-                        errorMsg.classList.remove('hidden');
-                        console.error('Login error:', error);
-                    } finally {
-                        loginBtn.disabled = false;
-                        loginBtn.textContent = '로그인';
-                    }
-                });
-            }
 
             const menuBtn = document.getElementById('mobile-menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');

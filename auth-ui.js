@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const updateHeader = (userSession) => {
         const loginHtml = `
-            <a href="community.html?returnTo=${encodeURIComponent(window.location.href)}" class="text-[14px] font-semibold text-gray-700 hover:text-brand-accent transition-colors flex items-center gap-2 px-4 py-2 bg-gray-50 rounded-full border border-gray-100 hover:bg-brand-light">
+            <a href="login.html?returnTo=${encodeURIComponent(window.location.href)}" class="text-[14px] font-semibold text-gray-700 hover:text-brand-accent transition-colors flex items-center gap-2 px-4 py-2 bg-gray-50 rounded-full border border-gray-100 hover:bg-brand-light">
                 <span>로그인</span>
             </a>
         `;
