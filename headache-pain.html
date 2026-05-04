@@ -26,7 +26,7 @@
     <!-- HEADER -->
     <header class="fixed w-full top-0 z-50 transition-all duration-500" id="header"
         style="background-color: rgba(255,255,255,0.95); backdrop-filter: blur(12px);">
-        <div class="max-w-[1600px] mx-auto px-6 md:px-12 xl:px-20 flex justify-between items-center h-24">
+        <div class="max-w-[1600px] mx-auto px-6 md:px-12 xl:px-20 flex justify-between items-center h-20 lg:h-24">
                         <!-- Logo -->
             <a href="index.html" class="relative z-50 flex items-center">
                 <img src="samsung365_logo.png" alt="삼성365의원" class="h-11 md:h-16 w-auto object-contain">
@@ -107,41 +107,41 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="fixed inset-0 top-24 w-full bg-white flex flex-col py-8 px-6 space-y-6 z-40 overflow-y-auto transform translate-x-full transition-transform duration-300 ease-in-out invisible">
+        <div id="mobile-menu" class="fixed inset-0 top-20 lg:top-24 w-full bg-white flex flex-col py-8 px-6 space-y-6 z-40 overflow-y-auto transform translate-x-full transition-transform duration-300 ease-in-out invisible">
             
             <div id="mobile-auth-area" class="mt-4"></div>
             <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
                 <summary
-                    class="flex justify-between items-center text-3xl font-bold text-gray-900 cursor-pointer list-none">
+                    class="flex justify-between items-center text-xl font-bold text-gray-900 cursor-pointer list-none">
                     병원소개 <span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span>
                 </summary>
                 <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
-                    <a href="staff.html" class="text-xl text-gray-600 block">의료진소개</a>
-                    <a href="info.html" class="text-xl text-gray-600 block">병원진료시간</a>
+                    <a href="staff.html" class="text-base text-gray-600 block">의료진소개</a>
+                    <a href="info.html" class="text-base text-gray-600 block">병원진료시간</a>
                 </div>
             </details>
             <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
                 <summary
-                    class="flex justify-between items-center text-3xl font-bold text-gray-900 cursor-pointer list-none">
+                    class="flex justify-between items-center text-xl font-bold text-gray-900 cursor-pointer list-none">
                     척추질환 <span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span>
                 </summary>
                 <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
-                    <a href="spine-neck.html" class="text-xl text-gray-600 block">목통증</a>
-                    <a href="spine-back.html" class="text-xl text-gray-600 block">등통증</a>
-                    <a href="spine-waist.html" class="text-xl text-gray-600 block">허리통증</a>
+                    <a href="spine-neck.html" class="text-base text-gray-600 block">목통증</a>
+                    <a href="spine-back.html" class="text-base text-gray-600 block">등통증</a>
+                    <a href="spine-waist.html" class="text-base text-gray-600 block">허리통증</a>
                 </div>
             </details>
             <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
                 <summary
-                    class="flex justify-between items-center text-3xl font-bold text-gray-900 cursor-pointer list-none">
+                    class="flex justify-between items-center text-xl font-bold text-gray-900 cursor-pointer list-none">
                     관절질환 <span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span>
                 </summary>
                 <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
-                    <a href="shoulder-pain.html" class="text-xl text-gray-600 block">어깨통증</a>
-                    <a href="knee-pain.html" class="text-xl text-gray-600 block">무릎통증</a>
-                    <a href="elbow-pain.html" class="text-xl text-gray-600 block">팔꿈치통증</a>
-                    <a href="wrist-ankle-pain.html" class="text-xl text-gray-600 block">손목/발목통증</a>
-                    <a href="hip-joint-pain.html" class="text-xl text-gray-600 block">엉덩이 관절</a>
+                    <a href="shoulder-pain.html" class="text-base text-gray-600 block">어깨통증</a>
+                    <a href="knee-pain.html" class="text-base text-gray-600 block">무릎통증</a>
+                    <a href="elbow-pain.html" class="text-base text-gray-600 block">팔꿈치통증</a>
+                    <a href="wrist-ankle-pain.html" class="text-base text-gray-600 block">손목/발목통증</a>
+                    <a href="hip-joint-pain.html" class="text-base text-gray-600 block">엉덩이 관절</a>
                 </div>
             </details>
             <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden" open>
@@ -149,11 +149,11 @@
                     class="flex justify-between items-center text-3xl font-bold text-brand-accent cursor-pointer list-none">
                     난치성질환 <span class="transform transition-transform group-open:rotate-45">+</span></summary>
                 <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
-                    <a href="tmj-pain.html" class="text-xl text-gray-600 block">턱관절통증</a>
+                    <a href="tmj-pain.html" class="text-base text-gray-600 block">턱관절통증</a>
                     <a href="headache-pain.html" class="text-xl text-brand-accent font-bold block">두통</a>
-                    <a href="tinnitus-pain.html" class="text-xl text-gray-600 block">이명</a>
-                    <a href="digestive-pain.html" class="text-xl text-gray-600 block">만성위장관질환</a>
-                    <a href="panic-disorder.html" class="text-xl text-gray-600 block">공황장애</a>
+                    <a href="tinnitus-pain.html" class="text-base text-gray-600 block">이명</a>
+                    <a href="digestive-pain.html" class="text-base text-gray-600 block">만성위장관질환</a>
+                    <a href="panic-disorder.html" class="text-base text-gray-600 block">공황장애</a>
                 </div>
             </details>
             <div class="pb-4"><a href="injection-therapy.html" class="text-3xl font-bold text-gray-900 block">주사치료</a>
