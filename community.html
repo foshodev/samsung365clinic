@@ -564,19 +564,14 @@
 
                         if (error) throw error;
 
-                        alert('로그인 성공!');
-                        
-                        // Redirection Logic
+                        // Redirection Logic - same for all users
                         const urlParams = new URLSearchParams(window.location.search);
                         const returnTo = urlParams.get('returnTo');
-                        
-                        // Admin check after login for immediate button display
-                        if (data.user.email === 'admin@365.com') {
-                            window.location.href = 'admin.html';
-                        } else if (returnTo) {
+
+                        if (returnTo) {
                             window.location.href = returnTo;
                         } else {
-                            window.location.reload(); 
+                            window.location.reload();
                         }
 
                     } catch (error) {

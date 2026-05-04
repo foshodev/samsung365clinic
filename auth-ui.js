@@ -33,10 +33,30 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
 
+    // Toast notification utility
+    const showToast = (message) => {
+        const existing = document.getElementById('__toast');
+        if (existing) existing.remove();
+        const toast = document.createElement('div');
+        toast.id = '__toast';
+        toast.style.cssText = `
+            position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(0);
+            background: #111827; color: #fff; padding: 12px 24px;
+            border-radius: 100px; font-size: 14px; font-weight: 500;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18); z-index: 9999;
+            opacity: 1; transition: opacity 0.4s ease, transform 0.4s ease;
+            white-space: nowrap; letter-spacing: -0.01em;
+        `;
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        setTimeout(() => { toast.style.opacity = '0'; toast.style.transform = 'translateX(-50%) translateY(8px)'; }, 1800);
+        setTimeout(() => toast.remove(), 2300);
+    };
+
     // Logout Function
     window.handleLogout = async () => {
         await window.supabaseClient.auth.signOut();
-        alert('로그아웃 되었습니다.');
-        window.location.reload();
+        showToast('로그아웃되었습니다.');
+        setTimeout(() => window.location.reload(), 1200);
     };
 });
