@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="globals.css">
 </head>
 
-<body class="antialiased selection:bg-brand-accent selection:text-white break-keep min-h-screen flex flex-col">
+<body class="overflow-x-hidden antialiased selection:bg-brand-accent selection:text-white break-keep min-h-screen flex flex-col">
 
     <header class="fixed w-full top-0 z-50 transition-all duration-500" id="header" style="background-color: rgba(255,255,255,0.95); backdrop-filter: blur(12px);">
         <div class="max-w-[1600px] mx-auto px-6 md:px-12 xl:px-20 flex justify-between items-center h-24">
@@ -86,7 +86,7 @@
             </button>
         </div>
         <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden absolute top-24 left-0 w-full min-h-[calc(100vh-6rem)] bg-white flex flex-col py-8 px-6 space-y-6 z-40 overflow-y-auto">
+        <div id="mobile-menu" class="hidden fixed inset-0 top-24 w-full bg-white flex flex-col py-8 px-6 space-y-6 z-40 overflow-y-auto">
             <div class="flex justify-start items-center mb-4 pb-6 border-b border-gray-50">
                 <img src="samsung365_logo.png" alt="삼성365의원" class="h-14 md:h-16 w-auto object-contain">
             </div>

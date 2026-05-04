@@ -21,7 +21,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
-<body class="antialiased selection:bg-brand-accent selection:text-white break-keep">
+<body class="overflow-x-hidden antialiased selection:bg-brand-accent selection:text-white break-keep">
 
     <!-- HEADER -->
     <header class="fixed w-full top-0 z-50 transition-all duration-500" id="header"
@@ -79,7 +79,7 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden absolute top-24 left-0 w-full min-h-[calc(100vh-6rem)] bg-white flex flex-col py-8 px-6 space-y-6 z-40 overflow-y-auto">
+        <div id="mobile-menu" class="hidden fixed inset-0 top-24 w-full bg-white flex flex-col py-8 px-6 space-y-6 z-40 overflow-y-auto">
             <div class="flex justify-start items-center mb-4 pb-6 border-b border-gray-50">
                 <img src="samsung365_logo.png" alt="삼성365의원" class="h-14 md:h-16 w-auto object-contain">
             </div>
@@ -285,7 +285,7 @@
             </div>
             
             <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-                <div class="relative rounded-xl overflow-hidden shadow-xl group h-[450px] lg:h-[550px]" data-aos="fade-up">
+                <div class="relative rounded-xl overflow-hidden shadow-xl group aspect-[4/5] md:aspect-auto md:h-[450px] lg:h-[550px]" data-aos="fade-up">
                     <img src="01.webp" alt="이완 치료" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/70 to-[#111111]/20"></div>
                     <div class="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
@@ -294,7 +294,7 @@
                         <p class="text-gray-300 text-sm lg:text-base leading-relaxed break-keep font-light">흉곽 주변 근육과 호흡근의 긴장을 해소하여 신체적 답답함을 즉각적으로 완화합니다.</p>
                     </div>
                 </div>
-                <div class="relative rounded-xl overflow-hidden shadow-xl group h-[450px] lg:h-[550px]" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative rounded-xl overflow-hidden shadow-xl group aspect-[4/5] md:aspect-auto md:h-[450px] lg:h-[550px]" data-aos="fade-up" data-aos-delay="100">
                     <img src="02.webp" alt="강화 치료" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/70 to-[#111111]/20"></div>
                     <div class="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
@@ -303,7 +303,7 @@
                         <p class="text-gray-300 text-sm lg:text-base leading-relaxed break-keep font-light">자율신경 조절 능력을 강화하여 불안 자극에 흔들리지 않는 신체적 회복탄력성을 키웁니다.</p>
                     </div>
                 </div>
-                <div class="relative rounded-xl overflow-hidden shadow-xl group h-[450px] lg:h-[550px]" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative rounded-xl overflow-hidden shadow-xl group aspect-[4/5] md:aspect-auto md:h-[450px] lg:h-[550px]" data-aos="fade-up" data-aos-delay="200">
                     <img src="03.webp" alt="정상화 치료" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/70 to-[#111111]/20"></div>
                     <div class="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">

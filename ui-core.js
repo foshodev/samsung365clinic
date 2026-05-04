@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.getElementById('header');
     
     let isMenuOpen = false;
+    let scrollY = 0;
     
     if (menuBtn && mobileMenu && header) {
         menuBtn.addEventListener('click', () => {
@@ -17,12 +18,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 mobileMenu.classList.remove('hidden');
                 menuBtn.textContent = 'CLOSE';
                 header.style.backgroundColor = 'rgba(255, 255, 255, 1)';
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                
+                // Prevent background scrolling (Robust iOS fix)
+                scrollY = window.scrollY;
+                document.body.style.position = 'fixed';
+                document.body.style.top = `-${scrollY}px`;
+                document.body.style.width = '100%';
             } else {
                 mobileMenu.classList.add('hidden');
                 menuBtn.textContent = 'MENU';
                 header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-                document.body.style.overflow = 'auto';
+                
+                // Restore background scrolling
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.width = '';
+                window.scrollTo(0, scrollY);
             }
         });
 
@@ -33,7 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 mobileMenu.classList.add('hidden');
                 menuBtn.textContent = 'MENU';
                 header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-                document.body.style.overflow = 'auto';
+                
+                // Restore background scrolling
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.width = '';
+                window.scrollTo(0, scrollY);
             });
         });
 

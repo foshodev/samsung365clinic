@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="globals.css">
 </head>
 
-<body class="antialiased selection:bg-brand-accent selection:text-white break-keep">
+<body class="overflow-x-hidden antialiased selection:bg-brand-accent selection:text-white break-keep">
 
     <!-- HEADER (Navigation) -->
     <header class="fixed w-full top-0 z-50 transition-all duration-500" id="header"
@@ -117,8 +117,7 @@
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu"
-            class="hidden absolute top-24 left-0 w-full min-h-[calc(100vh-6rem)] bg-white flex flex-col py-8 px-6 space-y-6 z-40 overflow-y-auto">
+        <div id="mobile-menu" class="hidden fixed inset-0 top-24 w-full bg-white flex flex-col py-8 px-6 space-y-6 z-40 overflow-y-auto">
             <div class="flex justify-start items-center mb-4 pb-6 border-b border-gray-50">
                 <img src="samsung365_logo.png" alt="삼성365의원" class="h-10 w-auto">
             </div>
@@ -195,10 +194,10 @@
 
         <!-- Ambient Glow Backgrounds -->
         <div
-            class="absolute top-[40%] left-[-10%] w-[600px] h-[600px] bg-brand-accent/5 rounded-full blur-[120px] pointer-events-none z-0">
+            class="absolute top-[40%] left-[-10%] max-w-full w-[600px] h-[600px] bg-brand-accent/5 rounded-full blur-[120px] pointer-events-none z-0">
         </div>
         <div
-            class="absolute bottom-[5%] right-[-10%] w-[800px] h-[800px] bg-blue-300/10 rounded-full blur-[150px] pointer-events-none z-0">
+            class="absolute bottom-[5%] right-[-10%] max-w-full w-[800px] h-[800px] bg-blue-300/10 rounded-full blur-[150px] pointer-events-none z-0">
         </div>
 
         <!-- HERO SECTION -->

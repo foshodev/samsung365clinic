@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="globals.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
-<body class="antialiased selection:bg-brand-accent selection:text-white break-keep">
+<body class="overflow-x-hidden antialiased selection:bg-brand-accent selection:text-white break-keep">
     <!-- ==========================================
          HEADER (Navigation)
          - 모바일 우선 반응형
@@ -94,7 +94,7 @@
             </button>
         </div>
         <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden absolute top-24 left-0 w-full min-h-[calc(100vh-6rem)] bg-white flex flex-col py-8 px-6 space-y-6 z-40 overflow-y-auto">
+        <div id="mobile-menu" class="hidden fixed inset-0 top-24 w-full bg-white flex flex-col py-8 px-6 space-y-6 z-40 overflow-y-auto">
             <div class="flex justify-start items-center mb-4 pb-6 border-b border-gray-50">
                 <img src="samsung365_logo.png" alt="삼성365의원" class="h-14 md:h-16 w-auto object-contain">
             </div>
