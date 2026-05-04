@@ -15,35 +15,8 @@
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Pretendard', 'sans-serif'] },
-                    colors: {
-                        brand: { dark: '#111111', light: '#F8F9FA', accent: '#0C4A9E', gray: '#E9ECEF' }
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body { font-family: 'Pretendard', sans-serif; background-color: #F8F9FA; }
-        html { scroll-behavior: smooth; }
-
-        .hover-underline-animation { display: inline-block; position: relative; }
-        .hover-underline-animation::after {
-            content: ''; position: absolute; width: 100%; transform: scaleX(0);
-            height: 2px; bottom: -4px; left: 0; background-color: #0C4A9E;
-            transform-origin: bottom right;
-            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
-        }
-        .hover-underline-animation:hover::after { transform: scaleX(1); transform-origin: bottom left; }
-
-        .skeleton { background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; }
-        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
-    </style>
+    <script src="tailwind-config.js"></script>
+<link rel="stylesheet" href="globals.css">
 </head>
 
 <body class="antialiased break-keep">
@@ -323,12 +296,8 @@
         });
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50 });
-        });
-    </script>
-    <script src="non-benefit.js"></script>
+    <script src="ui-core.js"></script>
+<script src="non-benefit.js"></script>
     <script src="legal.js"></script>
 </body>
 

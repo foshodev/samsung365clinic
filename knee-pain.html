@@ -14,89 +14,9 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontSize: {
-                        '4xl': ['2.25rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
-                        '5xl': ['3rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
-                        '6xl': ['3.75rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
-                        '7xl': ['4.5rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
-                    },
-                    fontFamily: { sans: ['Pretendard', 'sans-serif'] },
-                    colors: {
-                        brand: {
-                            dark: '#111111',
-                            light: '#F8F9FA',
-                            accent: '#0C4A9E',
-                            gray: '#E9ECEF'
-                        }
-                    },
-                    spacing: {
-                        '30': '7.5rem', '40': '10rem', '50': '12.5rem',
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body { font-family: 'Pretendard', sans-serif; background-color: #F8F9FA; color: #111111; }
-        html { scroll-behavior: smooth; }
-        .hover-underline-animation { display: inline-block; position: relative; }
-        .hover-underline-animation::after {
-            content: ''; position: absolute; width: 100%; transform: scaleX(0);
-            height: 2px; bottom: -4px; left: 0; background-color: #0C4A9E;
-            transform-origin: bottom right; transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
-        }
-        .hover-underline-animation:hover::after { transform: scaleX(1); transform-origin: bottom left; }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        /* Grid structure animation for knee hero */
-        @keyframes gridPulse {
-            0%, 100% { opacity: 0.15; }
-            50% { opacity: 0.35; }
-        }
-        @keyframes loadShift {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-        }
-        .grid-pulse { animation: gridPulse 4s ease-in-out infinite; }
-        .load-shift { animation: loadShift 3s ease-in-out infinite; }
-
-        /* FAQ accordion */
-        details[open] .faq-arrow { transform: rotate(180deg); }
-        .faq-arrow { transition: transform 0.3s ease; }
-
-        /* Image placeholder */
-        .img-placeholder {
-            background: linear-gradient(135deg, #EDF2F7 0%, #E2ECF9 100%);
-            border: 2px dashed #CBD5E3;
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            color: #94A3B8; font-size: 0.875rem;
-            font-weight: 600; letter-spacing: 0.05em;
-        }
-        .img-placeholder svg { margin-bottom: 0.75rem; opacity: 0.5; }
-
-        /* Stage box gradient */
-        .stage-1 { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.12); }
-        .stage-2 { background: rgba(12,74,158,0.15); border-color: rgba(12,74,158,0.4); }
-        .stage-3 { background: rgba(239,68,68,0.12); border-color: rgba(239,68,68,0.35); }
-
-        /* Process step connector */
-        .step-connector {
-            position: absolute;
-            top: 40px;
-            left: calc(100% + 1px);
-            width: 2rem;
-            height: 1px;
-            background: linear-gradient(90deg, #0C4A9E40, #0C4A9E);
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="tailwind-config.js"></script>
+<link rel="stylesheet" href="globals.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body class="antialiased selection:bg-brand-accent selection:text-white break-keep">
 
@@ -717,9 +637,9 @@
 
                 <div class="flex flex-col items-start md:items-end gap-6">
                     <div class="flex gap-6">
-                        <a href="javascript:void(0)" onclick="alert('개인정보처리방침 내용이 곧 업데이트될 예정입니다.')" class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">개인정보처리방침</a>
-                        <a href="javascript:void(0)" onclick="alert('이용약관 내용이 곧 업데이트될 예정입니다.')" class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">이용약관</a>
-                        <a href="javascript:void(0)" onclick="alert('비급여 항목 안내가 곧 업데이트될 예정입니다.')" class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">비급여 항목</a>
+                        <a href="javascript:void(0)"  class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">개인정보처리방침</a>
+                        <a href="javascript:void(0)"  class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">이용약관</a>
+                        <a href="javascript:void(0)"  class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">비급여 항목</a>
                     </div>
                     <div class="text-left md:text-right">
                         <p class="text-gray-600 text-[12px] leading-tight font-light max-w-md">
@@ -771,10 +691,8 @@
         });
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
-    </script>
-    <script src="supabase-client.js"></script>
+    <script src="ui-core.js"></script>
+<script src="supabase-client.js"></script>
     <script src="auth-ui.js"></script>
     <script src="non-benefit.js"></script>
     <script src="legal.js"></script>

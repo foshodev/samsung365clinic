@@ -14,115 +14,9 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontSize: {
-                        '4xl': ['2.25rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
-                        '5xl': ['3rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
-                        '6xl': ['3.75rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
-                        '7xl': ['4.5rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
-                    },
-                    fontFamily: { sans: ['Pretendard', 'sans-serif'] },
-                    colors: {
-                        brand: { dark: '#111111', light: '#F8F9FA', accent: '#0C4A9E', gray: '#E9ECEF' }
-                    },
-                    spacing: { '30': '7.5rem', '40': '10rem', '50': '12.5rem' }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body { font-family: 'Pretendard', sans-serif; background-color: #FAFAF8; color: #111111; }
-        html { scroll-behavior: smooth; }
-        .hover-underline-animation { display: inline-block; position: relative; }
-        .hover-underline-animation::after {
-            content: ''; position: absolute; width: 100%; transform: scaleX(0);
-            height: 2px; bottom: -4px; left: 0; background-color: #0C4A9E;
-            transform-origin: bottom right; transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
-        }
-        .hover-underline-animation:hover::after { transform: scaleX(1); transform-origin: bottom left; }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        /* Neural wave animations */
-        @keyframes neuralPulse {
-            0%, 100% { opacity: 0.1; }
-            50% { opacity: 0.3; }
-        }
-        @keyframes neuralPulse2 {
-            0%, 100% { opacity: 0.06; }
-            50% { opacity: 0.2; }
-        }
-        @keyframes waveFlow {
-            0% { stroke-dashoffset: 1000; }
-            100% { stroke-dashoffset: 0; }
-        }
-        @keyframes softGlow {
-            0%, 100% { opacity: 0.4; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.06); }
-        }
-        .neural-pulse { animation: neuralPulse 6s ease-in-out infinite; }
-        .neural-pulse-2 { animation: neuralPulse2 9s ease-in-out infinite 2s; }
-        .wave-flow { animation: waveFlow 8s linear infinite; stroke-dasharray: 20 10; }
-        .soft-glow { animation: softGlow 4s ease-in-out infinite; }
-
-        /* FAQ */
-        details[open] .faq-arrow { transform: rotate(180deg); }
-        .faq-arrow { transition: transform 0.3s ease; }
-
-        /* Image placeholder */
-        .img-placeholder {
-            background: linear-gradient(135deg, #F0EDE8 0%, #E8EDF5 100%);
-            border: 2px dashed #C8CEDB;
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            color: #9BA3B4; font-size: 0.875rem;
-            font-weight: 600; letter-spacing: 0.05em;
-        }
-        .img-placeholder svg { margin-bottom: 0.75rem; opacity: 0.5; }
-
-        /* Softer section backgrounds */
-        .bg-sand { background-color: #F5F3EF; }
-        .bg-silver { background-color: #F0F2F5; }
-
-        /* Wave timeline bars */
-        .wave-bar {
-            height: 3px;
-            border-radius: 9999px;
-            position: relative;
-            overflow: hidden;
-        }
-        .wave-bar::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-            animation: shimmer 2s ease-in-out infinite;
-        }
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        /* Curved process connector */
-        .curved-connector {
-            position: relative;
-        }
-        .curved-connector::after {
-            content: '';
-            position: absolute;
-            bottom: -2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 1px;
-            height: 2rem;
-            background: linear-gradient(to bottom, rgba(12,74,158,0.3), transparent);
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="tailwind-config.js"></script>
+<link rel="stylesheet" href="globals.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body class="antialiased selection:bg-brand-accent selection:text-white break-keep">
 
@@ -575,9 +469,9 @@
 
                 <div class="flex flex-col items-start md:items-end gap-6">
                     <div class="flex gap-6">
-                        <a href="javascript:void(0)" onclick="alert('개인정보처리방침 내용이 곧 업데이트될 예정입니다.')" class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">개인정보처리방침</a>
-                        <a href="javascript:void(0)" onclick="alert('이용약관 내용이 곧 업데이트될 예정입니다.')" class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">이용약관</a>
-                        <a href="javascript:void(0)" onclick="alert('비급여 항목 안내가 곧 업데이트될 예정입니다.')" class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">비급여 항목</a>
+                        <a href="javascript:void(0)"  class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">개인정보처리방침</a>
+                        <a href="javascript:void(0)"  class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">이용약관</a>
+                        <a href="javascript:void(0)"  class="text-[13px] font-medium text-gray-400 hover:text-white transition-colors">비급여 항목</a>
                     </div>
                     <div class="text-left md:text-right">
                         <p class="text-gray-600 text-[12px] leading-tight font-light max-w-md">
@@ -628,8 +522,8 @@
         });
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });</script>
-    <script src="supabase-client.js"></script>
+    <script src="ui-core.js"></script>
+<script src="supabase-client.js"></script>
     <script src="auth-ui.js"></script>
     <script src="non-benefit.js"></script>
     <script src="legal.js"></script>
