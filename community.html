@@ -406,9 +406,7 @@
         const ADMIN_EMAIL = 'admin@365.com';
 
         document.addEventListener('DOMContentLoaded', async () => {
-            // Always show cases section immediately - no dependency on Supabase
-            document.getElementById('private-content').classList.remove('hidden');
-            document.getElementById('login-cta').classList.remove('hidden');
+
 
             // Attempt Supabase session check - safe fallback if CDN fails
             let isLoggedIn = false;
@@ -427,7 +425,7 @@
                 // Hide login gate and cta
                 document.getElementById('login-gate').classList.add('hidden');
                 // Show admin controls if admin
-                if (session.user.email === ADMIN_EMAIL) {
+                if (isAdmin) {
                     const adminControls = document.getElementById('admin-controls');
                     if (adminControls) adminControls.classList.remove('hidden');
                 }

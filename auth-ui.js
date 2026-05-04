@@ -31,19 +31,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     updateHeader(session);
 
-    // Handle Page-specific gating (Community Page)
-    if (window.location.pathname.includes('community.html')) {
-        const loginGate = document.getElementById('login-gate');
-        const privateContent = document.getElementById('private-content');
 
-        if (session) {
-            if (loginGate) loginGate.classList.add('hidden');
-            if (privateContent) privateContent.classList.remove('hidden');
-        } else {
-            if (loginGate) loginGate.classList.remove('hidden');
-            if (privateContent) privateContent.classList.add('hidden');
-        }
-    }
 
     // Logout Function
     window.handleLogout = async () => {
