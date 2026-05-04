@@ -406,12 +406,22 @@
         const ADMIN_EMAIL = 'admin@365.com';
 
         document.addEventListener('DOMContentLoaded', async () => {
-            const { data: { session } } = await window.supabaseClient.auth.getSession();
-            const isLoggedIn = !!session;
-            const isAdmin = isLoggedIn && session.user.email === ADMIN_EMAIL;
-
-            // Always show cases section
+            // Always show cases section immediately - no dependency on Supabase
             document.getElementById('private-content').classList.remove('hidden');
+            document.getElementById('login-cta').classList.remove('hidden');
+
+            // Attempt Supabase session check - safe fallback if CDN fails
+            let isLoggedIn = false;
+            let isAdmin = false;
+
+            try {
+                if (!window.supabaseClient) throw new Error('Supabase not loaded');
+                const { data: { session } } = await window.supabaseClient.auth.getSession();
+                isLoggedIn = !!session;
+                isAdmin = isLoggedIn && session.user.email === ADMIN_EMAIL;
+            } catch (e) {
+                console.warn('Session check failed, running as guest:', e.message);
+            }
 
             if (isLoggedIn) {
                 // Hide login gate and cta
@@ -432,6 +442,12 @@
             async function fetchClinicalCases(isLoggedIn) {
                 const casesGrid = document.getElementById('cases-grid');
                 const loading = document.getElementById('cases-loading');
+
+                if (!window.supabaseClient) {
+                    if (loading) loading.classList.add('hidden');
+                    if (casesGrid) casesGrid.innerHTML = `<div class="col-span-full text-center py-20 bg-white rounded-3xl border border-dashed border-gray-200"><p class="text-gray-400">네트워크 연결 후 새로고침 해주세요.</p></div>`;
+                    return;
+                }
 
                 try {
                     const { data, error } = await window.supabaseClient
