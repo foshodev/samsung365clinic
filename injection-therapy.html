@@ -81,6 +81,59 @@
             </button>
         </div>
     </header>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 top-20 lg:top-24 w-full bg-white flex flex-col py-8 px-6 space-y-6 z-[60] overflow-y-auto transform translate-x-full transition-transform duration-300 ease-in-out invisible">
+        <div id="mobile-auth-area" class="mt-4"></div>
+        <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
+            <summary class="flex justify-between items-center text-xl font-bold text-gray-900 cursor-pointer list-none">
+                병원소개 <span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
+                <a href="staff.html" class="text-base text-gray-600 block">의료진소개</a>
+                <a href="info.html" class="text-base text-gray-600 block">병원진료시간</a>
+            </div>
+        </details>
+        <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
+            <summary class="flex justify-between items-center text-xl font-bold text-gray-900 cursor-pointer list-none">
+                척추질환 <span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
+                <a href="spine-neck.html" class="text-base text-gray-600 block">목통증</a>
+                <a href="spine-back.html" class="text-base text-gray-600 block">등통증</a>
+                <a href="spine-waist.html" class="text-base text-gray-600 block">허리통증</a>
+            </div>
+        </details>
+        <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
+            <summary class="flex justify-between items-center text-xl font-bold text-gray-900 cursor-pointer list-none">
+                관절질환 <span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
+                <a href="shoulder-pain.html" class="text-base text-gray-600 block">어깨통증</a>
+                <a href="knee-pain.html" class="text-base text-gray-600 block">무릎통증</a>
+                <a href="elbow-pain.html" class="text-base text-gray-600 block">팔꿈치통증</a>
+                <a href="wrist-ankle-pain.html" class="text-base text-gray-600 block">손목/발목통증</a>
+                <a href="hip-joint-pain.html" class="text-base text-gray-600 block">엉덩이 관절</a>
+            </div>
+        </details>
+        <details class="group border-b border-gray-100 pb-4 [&::-webkit-details-marker]:hidden">
+            <summary class="flex justify-between items-center text-xl font-bold text-gray-900 cursor-pointer list-none">
+                난치성질환 <span class="text-brand-accent transform transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <div class="mt-6 flex flex-col space-y-4 pl-4 border-l-2 border-brand-accent/20 ml-2">
+                <a href="tmj-pain.html" class="text-base text-gray-600 block">턱관절통증</a>
+                <a href="headache-pain.html" class="text-base text-gray-600 block">두통</a>
+                <a href="tinnitus-pain.html" class="text-base text-gray-600 block">이명</a>
+                <a href="digestive-pain.html" class="text-base text-gray-600 block">만성위장관질환</a>
+                <a href="panic-disorder.html" class="text-base text-gray-600 block">공황장애</a>
+            </div>
+        </details>
+        <div class="pb-4"><a href="injection-therapy.html" class="text-xl font-bold text-gray-900 block">주사치료</a></div>
+        <div class="pb-4"><a href="community.html" class="text-xl font-bold text-gray-900 block">치료 전/후</a></div>
+        <div class="pt-8 mt-auto mb-10 w-full">
+            <a href="https://m.booking.naver.com/booking/13/bizes/1436478/items/7595404" target="_blank" class="w-full py-4 bg-brand-accent text-white text-center text-xl font-bold tracking-wide block">진료 예약하기</a>
+        </div>
+    </div>
+
 
     <main class="pt-20 lg:pt-24">
 
@@ -89,7 +142,7 @@
         =========================================== -->
         <section class="relative min-h-[85vh] flex items-center bg-brand-navy overflow-hidden">
             <div class="absolute inset-0 z-0">
-                <div class="absolute inset-0 bg-[url('injection_hero.webp')] bg-cover bg-center opacity-40 mix-blend-luminosity"></div>
+                <div class="absolute inset-0 bg-[url('injection_hero.webp')] bg-cover bg-center opacity-60 mix-blend-normal"></div>
                 <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/85 to-transparent"></div>
             </div>
 
