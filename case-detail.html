@@ -204,7 +204,94 @@
     </footer>
 
     <script src="supabase-client.js"></script>
-    
+    <script>
+        const ADMIN_EMAIL = 'admin@365.com';
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const detailContent = document.getElementById('detail-content');
+            const detailLoading = document.getElementById('detail-loading');
+            const detailError = document.getElementById('detail-error');
+            const adminEditBtn = document.getElementById('admin-edit-btn');
+
+            // 1. URL에서 ID 가져오기
+            const urlParams = new URLSearchParams(window.location.search);
+            const caseId = urlParams.get('id');
+
+            if (!caseId) {
+                showError();
+                return;
+            }
+
+            // 2. 데이터 가져오기
+            try {
+                const { data, error } = await window.supabaseClient
+                    .from('clinical_cases')
+                    .select('*')
+                    .eq('id', caseId)
+                    .single();
+
+                if (error || !data) throw new Error('데이터를 찾을 수 없습니다.');
+
+                renderDetail(data);
+                checkAdmin(data.id);
+
+            } catch (err) {
+                console.error('Fetch error:', err);
+                showError();
+            }
+
+            function renderDetail(item) {
+                // 기본 정보 채우기
+                document.getElementById('detail-title').textContent = item.title;
+                document.getElementById('detail-category').textContent = item.category || '치료 사례';
+                document.getElementById('detail-description').textContent = item.description;
+
+                // 비포/애프터 이미지
+                if (item.before_url && item.after_url) {
+                    document.getElementById('detail-before-after').classList.remove('hidden');
+                    document.getElementById('detail-before-img').src = item.before_url;
+                    document.getElementById('detail-after-img').src = item.after_url;
+                }
+
+                // 추가 미디어 (영상 또는 이미지)
+                const mediaContainer = document.getElementById('detail-media');
+                if (item.video_url) {
+                    mediaContainer.innerHTML = `<video src="${item.video_url}" controls class="w-full max-h-[600px] rounded-3xl" playsinline></video>`;
+                    mediaContainer.classList.remove('hidden');
+                } else if (item.image_url) {
+                    mediaContainer.innerHTML = `<img src="${item.image_url}" alt="추가 이미지" class="w-full h-auto rounded-3xl shadow-sm">`;
+                    mediaContainer.classList.remove('hidden');
+                } else {
+                    mediaContainer.classList.add('hidden');
+                }
+
+                // 화면 표시
+                detailLoading.classList.add('hidden');
+                detailContent.classList.remove('hidden');
+                
+                // AOS 갱신
+                if (typeof AOS !== 'undefined') AOS.refresh();
+            }
+
+            async function checkAdmin(id) {
+                try {
+                    const { data: { session } } = await window.supabaseClient.auth.getSession();
+                    if (session && session.user.email === ADMIN_EMAIL) {
+                        adminEditBtn.href = `admin.html?edit=${id}`;
+                        adminEditBtn.classList.remove('hidden');
+                        adminEditBtn.classList.add('inline-flex');
+                    }
+                } catch (e) {
+                    console.warn('관리자 확인 실패');
+                }
+            }
+
+            function showError() {
+                detailLoading.classList.add('hidden');
+                detailError.classList.remove('hidden');
+            }
+        });
+    </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="ui-core.js"></script>
 <script src="non-benefit.js"></script>
