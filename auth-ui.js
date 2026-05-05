@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <span class="text-lg">👤</span>
                 </button>
                 <div class="absolute right-0 top-12 w-32 bg-white rounded-xl shadow-xl border border-gray-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-[100]">
+                    <a href="update-password.html" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors font-medium">비밀번호 변경</a>
                     <button onclick="handleLogout()" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors font-medium">로그아웃</button>
                 </div>
             </div>
