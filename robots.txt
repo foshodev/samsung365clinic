@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://samsung365clinic.com/sitemap.xml
+Sitemap: https://3r-therapy.com/sitemap.xml
