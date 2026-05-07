@@ -32,36 +32,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     updateHeader(session);
 
-    // --- Inactivity Auto-Logout (30 Minutes) ---
-    const TIMEOUT_DURATION = 30 * 60 * 1000; // 30 minutes in ms
-    let lastActivity = Date.now();
-
-    const resetInactivityTimer = () => {
-        lastActivity = Date.now();
-    };
-
-    // Track user activity
-    ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'].forEach(event => {
-        document.addEventListener(event, resetInactivityTimer, { passive: true });
-    });
-
-    // Periodically check for inactivity
-    const inactivityInterval = setInterval(async () => {
-        if (!window.supabaseClient) return;
-        
-        const { data: { session: currentSession } } = await window.supabaseClient.auth.getSession();
-        if (!currentSession) {
-            clearInterval(inactivityInterval);
-            return;
-        }
-
-        if (Date.now() - lastActivity > TIMEOUT_DURATION) {
-            clearInterval(inactivityInterval);
-            await window.supabaseClient.auth.signOut();
-            window.location.href = 'login.html';
-        }
-    }, 10000); // Check every 10 seconds
-
     // Toast notification utility
     const showToast = (message) => {
         const existing = document.getElementById('__toast');
