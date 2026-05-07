@@ -58,8 +58,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (Date.now() - lastActivity > TIMEOUT_DURATION) {
             clearInterval(inactivityInterval);
             await window.supabaseClient.auth.signOut();
-            showToast('장시간 활동이 없어 보안을 위해 로그아웃되었습니다.');
-            setTimeout(() => window.location.href = 'login.html', 2000);
+            window.location.href = 'login.html';
         }
     }, 10000); // Check every 10 seconds
 
