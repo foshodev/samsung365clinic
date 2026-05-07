@@ -283,6 +283,7 @@
                 } finally {
                     loginBtn.disabled = false;
                     loginBtn.textContent = '로그인';
+                    if (window.turnstile) window.turnstile.reset();
                 }
             });
         });

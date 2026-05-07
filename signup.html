@@ -161,6 +161,7 @@
             } finally {
                 signupBtn.disabled = false;
                 signupBtn.textContent = '가입하기';
+                if (window.turnstile) window.turnstile.reset();
             }
         });
     </script>
