@@ -371,14 +371,14 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Naver Maps API -->
     <script type="text/javascript"
-        src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID"></script>
+        src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=7m677fxr8j"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Naver Map Initialization
             if (typeof naver !== 'undefined') {
                 const mapOptions = {
-                    center: new naver.maps.LatLng(37.632599, 126.920556),
-                    zoom: 16,
+                    center: new naver.maps.LatLng(37.6343503, 126.9233948),
+                    zoom: 17,
                     zoomControl: true,
                     zoomControlOptions: {
                         position: naver.maps.Position.TOP_RIGHT
@@ -388,7 +388,7 @@
                 const map = new naver.maps.Map('naver-map', mapOptions);
 
                 const marker = new naver.maps.Marker({
-                    position: new naver.maps.LatLng(37.632599, 126.920556),
+                    position: new naver.maps.LatLng(37.6343503, 126.9233948),
                     map: map,
                     icon: {
                         content: `
